@@ -1,31 +1,54 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
+import static com.mygdx.game.GameSettings.SCR_HEIGHT;
+import static com.mygdx.game.GameSettings.SCR_WIDTH;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.box2d.Box2D;
+import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.screens.MenuScreen;
+import com.mygdx.game.screens.MenuScreen2;
 
-public class MyGdxGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
-	
+
+public class MyGdxGame extends Game {
+	public SpriteBatch batch;
+	public World world;
+	public OrthographicCamera camera;
+	public Vector3 touch;
+	public MenuScreen menuScreen;
+	public MenuScreen2 menuScreen2;
+	public BitmapFont commonWhiteFont;
+
 	@Override
 	public void create () {
+		Box2D.init();
+		world = new World(new Vector2(0, 0), true);
 		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
-	}
 
-	@Override
-	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, SCR_WIDTH, SCR_HEIGHT);
+
+		menuScreen = new MenuScreen(this);
+		menuScreen2 = new MenuScreen2(this);
+
+		commonWhiteFont = FontBuilder.generate(25, Color.WHITE, GameResources.FONT_PATH);
+
+		setScreen(menuScreen);
+
 	}
 	
 	@Override
 	public void dispose () {
+		super.dispose();
 		batch.dispose();
-		img.dispose();
+
+		menuScreen.dispose();
+		menuScreen2.dispose();
+
 	}
 }
