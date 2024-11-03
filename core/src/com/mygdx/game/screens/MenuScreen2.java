@@ -23,7 +23,7 @@ public class MenuScreen2 implements Screen {
 
     public MenuScreen2(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
-        background = new Texture(GameResources.BACKGROUND_DOSKA_MENU_IMG_PATH);
+        background = new Texture(GameResources.MENU_DOSKA_IMG_PATH);
     }
     @Override
     public void show() {
@@ -65,7 +65,7 @@ public class MenuScreen2 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_one.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.menuScreen);
+                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
 
             }
 //            if (exitButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {

@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.screens.MenuMechanicsScreen;
 import com.mygdx.game.screens.MenuScreen;
 import com.mygdx.game.screens.MenuScreen2;
 
@@ -22,6 +23,7 @@ public class MyGdxGame extends Game {
 	public Vector3 touch;
 	public MenuScreen menuScreen;
 	public MenuScreen2 menuScreen2;
+	public MenuMechanicsScreen menuMechanicsScreen;
 	public BitmapFont commonWhiteFont;
 
 	@Override
@@ -35,6 +37,7 @@ public class MyGdxGame extends Game {
 
 		menuScreen = new MenuScreen(this);
 		menuScreen2 = new MenuScreen2(this);
+		menuMechanicsScreen = new MenuMechanicsScreen(this);
 
 		commonWhiteFont = FontBuilder.generate(25, Color.WHITE, GameResources.FONT_PATH);
 
@@ -49,6 +52,7 @@ public class MyGdxGame extends Game {
 
 		menuScreen.dispose();
 		menuScreen2.dispose();
+		menuMechanicsScreen.dispose();
 
 	}
 }
