@@ -1,8 +1,10 @@
 package com.mygdx.game.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.GameResources;
 import com.mygdx.game.GameSettings;
@@ -18,7 +20,6 @@ public class MenuMechanicsScreen implements Screen {
     private ButtonView button_four;
     private ButtonView button_five;
     private ButtonView button_six;
-
     private ButtonView button_seven;
     private ButtonView button_eight;
     private ButtonView button_nine;
@@ -57,6 +58,8 @@ public class MenuMechanicsScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        handleInput();
+
         ScreenUtils.clear(Color.CLEAR);
 
         myGdxGame.camera.update();
@@ -83,6 +86,20 @@ public class MenuMechanicsScreen implements Screen {
         button_fifteen.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
+    }
+
+    private void handleInput() {
+        if (Gdx.input.justTouched()) {
+            myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
+
+            if (button_one.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen1);
+
+            }
+//            if (exitButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+//                Gdx.app.exit();
+//            }
+        }
     }
 
     @Override
