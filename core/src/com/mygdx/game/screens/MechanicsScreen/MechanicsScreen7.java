@@ -12,15 +12,17 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class MechanicsScreen3 implements Screen {
+public class MechanicsScreen7 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
     private TextView text2;
     private TextView text3;
+    private TextView text4;
     private ButtonView button_left;
     private ButtonView button_right;
-    public MechanicsScreen3(MyGdxGame myGdxGame) {
+    private ButtonView formula_6;
+    public MechanicsScreen7(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -30,14 +32,13 @@ public class MechanicsScreen3 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 260, 420, "ТРАЕКТОРИЯ. ПУТЬ. ПЕРЕМЕЩЕНИЕ" + "\n" );
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Траектория - воображаемая линия, вдоль которой движется тело." + "\n" + "\n" + "\n" +
-                "   Перемещение - вектор, проведённый из начального положения материальной" + "\n" + "точки в конечное." + "\n" + "\n" + "\n" +
-                "   Пройденный путь s - длина участка траектории, пройденного материальной точкой" + "\n" + "за данный промежуток времени.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 100, "  Равномерное - движение, при котором тело за равные промежутки времени" + "\n" +
-                "проходит одинаковое расстояние относительно других тел с течением времени." + "\n" + "\n" + "\n" +
-                "   Неравномерное - движение, при котором тело за равные промежутки времени" + "\n" + "проходит неодинаковое расстояние.");
+        text1 = new TextView(myGdxGame.commonWhiteFont, 350, 420, "МАССА ТЕЛА");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 375, "  Масса тела m - физическая величина, являющаяся мерой инертности тела (кг).");
+        text3 = new TextView(myGdxGame.commonWhiteFont, 300, 320, "ПЛОТНОСТЬ ВЕЩЕСТВА");
+        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Плотность m - физическая величина, определяемая для однородного вещества" + "\n" +
+                "массой единичного объёма:");
 
+        formula_6 = new ButtonView(250, 50, 320, 190, GameResources.FORMULA_6_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -55,10 +56,12 @@ public class MechanicsScreen3 implements Screen {
         myGdxGame.batch.begin();
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
-
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
         text3.draw(myGdxGame.batch);
+        text4.draw(myGdxGame.batch);
+        formula_6.draw(myGdxGame.batch);
+//        text5.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -71,10 +74,10 @@ public class MechanicsScreen3 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen4);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen8);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen2);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen6);
 
             }
         }
@@ -86,6 +89,8 @@ public class MechanicsScreen3 implements Screen {
         text1.dispose();
         text2.dispose();
         text3.dispose();
+        text4.dispose();
+        formula_6.dispose();
 
         button_left.dispose();
         button_right.dispose();

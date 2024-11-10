@@ -12,15 +12,16 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class MechanicsScreen3 implements Screen {
+public class MechanicsScreen9 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
     private TextView text2;
     private TextView text3;
+    private TextView text4;
     private ButtonView button_left;
     private ButtonView button_right;
-    public MechanicsScreen3(MyGdxGame myGdxGame) {
+    public MechanicsScreen9(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -30,14 +31,11 @@ public class MechanicsScreen3 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 260, 420, "ТРАЕКТОРИЯ. ПУТЬ. ПЕРЕМЕЩЕНИЕ" + "\n" );
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Траектория - воображаемая линия, вдоль которой движется тело." + "\n" + "\n" + "\n" +
-                "   Перемещение - вектор, проведённый из начального положения материальной" + "\n" + "точки в конечное." + "\n" + "\n" + "\n" +
-                "   Пройденный путь s - длина участка траектории, пройденного материальной точкой" + "\n" + "за данный промежуток времени.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 100, "  Равномерное - движение, при котором тело за равные промежутки времени" + "\n" +
-                "проходит одинаковое расстояние относительно других тел с течением времени." + "\n" + "\n" + "\n" +
-                "   Неравномерное - движение, при котором тело за равные промежутки времени" + "\n" + "проходит неодинаковое расстояние.");
-
+        text1 = new TextView(myGdxGame.commonWhiteFont, 320, 410, "ЯВЛЕНИЕ ИНЕРЦИИ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 360, "  Инерция - свойство тел сохранять своё состояние неизменным.");
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 300, " Движение по инерции - движение тела, происходящее без внешних воздействий.");
+        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 200, " Инерциальная система отсчёта (ИСО) - система отсчёта, где тело, на которое" + "\n" +
+                "не действуют внешние силы (или действие сил  скомпенсиравано)," + "\n" + "движется бесконечно долго, прямолинейно и равномерно или покоится.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -59,6 +57,7 @@ public class MechanicsScreen3 implements Screen {
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
         text3.draw(myGdxGame.batch);
+        text4.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -70,11 +69,11 @@ public class MechanicsScreen3 implements Screen {
         if (Gdx.input.justTouched()) {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
-            if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen4);
-            }
+//            if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+//                myGdxGame.setScreen(myGdxGame.mechanicsScreen10);
+//            }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen2);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen8);
 
             }
         }
@@ -86,6 +85,7 @@ public class MechanicsScreen3 implements Screen {
         text1.dispose();
         text2.dispose();
         text3.dispose();
+        text4.dispose();
 
         button_left.dispose();
         button_right.dispose();

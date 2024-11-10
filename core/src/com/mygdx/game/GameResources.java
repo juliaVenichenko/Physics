@@ -6,6 +6,12 @@ public class GameResources {
     public static final String BACKGROUND_DOSKA_IMG_PATH = "doska_background.png";
     public static final String BUTTON_VIOLET_IMG_PATH = "button_violet.png";
     public static final String BUTTON_BLUE_IMG_PATH = "button_blue.png";
+    public static final String FORMULA_1_IMG = "formula_1.PNG";
+    public static final String FORMULA_2_IMG = "formula_2.PNG";
+    public static final String FORMULA_3_IMG = "formula_3.PNG";
+    public static final String FORMULA_4_IMG = "formula_4.PNG";
+    public static final String FORMULA_5_IMG = "formula_5.PNG";
+    public static final String FORMULA_6_IMG = "formula_6.PNG";
 
     //Button left and right
     public static final String BUTTON_LEFT_IMG_PATH = "button_left.png";
