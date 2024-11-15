@@ -24,6 +24,7 @@ import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen7;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen8;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen9;
 import com.mygdx.game.screens.MenuMechanicsScreen;
+import com.mygdx.game.screens.MenuMechanicsScreen2;
 import com.mygdx.game.screens.MenuScreen;
 import com.mygdx.game.screens.MenuScreen2;
 
@@ -36,6 +37,7 @@ public class MyGdxGame extends Game {
 	public MenuScreen menuScreen;
 	public MenuScreen2 menuScreen2;
 	public MenuMechanicsScreen menuMechanicsScreen;
+	public MenuMechanicsScreen2 menuMechanicsScreen2;
 	public MechanicsScreen1 mechanicsScreen1;
 	public MechanicsScreen2 mechanicsScreen2;
 	public MechanicsScreen3 mechanicsScreen3;
@@ -61,7 +63,10 @@ public class MyGdxGame extends Game {
 
 		menuScreen = new MenuScreen(this);
 		menuScreen2 = new MenuScreen2(this);
+
 		menuMechanicsScreen = new MenuMechanicsScreen(this);
+		menuMechanicsScreen2 = new MenuMechanicsScreen2(this);
+
 		mechanicsScreen1 = new MechanicsScreen1(this);
 		mechanicsScreen2 = new MechanicsScreen2(this);
 		mechanicsScreen3 = new MechanicsScreen3(this);
@@ -77,7 +82,7 @@ public class MyGdxGame extends Game {
 
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
 
-		setScreen(mechanicsScreen12);
+		setScreen(menuScreen);
 
 	}
 	
@@ -89,6 +94,7 @@ public class MyGdxGame extends Game {
 		menuScreen.dispose();
 		menuScreen2.dispose();
 		menuMechanicsScreen.dispose();
+		menuMechanicsScreen2.dispose();
 		mechanicsScreen1.dispose();
 		mechanicsScreen2.dispose();
 		mechanicsScreen3.dispose();

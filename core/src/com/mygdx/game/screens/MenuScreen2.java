@@ -29,12 +29,12 @@ public class MenuScreen2 implements Screen {
     public void show() {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
-        button_one = new ButtonView(25, 300, 290, 80, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "Механические явления");
-        button_two = new ButtonView(303, 300, 290, 80, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "Тепловые явления");
-        button_three = new ButtonView(25, 200, 290, 80, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "Электромагнитные явления");
-        button_four = new ButtonView(303, 200, 290, 80, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "Квантовые явления");
-        button_five = new ButtonView(25, 100, 290, 80, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "Тесты");
-        button_six = new ButtonView(303, 100, 290, 80, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "Учёные");
+        button_one = new ButtonView(25, 320, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "Механические явления");
+        button_two = new ButtonView(303, 320, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "Тепловые явления");
+        button_three = new ButtonView(25, 195, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "Электромагнитные" + "\n" + "          явления");
+        button_four = new ButtonView(303, 195, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "Квантовые явления");
+        button_five = new ButtonView(25, 65, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "Тесты");
+        button_six = new ButtonView(303, 65, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "Учёные");
     }
 
     @Override
