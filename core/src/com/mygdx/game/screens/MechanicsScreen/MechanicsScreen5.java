@@ -10,6 +10,7 @@ import com.mygdx.game.GameResources;
 import com.mygdx.game.GameSettings;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
+import com.mygdx.game.components.TextView;
 
 
 public class MechanicsScreen5 implements Screen {
@@ -17,10 +18,8 @@ public class MechanicsScreen5 implements Screen {
     private Texture background;
     private ButtonView button_left;
     private ButtonView button_right;
-    private ButtonView formula_2;
-    private ButtonView formula_3;
-    private ButtonView formula_4;
-    private ButtonView formula_5;
+    private TextView text1;
+    private TextView text2;
     public MechanicsScreen5(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -31,10 +30,10 @@ public class MechanicsScreen5 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        formula_2 = new ButtonView(80, 250, 300, 200, GameResources.FORMULA_2_IMG);
-        formula_3 = new ButtonView(400, 250, 300, 200, GameResources.FORMULA_3_IMG);
-        formula_4 = new ButtonView(80, 30, 300, 200, GameResources.FORMULA_4_IMG);
-        formula_5 = new ButtonView(400, 30, 300, 200, GameResources.FORMULA_5_IMG);
+        text1 = new TextView(myGdxGame.commonWhiteFont, 200, 380, "ТРАЕКТОРИЯ. ПУТЬ. ПЕРЕМЕЩЕНИЕ" + "\n" );
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 135, "Траектория - воображаемая линия, вдоль которой движется тело." + "\n" + "\n" + "\n" +
+                "   Перемещение - вектор, проведённый из начального положения" + "\n" + "материальной точки в конечное." + "\n" + "\n" + "\n" +
+                "   Пройденный путь s - длина участка траектории, пройденного" + "\n" + "материальной точкой за данный промежуток времени.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -53,10 +52,8 @@ public class MechanicsScreen5 implements Screen {
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
 
-        formula_2.draw(myGdxGame.batch);
-        formula_3.draw(myGdxGame.batch);
-        formula_4.draw(myGdxGame.batch);
-        formula_5.draw(myGdxGame.batch);
+        text1.draw(myGdxGame.batch);
+        text2.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -81,10 +78,8 @@ public class MechanicsScreen5 implements Screen {
     @Override
     public void dispose() {
         background.dispose();
-        formula_2.dispose();
-        formula_3.dispose();
-        formula_4.dispose();
-        formula_5.dispose();
+        text1.dispose();
+        text2.dispose();
 
         button_left.dispose();
         button_right.dispose();

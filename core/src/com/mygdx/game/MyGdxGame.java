@@ -12,6 +12,9 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen1;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen10;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen11;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen12;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen2;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen3;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen4;
@@ -42,6 +45,9 @@ public class MyGdxGame extends Game {
 	public MechanicsScreen7 mechanicsScreen7;
 	public MechanicsScreen8 mechanicsScreen8;
 	public MechanicsScreen9 mechanicsScreen9;
+	public MechanicsScreen10 mechanicsScreen10;
+	public MechanicsScreen11 mechanicsScreen11;
+	public MechanicsScreen12 mechanicsScreen12;
 	public BitmapFont commonWhiteFont;
 
 	@Override
@@ -65,10 +71,13 @@ public class MyGdxGame extends Game {
 		mechanicsScreen7 = new MechanicsScreen7(this);
 		mechanicsScreen8 = new MechanicsScreen8(this);
 		mechanicsScreen9 = new MechanicsScreen9(this);
+		mechanicsScreen10 = new MechanicsScreen10(this);
+		mechanicsScreen11 = new MechanicsScreen11(this);
+		mechanicsScreen12 = new MechanicsScreen12(this);
 
-		commonWhiteFont = FontBuilder.generate(25, Color.WHITE, GameResources.FONT_PATH);
+		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
 
-		setScreen(menuScreen);
+		setScreen(mechanicsScreen12);
 
 	}
 	
@@ -89,6 +98,9 @@ public class MyGdxGame extends Game {
 		mechanicsScreen7.dispose();
 		mechanicsScreen8.dispose();
 		mechanicsScreen9.dispose();
+		mechanicsScreen10.dispose();
+		mechanicsScreen11.dispose();
+		mechanicsScreen12.dispose();
 
 	}
 }

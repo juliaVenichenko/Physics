@@ -21,7 +21,6 @@ public class MechanicsScreen7 implements Screen {
     private TextView text4;
     private ButtonView button_left;
     private ButtonView button_right;
-    private ButtonView formula_6;
     public MechanicsScreen7(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -32,13 +31,14 @@ public class MechanicsScreen7 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 350, 420, "МАССА ТЕЛА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 375, "  Масса тела m - физическая величина, являющаяся мерой инертности тела (кг).");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 300, 320, "ПЛОТНОСТЬ ВЕЩЕСТВА");
-        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Плотность m - физическая величина, определяемая для однородного вещества" + "\n" +
-                "массой единичного объёма:");
+        text1 = new TextView(myGdxGame.commonWhiteFont, 100, 410, "РАВНОУСКОРЕННОЕ ПРЯМОЛИНЕЙНОЕ ДВИЖЕНИЕ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 290, "  Равноускоренное движение - движение, при котором за любые" + "\n" +
+                "равные промежутки времени материальная точка изменяет" + "\n" + "свою скорость на одну и ту же велечину.");
 
-        formula_6 = new ButtonView(250, 50, 320, 190, GameResources.FORMULA_6_IMG);
+        text3 = new TextView(myGdxGame.commonWhiteFont, 280, 210, "СВОБОДНОЕ ПАДЕНИЕ");
+        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 90, "  Свободное падение - движение, которое совершает тело" + "\n" +
+                "под действием только силы" + "\n" + "тяжести, без учёта силы сопротивления.");
+
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -60,8 +60,6 @@ public class MechanicsScreen7 implements Screen {
         text2.draw(myGdxGame.batch);
         text3.draw(myGdxGame.batch);
         text4.draw(myGdxGame.batch);
-        formula_6.draw(myGdxGame.batch);
-//        text5.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -90,7 +88,6 @@ public class MechanicsScreen7 implements Screen {
         text2.dispose();
         text3.dispose();
         text4.dispose();
-        formula_6.dispose();
 
         button_left.dispose();
         button_right.dispose();

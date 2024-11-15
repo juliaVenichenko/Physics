@@ -10,7 +10,7 @@ public class FontBuilder {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontPath));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-        parameter.size = size = 15;
+        parameter.size = size = 20;
         parameter.color = color;
         BitmapFont font = generator.generateFont(parameter);
         generator.dispose();

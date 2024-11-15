@@ -17,7 +17,6 @@ public class MechanicsScreen2 implements Screen {
     private Texture background;
     private TextView text1;
     private TextView text2;
-    private TextView text3;
     private ButtonView button_left;
     private ButtonView button_right;
     public MechanicsScreen2(MyGdxGame myGdxGame) {
@@ -28,34 +27,15 @@ public class MechanicsScreen2 implements Screen {
     public void show() {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
-        text1 = new TextView(myGdxGame.commonWhiteFont, 330, 420, "СИСТЕМА ОТСЧЁТА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 360, "   Тело отсчёта - произвольно выбранное тело, относительно которого определяется" + "\n" +
-                "положение движущейся материальной точки (или тела).");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 90, "  Система отсчёта - совокупность системы координат и часов, связанных с телом" + "\n" + "отсчёта." + "\n" + "\n" + "\n" +
-                "Материальная точка - тело, размерами которого в данных условиях можно принебречь." + "\n" + "\n" + "\n" +
-                "  Радиус-вектор - вектор, соединяющий начало отсчёта с положением материальной" + "\n" + "точки в произвольный момент времени." + "\n" + "\n" + "\n" +
-                "   Относительность механического движения - зависимость траектории движения" + "\n" + "тела, пройденного пути, перемещения и скорости от выбора системы отсчёта.");
+
+        text1 = new TextView(myGdxGame.commonWhiteFont, 250, 390, "КРИВОЛИНЕЙНОЕ ДВИЖЕНИЕ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 190, "  Вращательное - движение в одном направлении по плоской"  + "\n" +
+                "(или пространственной) замкнутой траектории." + "\n" + "\n" + "\n" +
+                "  Колебательное - движение, которое полностью или практически"  + "\n" + "полностью повторяется с течением времени.");
+
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
 
-//
-//        text2 = new TextView(myGdxGame.commonWhiteFont, 260, 240, "ТРАЕКТОРИЯ. ПУТЬ. ПЕРЕМЕЩЕНИЕ");
-//        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 140, "  Траектория - воображаемая линия, вдоль которой движется тело." + "\n" +
-//                "   Перемещение - вектор, проведённый из начального положения материальной" + "\n" + "точки в конечное." + "\n" +
-//                "   Пройденный путь s - длина участка траектории, пройденного материальной точкой" + "\n" + "за данный промежуток времени.");
-//
-//
-//
-//
-//        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 270, "  Равномерное - движение, при котором тело за равные промежутки времени" + "\n" +
-//                "проходит одинаковое расстояние относительно других тел с течением времени." + "\n" +
-//                "   Неравномерное - движение, при котором тело за равные промежутки времени" + "\n" + "проходит неодинаковое расстояние.");
-//        text5 = new TextView(myGdxGame.commonWhiteFont, 280, 234, "КРИВОЛИНЕЙНОЕ ДВИЖЕНИЕ");
-//        text6 = new TextView(myGdxGame.commonWhiteFont, 30, 150, "  Вращательное - движение в одном направлении по плоской (или пространственной)" + "\n" +
-//                "замкнутой траектории." + "\n" + "  Колебательное - движение, которое полностью или практически полностью" + "\n" + "повторяется с течением времени");
-//        text7 = new TextView(myGdxGame.commonWhiteFont, 330, 120, "СИСТЕМА ОТСЧЁТА");
-//        text8 = new TextView(myGdxGame.commonWhiteFont, 30, 70, "   Тело отсчёта - произвольно выбранное тело, относительно которого определяется" + "\n" +
-//                "положение движущейся материальной точки (или тела).");
     }
 
     @Override
@@ -73,7 +53,6 @@ public class MechanicsScreen2 implements Screen {
 
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
-        text3.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -102,7 +81,7 @@ public class MechanicsScreen2 implements Screen {
         background.dispose();
         text1.dispose();
         text2.dispose();
-        text3.dispose();
+
         button_left.dispose();
         button_right.dispose();
     }
