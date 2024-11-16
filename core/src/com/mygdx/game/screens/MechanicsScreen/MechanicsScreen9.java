@@ -32,12 +32,6 @@ public class MechanicsScreen9 implements Screen {
         formula_4 = new ButtonView(50, 140, 330, 290, GameResources.FORMULA_4_IMG);
         formula_5 = new ButtonView(420, 140, 330, 290, GameResources.FORMULA_5_IMG);
 
-//        text1 = new TextView(myGdxGame.commonWhiteFont, 320, 410, "ЯВЛЕНИЕ ИНЕРЦИИ");
-//        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 360, "  Инерция - свойство тел сохранять своё состояние неизменным.");
-//        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 300, " Движение по инерции - движение тела, происходящее без внешних воздействий.");
-//        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 200, " Инерциальная система отсчёта (ИСО) - система отсчёта, где тело, на которое" + "\n" +
-//                "не действуют внешние силы (или действие сил  скомпенсиравано)," + "\n" + "движется бесконечно долго, прямолинейно и равномерно или покоится.");
-
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
     }

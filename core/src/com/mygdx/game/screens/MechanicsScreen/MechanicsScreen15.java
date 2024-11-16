@@ -12,13 +12,14 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class MechanicsScreen12 implements Screen {
+public class MechanicsScreen15 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
-    private ButtonView formula_6;
+    private TextView text1;
+    private TextView text2;
     private ButtonView button_left;
     private ButtonView button_right;
-    public MechanicsScreen12(MyGdxGame myGdxGame) {
+    public MechanicsScreen15(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -28,7 +29,10 @@ public class MechanicsScreen12 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        formula_6 = new ButtonView(170, 60, 450, 350, GameResources.FORMULA_6_IMG);
+        text1 = new TextView(myGdxGame.commonWhiteFont, 270, 390, "ПЕРВЫЙ ЗАКОН НЬЮТОНА");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Существуют такие системы отсчёта, относительно которых тела" + "\n" +
+                "сохраняют свою скорость неизменной (по модулю и направлению)," + "\n" +
+                "если на них не действуют другие тела или равнодействующая" + "\n" + "всех сил равна 0.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -46,8 +50,8 @@ public class MechanicsScreen12 implements Screen {
         myGdxGame.batch.begin();
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
-
-        formula_6.draw(myGdxGame.batch);
+        text1.draw(myGdxGame.batch);
+        text2.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -60,10 +64,10 @@ public class MechanicsScreen12 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen13);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen16);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen11);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen14);
 
             }
         }
@@ -72,8 +76,8 @@ public class MechanicsScreen12 implements Screen {
     @Override
     public void dispose() {
         background.dispose();
-
-        formula_6.dispose();
+        text1.dispose();
+        text2.dispose();
 
         button_left.dispose();
         button_right.dispose();

@@ -12,13 +12,16 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class MechanicsScreen12 implements Screen {
+public class MechanicsScreen14 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
-    private ButtonView formula_6;
+    private TextView text1;
+    private TextView text2;
+    private TextView text3;
+    private TextView text4;
     private ButtonView button_left;
     private ButtonView button_right;
-    public MechanicsScreen12(MyGdxGame myGdxGame) {
+    public MechanicsScreen14(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -28,7 +31,14 @@ public class MechanicsScreen12 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        formula_6 = new ButtonView(170, 60, 450, 350, GameResources.FORMULA_6_IMG);
+        text1 = new TextView(myGdxGame.commonWhiteFont, 300, 410, "ЯВЛЕНИЕ ИНЕРЦИИ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 350, "  Инерция - свойство тел сохранять своё состояние неизменным.");
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 260, " Движение по инерции - движение тела, происходящее без" + "\n" +
+                "внешних воздействий.");
+        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 110, " Инерциальная система отсчёта (ИСО) - система отсчёта, где тело," + "\n" +
+                "на которое не действуют внешние силы (или действие сил" + "\n" +
+                "скомпенсиравано), движется бесконечно долго, прямолинейно" + "\n" +
+                "и равномерно или покоится.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -46,8 +56,10 @@ public class MechanicsScreen12 implements Screen {
         myGdxGame.batch.begin();
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
-
-        formula_6.draw(myGdxGame.batch);
+        text1.draw(myGdxGame.batch);
+        text2.draw(myGdxGame.batch);
+        text3.draw(myGdxGame.batch);
+        text4.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -60,10 +72,10 @@ public class MechanicsScreen12 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen13);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen15);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen11);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen13);
 
             }
         }
@@ -72,8 +84,10 @@ public class MechanicsScreen12 implements Screen {
     @Override
     public void dispose() {
         background.dispose();
-
-        formula_6.dispose();
+        text1.dispose();
+        text2.dispose();
+        text3.dispose();
+        text4.dispose();
 
         button_left.dispose();
         button_right.dispose();
