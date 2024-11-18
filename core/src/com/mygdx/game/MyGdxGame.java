@@ -20,7 +20,11 @@ import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen14;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen15;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen16;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen17;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen18;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen19;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen2;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen20;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen21;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen3;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen4;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen5;
@@ -60,6 +64,10 @@ public class MyGdxGame extends Game {
 	public MechanicsScreen15 mechanicsScreen15;
 	public MechanicsScreen16 mechanicsScreen16;
 	public MechanicsScreen17 mechanicsScreen17;
+	public MechanicsScreen18 mechanicsScreen18;
+	public MechanicsScreen19 mechanicsScreen19;
+	public MechanicsScreen20 mechanicsScreen20;
+	public MechanicsScreen21 mechanicsScreen21;
 	public BitmapFont commonWhiteFont;
 
 	@Override
@@ -94,10 +102,14 @@ public class MyGdxGame extends Game {
 		mechanicsScreen15 = new MechanicsScreen15(this);
 		mechanicsScreen16 = new MechanicsScreen16(this);
 		mechanicsScreen17 = new MechanicsScreen17(this);
+		mechanicsScreen18 = new MechanicsScreen18(this);
+		mechanicsScreen19 = new MechanicsScreen19(this);
+		mechanicsScreen20 = new MechanicsScreen20(this);
+		mechanicsScreen21 = new MechanicsScreen21(this);
 
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
 
-		setScreen(menuScreen);
+		setScreen(mechanicsScreen21);
 
 	}
 	
@@ -127,6 +139,10 @@ public class MyGdxGame extends Game {
 		mechanicsScreen15.dispose();
 		mechanicsScreen16.dispose();
 		mechanicsScreen17.dispose();
+		mechanicsScreen18.dispose();
+		mechanicsScreen19.dispose();
+		mechanicsScreen20.dispose();
+		mechanicsScreen21.dispose();
 
 	}
 }

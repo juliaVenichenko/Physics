@@ -15,14 +15,15 @@ public class GameResources {
 
 
     //Формулы
-    public static final String FORMULA_1_IMG = "formula_1.PNG";
-    public static final String FORMULA_2_IMG = "formula_2.PNG";
-    public static final String FORMULA_3_IMG = "formula_3.PNG";
-    public static final String FORMULA_4_IMG = "formula_4.PNG";
-    public static final String FORMULA_5_IMG = "formula_5.PNG";
-    public static final String FORMULA_6_IMG = "formula_6.PNG";
-    public static final String FORMULA_7_IMG = "formula_7.PNG";
-    public static final String FORMULA_8_IMG = "formula_8.PNG";
+    public static final String FORMULA_1_IMG = "formula_1.png";
+    public static final String FORMULA_2_IMG = "formula_2.png";
+    public static final String FORMULA_3_IMG = "formula_3.png";
+    public static final String FORMULA_4_IMG = "formula_4.png";
+    public static final String FORMULA_5_IMG = "formula_5.png";
+    public static final String FORMULA_6_IMG = "formula_6.png";
+    public static final String FORMULA_7_IMG = "formula_7.png";
+    public static final String FORMULA_8_IMG = "formula_8.png";
+    public static final String FORMULA_9_IMG = "formula_9.png";
 
     //Button left and right
     public static final String BUTTON_LEFT_IMG_PATH = "button_left.png";
