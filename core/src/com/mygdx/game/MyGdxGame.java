@@ -25,7 +25,19 @@ import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen19;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen2;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen20;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen21;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen22;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen23;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen24;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen25;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen26;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen27;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen28;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen29;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen3;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen30;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen31;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen32;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen33;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen4;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen5;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen6;
@@ -68,6 +80,19 @@ public class MyGdxGame extends Game {
 	public MechanicsScreen19 mechanicsScreen19;
 	public MechanicsScreen20 mechanicsScreen20;
 	public MechanicsScreen21 mechanicsScreen21;
+	public MechanicsScreen22 mechanicsScreen22;
+	public MechanicsScreen23 mechanicsScreen23;
+	public MechanicsScreen24 mechanicsScreen24;
+	public MechanicsScreen25 mechanicsScreen25;
+	public MechanicsScreen26 mechanicsScreen26;
+	public MechanicsScreen27 mechanicsScreen27;
+	public MechanicsScreen28 mechanicsScreen28;
+	public MechanicsScreen29 mechanicsScreen29;
+	public MechanicsScreen30 mechanicsScreen30;
+	public MechanicsScreen31 mechanicsScreen31;
+	public MechanicsScreen32 mechanicsScreen32;
+	public MechanicsScreen33 mechanicsScreen33;
+
 	public BitmapFont commonWhiteFont;
 
 	@Override
@@ -106,10 +131,22 @@ public class MyGdxGame extends Game {
 		mechanicsScreen19 = new MechanicsScreen19(this);
 		mechanicsScreen20 = new MechanicsScreen20(this);
 		mechanicsScreen21 = new MechanicsScreen21(this);
+		mechanicsScreen22 = new MechanicsScreen22(this);
+		mechanicsScreen23 = new MechanicsScreen23(this);
+		mechanicsScreen24 = new MechanicsScreen24(this);
+		mechanicsScreen25 = new MechanicsScreen25(this);
+		mechanicsScreen26 = new MechanicsScreen26(this);
+		mechanicsScreen27 = new MechanicsScreen27(this);
+		mechanicsScreen28 = new MechanicsScreen28(this);
+		mechanicsScreen29 = new MechanicsScreen29(this);
+		mechanicsScreen30 = new MechanicsScreen30(this);
+		mechanicsScreen31 = new MechanicsScreen31(this);
+		mechanicsScreen32 = new MechanicsScreen32(this);
+		mechanicsScreen33 = new MechanicsScreen33(this);
 
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
 
-		setScreen(mechanicsScreen21);
+		setScreen(mechanicsScreen32);
 
 	}
 	
@@ -120,8 +157,10 @@ public class MyGdxGame extends Game {
 
 		menuScreen.dispose();
 		menuScreen2.dispose();
+
 		menuMechanicsScreen.dispose();
 		menuMechanicsScreen2.dispose();
+
 		mechanicsScreen1.dispose();
 		mechanicsScreen2.dispose();
 		mechanicsScreen3.dispose();
@@ -143,6 +182,18 @@ public class MyGdxGame extends Game {
 		mechanicsScreen19.dispose();
 		mechanicsScreen20.dispose();
 		mechanicsScreen21.dispose();
+		mechanicsScreen22.dispose();
+		mechanicsScreen23.dispose();
+		mechanicsScreen24.dispose();
+		mechanicsScreen25.dispose();
+		mechanicsScreen26.dispose();
+		mechanicsScreen27.dispose();
+		mechanicsScreen28.dispose();
+		mechanicsScreen29.dispose();
+		mechanicsScreen30.dispose();
+		mechanicsScreen31.dispose();
+		mechanicsScreen32.dispose();
+		mechanicsScreen33.dispose();
 
 	}
 }

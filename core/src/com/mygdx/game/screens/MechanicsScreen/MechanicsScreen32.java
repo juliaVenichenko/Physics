@@ -12,16 +12,14 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class MechanicsScreen21 implements Screen {
+public class MechanicsScreen32 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
     private TextView text2;
-    private TextView text3;
-    private TextView text4;
     private ButtonView button_left;
     private ButtonView button_right;
-    public MechanicsScreen21(MyGdxGame myGdxGame) {
+    public MechanicsScreen32(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -31,15 +29,13 @@ public class MechanicsScreen21 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 170, 400, "СИЛА НОРМАЛЬНОЙ РЕАКЦИИ ОПОРЫ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 295, "  Сила нормальной реакции опоры - сила упругости, действующая" + "\n" +
-                "на тело со стороны опоры перпендикулярно её поверхности.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 300, 205, "СИЛА НАТЯЖЕНИЯ");
-        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 100, "  Сила натяжения - сила упругости, действующая на тело" + "\n" +
-                "со стороны нити или пружины.");
+        text1 = new TextView(myGdxGame.commonWhiteFont, 270, 380, "ПРОСТЫЕ МЕХАНИЗМЫ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Простые механизмы - механические устройства, с помощью" + "\n" +
+                "которых можно изменять модуль и направление силы.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
     }
 
     @Override
@@ -56,8 +52,6 @@ public class MechanicsScreen21 implements Screen {
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
-        text3.draw(myGdxGame.batch);
-        text4.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -70,10 +64,10 @@ public class MechanicsScreen21 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen22);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen33);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen20);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen31);
 
             }
         }
@@ -84,8 +78,6 @@ public class MechanicsScreen21 implements Screen {
         background.dispose();
         text1.dispose();
         text2.dispose();
-        text3.dispose();
-        text4.dispose();
 
         button_left.dispose();
         button_right.dispose();

@@ -100,6 +100,22 @@ public class MenuMechanicsScreen implements Screen {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen18);
 
             }
+            if (button_six.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen20);
+
+            }
+            if (button_seven.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen23);
+
+            }
+            if (button_eight.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen25);
+
+            }
+            if (button_nine.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen27);
+
+            }
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.menuMechanicsScreen2);
 
