@@ -29,8 +29,8 @@ public class MechanicsScreen9 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        formula_4 = new ButtonView(50, 140, 330, 290, GameResources.FORMULA_4_IMG);
-        formula_5 = new ButtonView(420, 140, 330, 290, GameResources.FORMULA_5_IMG);
+        formula_4 = new ButtonView(30, 90, 350, 330, GameResources.FORMULA_4_IMG);
+        formula_5 = new ButtonView(400, 90, 370, 330, GameResources.FORMULA_5_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);

@@ -38,6 +38,11 @@ import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen30;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen31;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen32;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen33;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen34;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen35;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen36;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen37;
+import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen38;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen4;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen5;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen6;
@@ -92,6 +97,11 @@ public class MyGdxGame extends Game {
 	public MechanicsScreen31 mechanicsScreen31;
 	public MechanicsScreen32 mechanicsScreen32;
 	public MechanicsScreen33 mechanicsScreen33;
+	public MechanicsScreen34 mechanicsScreen34;
+	public MechanicsScreen35 mechanicsScreen35;
+	public MechanicsScreen36 mechanicsScreen36;
+	public MechanicsScreen37 mechanicsScreen37;
+	public MechanicsScreen38 mechanicsScreen38;
 
 	public BitmapFont commonWhiteFont;
 
@@ -143,10 +153,15 @@ public class MyGdxGame extends Game {
 		mechanicsScreen31 = new MechanicsScreen31(this);
 		mechanicsScreen32 = new MechanicsScreen32(this);
 		mechanicsScreen33 = new MechanicsScreen33(this);
+		mechanicsScreen34 = new MechanicsScreen34(this);
+		mechanicsScreen35 = new MechanicsScreen35(this);
+		mechanicsScreen36 = new MechanicsScreen36(this);
+		mechanicsScreen37 = new MechanicsScreen37(this);
+		mechanicsScreen38 = new MechanicsScreen38(this);
 
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
 
-		setScreen(mechanicsScreen32);
+		setScreen(mechanicsScreen38);
 
 	}
 	
@@ -194,6 +209,11 @@ public class MyGdxGame extends Game {
 		mechanicsScreen31.dispose();
 		mechanicsScreen32.dispose();
 		mechanicsScreen33.dispose();
+		mechanicsScreen34.dispose();
+		mechanicsScreen35.dispose();
+		mechanicsScreen36.dispose();
+		mechanicsScreen37.dispose();
+		mechanicsScreen38.dispose();
 
 	}
 }

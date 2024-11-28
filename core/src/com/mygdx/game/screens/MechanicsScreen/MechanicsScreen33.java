@@ -59,9 +59,9 @@ public class MechanicsScreen33 implements Screen {
         if (Gdx.input.justTouched()) {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
-//            if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.mechanicsScreen34);
-//            }
+            if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen34);
+            }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen32);
 
