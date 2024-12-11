@@ -1,4 +1,4 @@
-package com.mygdx.game.screens.MechanicsScreen;
+package com.mygdx.game.screens.ThermalScreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -12,15 +12,14 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class MechanicsScreen38 implements Screen {
+public class ThermalScreen6 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
     private TextView text2;
-    private ButtonView formula_19;
     private ButtonView button_left;
     private ButtonView button_right;
-    public MechanicsScreen38(MyGdxGame myGdxGame) {
+    public ThermalScreen6(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -30,12 +29,9 @@ public class MechanicsScreen38 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 300, 380, "АРХИМЕДОВА СИЛА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 230, "  Выталкивающая (архимедова) сила направлена всегда" + "\n" +
-                "противоположно силе тяжести, поэтому вес тела в жидкости" + "\n" +
-                "или газе всегда меньше веса этого тела в вакууме.");
-
-        formula_19 = new ButtonView(260, 50, 300, 100, GameResources.FORMULA_19_IMG);
+        text1 = new TextView(myGdxGame.commonWhiteFont, 230, 390, "ЗАКОН ТЕПЛОВОГО РАВНОВЕСИЯ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  У любой группы изолированных тел через какое-то время" + "\n" +
+                "температуры становятся одинаковыми, то есть наступает" + "\n" + "состояние теплового равновесия.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -56,8 +52,6 @@ public class MechanicsScreen38 implements Screen {
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
 
-        formula_19.draw(myGdxGame.batch);
-
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
@@ -69,10 +63,10 @@ public class MechanicsScreen38 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen39);
+                myGdxGame.setScreen(myGdxGame.thermalScreen7);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen37);
+                myGdxGame.setScreen(myGdxGame.thermalScreen5);
 
             }
         }
@@ -83,8 +77,6 @@ public class MechanicsScreen38 implements Screen {
         background.dispose();
         text1.dispose();
         text2.dispose();
-
-        formula_19.dispose();
 
         button_left.dispose();
         button_right.dispose();

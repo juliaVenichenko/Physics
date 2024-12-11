@@ -12,15 +12,16 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class MechanicsScreen38 implements Screen {
+public class MechanicsScreen41 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
     private TextView text2;
-    private ButtonView formula_19;
+    private TextView text3;
+    private ButtonView formula_21;
     private ButtonView button_left;
     private ButtonView button_right;
-    public MechanicsScreen38(MyGdxGame myGdxGame) {
+    public MechanicsScreen41(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -30,12 +31,13 @@ public class MechanicsScreen38 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 300, 380, "АРХИМЕДОВА СИЛА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 230, "  Выталкивающая (архимедова) сила направлена всегда" + "\n" +
-                "противоположно силе тяжести, поэтому вес тела в жидкости" + "\n" +
-                "или газе всегда меньше веса этого тела в вакууме.");
+        text1 = new TextView(myGdxGame.commonWhiteFont, 250, 400, "МЕХАНИЧЕСКИЕ КОЛЕБАНИЯ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 300, "  Механические колебания - движения тел, точно повторяющиеся" + "\n" +
+                "через одинаковые промежутки времени.");
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 200, "  Период колебаний - минимальный интервал времени, через" + "\n" +
+                "который движение повторяется:");
 
-        formula_19 = new ButtonView(260, 50, 300, 100, GameResources.FORMULA_19_IMG);
+        formula_21 = new ButtonView(200, 30, 400, 130, GameResources.FORMULA_21_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -55,8 +57,9 @@ public class MechanicsScreen38 implements Screen {
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
+        text3.draw(myGdxGame.batch);
 
-        formula_19.draw(myGdxGame.batch);
+        formula_21.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -69,10 +72,10 @@ public class MechanicsScreen38 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen39);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen42);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.mechanicsScreen37);
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen40);
 
             }
         }
@@ -83,8 +86,9 @@ public class MechanicsScreen38 implements Screen {
         background.dispose();
         text1.dispose();
         text2.dispose();
+        text3.dispose();
 
-        formula_19.dispose();
+        formula_21.dispose();
 
         button_left.dispose();
         button_right.dispose();

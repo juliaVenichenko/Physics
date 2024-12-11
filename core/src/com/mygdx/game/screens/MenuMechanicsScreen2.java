@@ -20,6 +20,7 @@ public class MenuMechanicsScreen2 implements Screen {
     private ButtonView button_thirteen;
     private ButtonView button_fourteen;
     private ButtonView button_fifteen;
+    private ButtonView button_sixteen;
 
     private ButtonView button_left;
 
@@ -33,12 +34,13 @@ public class MenuMechanicsScreen2 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        button_ten = new ButtonView(25, 300, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "10. Виды энергии");
-        button_eleven = new ButtonView(275, 300, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "11. Простые" + "\n" + "  механизмы");
-        button_twelve = new ButtonView(515, 300, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "12. Давление");
-        button_thirteen = new ButtonView(25, 140, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "13. Закон Паскаля");
-        button_fourteen = new ButtonView(275, 140, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "14. Закон Архимеда");
-        button_fifteen = new ButtonView(515, 140, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH,"15. Звук");
+        button_ten = new ButtonView(25, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "10. Виды энергии");
+        button_eleven = new ButtonView(275, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "11. Простые" + "\n" + "  механизмы");
+        button_twelve = new ButtonView(515, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "12. Давление");
+        button_thirteen = new ButtonView(25, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "13. Закон Паскаля");
+        button_fourteen = new ButtonView(275, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "14. Закон Архимеда");
+        button_fifteen = new ButtonView(515, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH,"15. Звук");
+        button_sixteen = new ButtonView(275, 40, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH,"16. Механические" + "\n" + "       колебания");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
     }
@@ -62,6 +64,7 @@ public class MenuMechanicsScreen2 implements Screen {
         button_thirteen.draw(myGdxGame.batch);
         button_fourteen.draw(myGdxGame.batch);
         button_fifteen.draw(myGdxGame.batch);
+        button_sixteen.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
 
@@ -96,6 +99,14 @@ public class MenuMechanicsScreen2 implements Screen {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen37);
 
             }
+            if (button_fifteen.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen39);
+
+            }
+            if (button_sixteen.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.mechanicsScreen41);
+
+            }
         }
     }
 
@@ -109,6 +120,7 @@ public class MenuMechanicsScreen2 implements Screen {
         button_thirteen.dispose();
         button_fourteen.dispose();
         button_fifteen.dispose();
+        button_sixteen.dispose();
 
         button_left.dispose();
     }

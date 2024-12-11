@@ -34,9 +34,18 @@ public class GameResources {
     public static final String FORMULA_17_IMG = "formula_17.png";
     public static final String FORMULA_18_IMG = "formula_18.png";
     public static final String FORMULA_19_IMG = "formula_19.png";
+    public static final String FORMULA_20_IMG = "formula_20.png";
+    public static final String FORMULA_21_IMG = "formula_21.png";
+    public static final String FORMULA_23_IMG = "formula_23.png";
+    public static final String FORMULA_24_IMG = "formula_24.png";
+    public static final String FORMULA_25_IMG = "formula_25.png";
+    public static final String FORMULA_26_IMG = "formula_26.png";
 
     //Картинки
     public static final String IMAGE_1 = "image_1.png";
+    public static final String IMAGE_2 = "image_2.png";
+    public static final String IMAGE_3 = "image_3.png";
+    public static final String IMAGE_4 = "image_4.png";
 
     //Button left and right
     public static final String BUTTON_LEFT_IMG_PATH = "button_left.png";
