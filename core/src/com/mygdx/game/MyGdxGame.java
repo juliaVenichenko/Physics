@@ -11,6 +11,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen1;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen2;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen3;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen4;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen5;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen1;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen10;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen11;
@@ -53,6 +58,7 @@ import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen6;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen7;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen8;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen9;
+import com.mygdx.game.screens.MenuElectricScreen;
 import com.mygdx.game.screens.MenuMechanicsScreen;
 import com.mygdx.game.screens.MenuMechanicsScreen2;
 import com.mygdx.game.screens.MenuScreen;
@@ -140,6 +146,13 @@ public class MyGdxGame extends Game {
 	public ThermalScreen12 thermalScreen12;
 	public ThermalScreen13 thermalScreen13;
 
+	public MenuElectricScreen menuElectricScreen;
+	public ElectricScreen1 electricScreen1;
+	public ElectricScreen2 electricScreen2;
+	public ElectricScreen3 electricScreen3;
+	public ElectricScreen4 electricScreen4;
+	public ElectricScreen5 electricScreen5;
+
 	public BitmapFont commonWhiteFont;
 
 	@Override
@@ -150,6 +163,7 @@ public class MyGdxGame extends Game {
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, SCR_WIDTH, SCR_HEIGHT);
+
 
 		menuScreen = new MenuScreen(this);
 		menuScreen2 = new MenuScreen2(this);
@@ -201,6 +215,7 @@ public class MyGdxGame extends Game {
 		mechanicsScreen42 = new MechanicsScreen42(this);
 
 		menuThermalScreen = new MenuThermalScreen(this);
+
 		thermalScreen1 = new ThermalScreen1(this);
 		thermalScreen2 = new ThermalScreen2(this);
 		thermalScreen3 = new ThermalScreen3(this);
@@ -215,9 +230,17 @@ public class MyGdxGame extends Game {
 		thermalScreen12 = new ThermalScreen12(this);
 		thermalScreen13 = new ThermalScreen13(this);
 
+		menuElectricScreen = new MenuElectricScreen(this);
+
+		electricScreen1 = new ElectricScreen1(this);
+		electricScreen2 = new ElectricScreen2(this);
+		electricScreen3 = new ElectricScreen3(this);
+		electricScreen4 = new ElectricScreen4(this);
+		electricScreen5 = new ElectricScreen5(this);
+
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
 
-		setScreen(menuScreen);
+		setScreen(electricScreen5);
 
 	}
 	
@@ -276,6 +299,7 @@ public class MyGdxGame extends Game {
 		mechanicsScreen42.dispose();
 
 		menuThermalScreen.dispose();
+
 		thermalScreen1.dispose();
 		thermalScreen2.dispose();
 		thermalScreen3.dispose();
@@ -289,6 +313,14 @@ public class MyGdxGame extends Game {
 		thermalScreen11.dispose();
 		thermalScreen12.dispose();
 		thermalScreen13.dispose();
+
+		menuElectricScreen.dispose();
+
+		electricScreen1.dispose();
+		electricScreen2.dispose();
+		electricScreen3.dispose();
+		electricScreen4.dispose();
+		electricScreen5.dispose();
 
 	}
 }

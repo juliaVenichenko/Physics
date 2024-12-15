@@ -1,4 +1,4 @@
-package com.mygdx.game.screens.ThermalScreen;
+package com.mygdx.game.screens.ElectricScreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -12,14 +12,13 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class ThermalScreen13 implements Screen {
+public class ElectricScreen3 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
-    private TextView text1;
-    private ButtonView formula_26;
+    private ButtonView formula_27;
     private ButtonView button_left;
     private ButtonView button_right;
-    public ThermalScreen13(MyGdxGame myGdxGame) {
+    public ElectricScreen3(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -29,9 +28,7 @@ public class ThermalScreen13 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 295, 400, "УДЕЛЬНАЯ ТЕПЛОТА");
-
-        formula_26 = new ButtonView(130, 60, 550, 300, GameResources.FORMULA_26_IMG);
+        formula_27 = new ButtonView(120, 70, 550, 350, GameResources.FORMULA_27_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -50,9 +47,7 @@ public class ThermalScreen13 implements Screen {
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
 
-        text1.draw(myGdxGame.batch);
-
-        formula_26.draw(myGdxGame.batch);
+        formula_27.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -65,10 +60,10 @@ public class ThermalScreen13 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.electricScreen1);
+                myGdxGame.setScreen(myGdxGame.electricScreen4);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.thermalScreen12);
+                myGdxGame.setScreen(myGdxGame.electricScreen2);
 
             }
         }
@@ -77,9 +72,8 @@ public class ThermalScreen13 implements Screen {
     @Override
     public void dispose() {
         background.dispose();
-        text1.dispose();
 
-        formula_26.dispose();
+        formula_27.dispose();
 
         button_left.dispose();
         button_right.dispose();

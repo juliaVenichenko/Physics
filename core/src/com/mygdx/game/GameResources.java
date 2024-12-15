@@ -40,6 +40,7 @@ public class GameResources {
     public static final String FORMULA_24_IMG = "formula_24.png";
     public static final String FORMULA_25_IMG = "formula_25.png";
     public static final String FORMULA_26_IMG = "formula_26.png";
+    public static final String FORMULA_27_IMG = "formula_27.png";
 
     //Картинки
     public static final String IMAGE_1 = "image_1.png";
@@ -50,6 +51,9 @@ public class GameResources {
     //Button left and right
     public static final String BUTTON_LEFT_IMG_PATH = "button_left.png";
     public static final String BUTTON_RIGHT_IMG_PATH = "button_right.png";
+
+    //Button exit
+    public static final String BUTTON_EXIT_IMG_PATH = "button_exit.png";
 
     public static final String FONT_PATH = "fonts/font.ru_Montserrat.ttf";
 }
