@@ -15,6 +15,7 @@ public class MenuScreen implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private ButtonView startButton;
+    private ButtonView faqButton;
     private ButtonView exitButton;
 
     public MenuScreen(MyGdxGame myGdxGame) {
@@ -26,8 +27,9 @@ public class MenuScreen implements Screen {
     public void show() {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
-        startButton = new ButtonView(10, 260, 306, 73, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "Читать");
-        exitButton = new ButtonView(10, 160, 306, 73, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "Выход");
+        startButton = new ButtonView(10, 220, 290, 100, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "Читать");
+        faqButton = new ButtonView(10                                                                                                                                                                                        , 410, 50, 70, GameResources.BUTTON_QUESTION_IMG_PATH);
+        exitButton = new ButtonView(10, 110, 290, 100, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "Выход");
     }
 
     @Override
@@ -44,6 +46,7 @@ public class MenuScreen implements Screen {
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
 
         startButton.draw(myGdxGame.batch);
+        faqButton.draw(myGdxGame.batch);
         exitButton.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
@@ -56,8 +59,10 @@ public class MenuScreen implements Screen {
             if (startButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.menuScreen2);
 //                myGdxGame.audioManager.clickSound.play(0.2f);
-
             }
+//            if (faqButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+//                myGdxGame.setScreen(myGdxGame.);
+//            }
             if (exitButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 Gdx.app.exit();
             }
@@ -68,6 +73,7 @@ public class MenuScreen implements Screen {
     public void dispose() {
         background.dispose();
         startButton.dispose();
+        faqButton.dispose();
         exitButton.dispose();
     }
 

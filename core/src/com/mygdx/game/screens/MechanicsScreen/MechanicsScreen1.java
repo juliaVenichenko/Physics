@@ -29,7 +29,7 @@ public class MechanicsScreen1 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
         text2 = new TextView(myGdxGame.commonWhiteFont, 305, 400, "ВИДЫ ДВИЖЕНИЯ");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 230, 350, "ПРЯМОЛИНЕЙНОЕ ДВИЖЕНИЕ");
+        text3 = new TextView(myGdxGame.commonRedFont, 230, 350, "ПРЯМОЛИНЕЙНОЕ ДВИЖЕНИЕ");
         text4 = new TextView(myGdxGame.commonWhiteFont, 30, 140, "  Равномерное - движение, при котором тело за равные" + "\n" +
                 "промежутки времени проходит одинаковое расстояние" + "\n" +
                 "относительно других тел с течением времени." + "\n" +  "\n" + "\n" +

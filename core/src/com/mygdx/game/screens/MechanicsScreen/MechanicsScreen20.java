@@ -31,10 +31,10 @@ public class MechanicsScreen20 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 330, 400, "ДЕФОРМАЦИЯ");
+        text1 = new TextView(myGdxGame.commonRedFont, 330, 400, "ДЕФОРМАЦИЯ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 300, "  Деформацией называют изменение формы, размеров или" + "\n" +
                 "объёма тела.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 310, 240, "СИЛА УПРУГОСТИ");
+        text3 = new TextView(myGdxGame.commonRedFont, 310, 240, "СИЛА УПРУГОСТИ");
         text4 = new TextView(myGdxGame.commonWhiteFont, 30, 120, " Упругость - свойство тел изменять форму и размеры под" + "\n" +
                 "действием внешних сил и самопроизвольно восстанавливать" + "\n" + "исходную конфигурацию при прекращении воздействий.");
 

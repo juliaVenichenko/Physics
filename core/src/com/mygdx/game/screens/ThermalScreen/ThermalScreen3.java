@@ -30,7 +30,7 @@ public class ThermalScreen3 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 350, 400, "ЖИДКОСТИ");
+        text1 = new TextView(myGdxGame.commonRedFont, 350, 400, "ЖИДКОСТИ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "  В жидкостях молекулы не привязаны к определённым центрам и" + "\n" +
                 "могут перемещаться по всему объёму жидкости.");
 

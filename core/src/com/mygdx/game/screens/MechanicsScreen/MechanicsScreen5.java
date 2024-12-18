@@ -30,7 +30,7 @@ public class MechanicsScreen5 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 200, 380, "ТРАЕКТОРИЯ. ПУТЬ. ПЕРЕМЕЩЕНИЕ" + "\n" );
+        text1 = new TextView(myGdxGame.commonRedFont, 200, 380, "ТРАЕКТОРИЯ. ПУТЬ. ПЕРЕМЕЩЕНИЕ" + "\n" );
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 135, "Траектория - воображаемая линия, вдоль которой движется тело." + "\n" + "\n" + "\n" +
                 "   Перемещение - вектор, проведённый из начального положения" + "\n" + "материальной точки в конечное." + "\n" + "\n" + "\n" +
                 "   Пройденный путь s - длина участка траектории, пройденного" + "\n" + "материальной точкой за данный промежуток времени.");

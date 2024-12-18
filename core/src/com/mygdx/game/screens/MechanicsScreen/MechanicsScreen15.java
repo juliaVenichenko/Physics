@@ -29,7 +29,7 @@ public class MechanicsScreen15 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 270, 390, "ПЕРВЫЙ ЗАКОН НЬЮТОНА");
+        text1 = new TextView(myGdxGame.commonRedFont, 270, 390, "ПЕРВЫЙ ЗАКОН НЬЮТОНА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Существуют такие системы отсчёта, относительно которых тела" + "\n" +
                 "сохраняют свою скорость неизменной (по модулю и направлению)," + "\n" +
                 "если на них не действуют другие тела или равнодействующая" + "\n" + "всех сил равна 0.");

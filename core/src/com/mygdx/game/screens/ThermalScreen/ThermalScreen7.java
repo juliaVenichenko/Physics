@@ -30,7 +30,7 @@ public class ThermalScreen7 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 280, 390, "ВНУТРЕННЯЯ ЭНЕРГИЯ");
+        text1 = new TextView(myGdxGame.commonRedFont, 280, 390, "ВНУТРЕННЯЯ ЭНЕРГИЯ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 243, "  Внутренняя энергия - сумма кинетической энергии хаотического" + "\n" +
                 "теплового движения частиц тела и потенциальной энергии их" + "\n" + "взаимодействия:");
 

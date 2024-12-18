@@ -30,7 +30,7 @@ public class MechanicsScreen38 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 300, 380, "АРХИМЕДОВА СИЛА");
+        text1 = new TextView(myGdxGame.commonRedFont, 300, 380, "АРХИМЕДОВА СИЛА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 230, "  Выталкивающая (архимедова) сила направлена всегда" + "\n" +
                 "противоположно силе тяжести, поэтому вес тела в жидкости" + "\n" +
                 "или газе всегда меньше веса этого тела в вакууме.");

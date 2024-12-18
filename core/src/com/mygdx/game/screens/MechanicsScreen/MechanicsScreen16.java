@@ -30,7 +30,7 @@ public class MechanicsScreen16 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 270, 390, "ВТОРОЙ ЗАКОН НЬЮТОНА");
+        text1 = new TextView(myGdxGame.commonRedFont, 270, 390, "ВТОРОЙ ЗАКОН НЬЮТОНА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "  Ускорение тела прямо пропорционально равнодействующей" + "\n" +
                 "сил, приложенных к телу, и обратно пропорционально его массе.");
 

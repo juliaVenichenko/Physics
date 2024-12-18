@@ -29,7 +29,7 @@ public class MechanicsScreen35 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 280, 380, "ДАВЛЕНИЕ В ЖИДКОСТИ");
+        text1 = new TextView(myGdxGame.commonRedFont, 280, 380, "ДАВЛЕНИЕ В ЖИДКОСТИ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 240, "  Гидростатическое давление (давление в жидкостях и газах," + "\n" +
                 "обусловленное весом) - давление столба жидкости над условным" + "\n" + "уровнем.");
 

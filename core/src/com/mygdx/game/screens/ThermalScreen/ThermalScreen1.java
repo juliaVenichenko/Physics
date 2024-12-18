@@ -30,7 +30,7 @@ public class ThermalScreen1 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 350, 400, "МОЛЕКУЛЫ");
+        text1 = new TextView(myGdxGame.commonRedFont, 350, 400, "МОЛЕКУЛЫ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 285, "  Все вещества (жидкие, твёрдые и газообразные) образованы из" + "\n" +
                 "мельчайших частиц - молекул, которые сами состоят из атомов" + "\n" + "(элементарных молекул).");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 200, "  Атомы и молекулы находятся в непрерывном хаотичном" + "\n" + "движении.");

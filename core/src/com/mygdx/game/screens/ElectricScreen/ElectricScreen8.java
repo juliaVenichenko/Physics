@@ -1,4 +1,4 @@
-package com.mygdx.game.screens.ThermalScreen;
+package com.mygdx.game.screens.ElectricScreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -12,14 +12,15 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class ThermalScreen9 implements Screen {
+public class ElectricScreen8 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
     private TextView text2;
+    private ButtonView formula_30;
     private ButtonView button_left;
     private ButtonView button_right;
-    public ThermalScreen9(MyGdxGame myGdxGame) {
+    public ElectricScreen8(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -29,9 +30,12 @@ public class ThermalScreen9 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 340, 385, "КОНВЕКЦИЯ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Конвекция - вид теплопередачи, при котором энергия" + "\n" +
-                "передаётся потоками (струями) вещества.");
+        text1 = new TextView(myGdxGame.commonRedFont, 210, 400, "ЭЛЕКТРИЧЕСКОЕ СОПРОТИВЛЕНИЕ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "  Электрическое сопротивление - это скалярная физическая" + "\n" +
+                "величина, которая характеризует способность проводника" + "\n" +
+                "препятствовать протеканию электрического тока.");
+
+        formula_30 = new ButtonView(310, 40, 180, 140, GameResources.FORMULA_30_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -52,6 +56,8 @@ public class ThermalScreen9 implements Screen {
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
 
+        formula_30.draw(myGdxGame.batch);
+
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
@@ -63,10 +69,10 @@ public class ThermalScreen9 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.thermalScreen10);
+                myGdxGame.setScreen(myGdxGame.electricScreen9);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.thermalScreen8);
+                myGdxGame.setScreen(myGdxGame.electricScreen7);
 
             }
         }
@@ -77,6 +83,8 @@ public class ThermalScreen9 implements Screen {
         background.dispose();
         text1.dispose();
         text2.dispose();
+
+        formula_30.dispose();
 
         button_left.dispose();
         button_right.dispose();

@@ -30,7 +30,7 @@ public class ElectricScreen4 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 275, 400, "ЭЛЕКТРИЧЕСКОЕ ПОЛЕ");
+        text1 = new TextView(myGdxGame.commonRedFont, 275, 400, "ЭЛЕКТРИЧЕСКОЕ ПОЛЕ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 285, "  Электрическое поле невидимо, но может наблюдаться по его" + "\n" +
                 "действию на заряды и с помощью приборов.");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 150, "  Проводник - вещество, способное хорошо проводить" + "\n" +

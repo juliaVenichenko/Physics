@@ -29,7 +29,7 @@ public class ThermalScreen10 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 340, 385, "ИЗЛУЧЕНИЕ");
+        text1 = new TextView(myGdxGame.commonRedFont, 340, 385, "ИЗЛУЧЕНИЕ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Излучение - вид теплопередачи, при котором энергия" + "\n" +
                 "передаётся с помощью электромагнитных волн.");
 

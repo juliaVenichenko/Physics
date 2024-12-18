@@ -30,7 +30,7 @@ public class MechanicsScreen39 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 385, 390, "ЗВУК");
+        text1 = new TextView(myGdxGame.commonRedFont, 385, 390, "ЗВУК");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "  Звуковые волны или просто звук - волны, воспринимаемые" + "\n" +
                 "человеческим ухом.");
 

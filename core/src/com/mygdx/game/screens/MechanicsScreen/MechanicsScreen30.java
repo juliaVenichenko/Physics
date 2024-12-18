@@ -29,7 +29,7 @@ public class MechanicsScreen30 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 120, 400, "ЗАКОН СОХРАНЕНИЯ И ПРЕВРАЩЕНИЯ ЭНЕРГИИ");
+        text1 = new TextView(myGdxGame.commonRedFont, 120, 400, "ЗАКОН СОХРАНЕНИЯ И ПРЕВРАЩЕНИЯ ЭНЕРГИИ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "  При любых физических взаимодействиях энергия не возникает" + "\n" +
                 "и не исчезает. Она лишь превращается из одной формы в другую.");
 

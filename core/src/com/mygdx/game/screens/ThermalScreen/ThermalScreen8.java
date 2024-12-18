@@ -31,7 +31,7 @@ public class ThermalScreen8 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         text1 = new TextView(myGdxGame.commonWhiteFont, 310, 390, "ТЕПЛОПЕРЕДАЧА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 290, 310, "ТЕПЛОПРОВОДНОСТЬ");
+        text2 = new TextView(myGdxGame.commonRedFont, 290, 310, "ТЕПЛОПРОВОДНОСТЬ");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 150, "  Теплопроводность - перенос энергии от более нагретых" + "\n" +
                 "участков тела к менее нагретым за счёт теплового движения и" + "\n" +
                 "взаимодействия микрочастиц, который приводит к выравниванию" + "\n" + "температуры тела.");

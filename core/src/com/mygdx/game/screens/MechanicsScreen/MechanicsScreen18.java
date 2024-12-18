@@ -30,7 +30,7 @@ public class MechanicsScreen18 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 330, 390, "СИЛА ТРЕНИЯ");
+        text1 = new TextView(myGdxGame.commonRedFont, 330, 390, "СИЛА ТРЕНИЯ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Сила трения - сила, возникающая при соприкосновении" + "\n" +
                 "поверхностей тел, препятсятвующая их относительному" + "\n" +
                 "перемещению, направленная вдоль поверхности" + "\n" + "соприкосновения.");

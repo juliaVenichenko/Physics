@@ -29,7 +29,7 @@ public class ThermalScreen6 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 230, 390, "ЗАКОН ТЕПЛОВОГО РАВНОВЕСИЯ");
+        text1 = new TextView(myGdxGame.commonRedFont, 230, 390, "ЗАКОН ТЕПЛОВОГО РАВНОВЕСИЯ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  У любой группы изолированных тел через какое-то время" + "\n" +
                 "температуры становятся одинаковыми, то есть наступает" + "\n" + "состояние теплового равновесия.");
 

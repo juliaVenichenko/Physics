@@ -30,7 +30,7 @@ public class MechanicsScreen36 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 315, 380, "ЗАКОН ПАСКАЛЯ");
+        text1 = new TextView(myGdxGame.commonRedFont, 315, 380, "ЗАКОН ПАСКАЛЯ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 230, "  Давление в жидкости или газе передаётся во всех направлениях" + "\n" +
                 "одинаково и не зависит от ориентации площадки, на которую оно" + "\n" + "действует:");
 

@@ -32,7 +32,7 @@ public class MechanicsScreen34 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         text1 = new TextView(myGdxGame.commonWhiteFont, 350, 400, "ДАВЛЕНИЕ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 260, 330, "ДАВЛЕНИЕ ТВЁРДОГО ТЕЛА");
+        text2 = new TextView(myGdxGame.commonRedFont, 260, 330, "ДАВЛЕНИЕ ТВЁРДОГО ТЕЛА");
 
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Давление - величина, равная отношению силы, действующей" + "\n" +
                 "перпендикулярно поверхности, к площади этой поверхности:");

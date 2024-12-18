@@ -31,11 +31,11 @@ public class MechanicsScreen7 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 100, 410, "РАВНОУСКОРЕННОЕ ПРЯМОЛИНЕЙНОЕ ДВИЖЕНИЕ");
+        text1 = new TextView(myGdxGame.commonRedFont, 100, 410, "РАВНОУСКОРЕННОЕ ПРЯМОЛИНЕЙНОЕ ДВИЖЕНИЕ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 290, "  Равноускоренное движение - движение, при котором за любые" + "\n" +
                 "равные промежутки времени материальная точка изменяет" + "\n" + "свою скорость на одну и ту же велечину.");
 
-        text3 = new TextView(myGdxGame.commonWhiteFont, 280, 210, "СВОБОДНОЕ ПАДЕНИЕ");
+        text3 = new TextView(myGdxGame.commonRedFont, 280, 210, "СВОБОДНОЕ ПАДЕНИЕ");
         text4 = new TextView(myGdxGame.commonWhiteFont, 30, 90, "  Свободное падение - движение, которое совершает тело" + "\n" +
                 "под действием только силы" + "\n" + "тяжести, без учёта силы сопротивления.");
 

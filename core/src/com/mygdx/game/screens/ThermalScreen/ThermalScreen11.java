@@ -29,7 +29,7 @@ public class ThermalScreen11 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 280, 385, "КОЛИЧЕСТВО ТЕПЛОТЫ");
+        text1 = new TextView(myGdxGame.commonRedFont, 280, 385, "КОЛИЧЕСТВО ТЕПЛОТЫ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 243, "  Количество теплоты - энергия, переносимая от одной системы" + "\n" +
                 "к другой только за счёт разницы в температурах этих систем.");
 

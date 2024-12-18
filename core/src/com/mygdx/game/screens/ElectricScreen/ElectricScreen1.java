@@ -30,7 +30,7 @@ public class ElectricScreen1 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 300, 400, "ЭЛЕКТРИЗАЦИЯ ТЕЛ");
+        text1 = new TextView(myGdxGame.commonRedFont, 300, 400, "ЭЛЕКТРИЗАЦИЯ ТЕЛ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 290, "  Электризация тел - сообщение электрических зарядов телам" + "\n" +
                 "или наведение зарядов на них.");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 140, "  Электризация может происходить посредством трения или" + "\n" +

@@ -38,9 +38,9 @@ public class MenuElectricScreen implements Screen {
         button_three = new ButtonView(515, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "3. Закон Кулона");
         button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "4. Электрическое поле");
         button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "5. Постоянный электрический ток");
-        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "6. Электрическое сопротивление");
-        button_seven = new ButtonView(25, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "7. Закон Ома");
-        button_eight = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "8. Работа электрического тока");
+        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "6. Напряжение");
+        button_seven = new ButtonView(25, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "7. Электрическое сопротивление");
+        button_eight = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "8. Закон Ома");
         button_nine = new ButtonView(515, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "9. Мощность электрического тока");
     }
 
@@ -90,26 +90,26 @@ public class MenuElectricScreen implements Screen {
                 myGdxGame.setScreen(myGdxGame.electricScreen4);
 
             }
-//            if (button_five.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.mechanicsScreen18);
-//
-//            }
-//            if (button_six.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.mechanicsScreen20);
-//
-//            }
-//            if (button_seven.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.mechanicsScreen23);
-//
-//            }
-//            if (button_eight.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.mechanicsScreen25);
-//
-//            }
-//            if (button_nine.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.mechanicsScreen27);
-//
-//            }
+            if (button_five.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.electricScreen6);
+
+            }
+            if (button_six.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.electricScreen7);
+
+            }
+            if (button_seven.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.electricScreen8);
+
+            }
+            if (button_eight.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.electricScreen10);
+
+            }
+            if (button_nine.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.electricScreen11);
+
+            }
         }
     }
 

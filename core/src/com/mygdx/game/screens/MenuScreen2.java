@@ -72,6 +72,10 @@ public class MenuScreen2 implements Screen {
                 myGdxGame.setScreen(myGdxGame.menuThermalScreen);
 
             }
+            if (button_three.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuElectricScreen);
+
+            }
         }
     }
 

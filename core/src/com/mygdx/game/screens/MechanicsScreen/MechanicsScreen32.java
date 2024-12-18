@@ -29,7 +29,7 @@ public class MechanicsScreen32 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 270, 380, "ПРОСТЫЕ МЕХАНИЗМЫ");
+        text1 = new TextView(myGdxGame.commonRedFont, 270, 380, "ПРОСТЫЕ МЕХАНИЗМЫ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Простые механизмы - механические устройства, с помощью" + "\n" +
                 "которых можно изменять модуль и направление силы.");
 

@@ -30,7 +30,7 @@ public class MechanicsScreen27 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 260, 400, "МЕХАНИЧЕСКАЯ РАБОТА");
+        text1 = new TextView(myGdxGame.commonRedFont, 260, 400, "МЕХАНИЧЕСКАЯ РАБОТА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "  Работа A - физическая величина, численно равная произведению" + "\n" +
                 "силы, действующей на тело, на путь, пройденный телом под" + "\n" + "действием этой силы.");
 

@@ -31,10 +31,10 @@ public class MechanicsScreen21 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 170, 400, "СИЛА НОРМАЛЬНОЙ РЕАКЦИИ ОПОРЫ");
+        text1 = new TextView(myGdxGame.commonRedFont, 170, 400, "СИЛА НОРМАЛЬНОЙ РЕАКЦИИ ОПОРЫ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 295, "  Сила нормальной реакции опоры - сила упругости, действующая" + "\n" +
                 "на тело со стороны опоры перпендикулярно её поверхности.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 300, 205, "СИЛА НАТЯЖЕНИЯ");
+        text3 = new TextView(myGdxGame.commonRedFont, 300, 205, "СИЛА НАТЯЖЕНИЯ");
         text4 = new TextView(myGdxGame.commonWhiteFont, 30, 100, "  Сила натяжения - сила упругости, действующая на тело" + "\n" +
                 "со стороны нити или пружины.");
 

@@ -31,10 +31,10 @@ public class MechanicsScreen25 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 205, 400, "ЗАКОН СОХРАНЕНИЯ ИМПУЛЬСА");
+        text1 = new TextView(myGdxGame.commonRedFont, 205, 400, "ЗАКОН СОХРАНЕНИЯ ИМПУЛЬСА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "  В инерциальной системе отсчёта суммарный импульс замкнутой" + "\n" +
                 "системы тел остаётся постоянным при любых взаимодействиях" + "\n" + "тел между собой.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 205, 205, "ИМПУЛЬС МАТЕРИАЛЬНОЙ ТОЧКИ");
+        text3 = new TextView(myGdxGame.commonRedFont, 205, 205, "ИМПУЛЬС МАТЕРИАЛЬНОЙ ТОЧКИ");
         text4 = new TextView(myGdxGame.commonWhiteFont, 30, 100, "  Импульс тела - векторная физическая велечина, равная" + "\n" +
                 "произведению массы тела на скорость его движения.");
 

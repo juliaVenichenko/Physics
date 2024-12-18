@@ -32,7 +32,7 @@ public class ThermalScreen2 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         text1 = new TextView(myGdxGame.commonWhiteFont, 210, 400, "АГРЕГАТНЫЕ СОСТОЯНИЯ ВЕЩЕСТВА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 330, 330, "ТВЁРДЫЕ ТЕЛА");
+        text2 = new TextView(myGdxGame.commonRedFont, 330, 330, "ТВЁРДЫЕ ТЕЛА");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 210, "  В твёрдых телах молекулы совершают беспорядочные" + "\n" +
                 "колебания около фиксированных центров" + "\n" + "(положений равновесия).");
 

@@ -30,7 +30,7 @@ public class MechanicsScreen29 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 260, 400, "ПОТЕНЦИАЛЬНАЯ ЭНЕРГИЯ");
+        text1 = new TextView(myGdxGame.commonRedFont, 260, 400, "ПОТЕНЦИАЛЬНАЯ ЭНЕРГИЯ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "  Потенциальная энергия - это энергия, которую имеет тело" + "\n" +
                 "или система тела в зависимости от положения тела" + "\n" + "(системы тела) в пространстве.");
 

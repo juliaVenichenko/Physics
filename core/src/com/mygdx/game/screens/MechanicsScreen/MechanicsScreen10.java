@@ -30,7 +30,7 @@ public class MechanicsScreen10 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 200, 380, "ДВИЖЕНИЕ ТОЧКИ ПО ОКРУЖНОСТИ");
+        text1 = new TextView(myGdxGame.commonRedFont, 200, 380, "ДВИЖЕНИЕ ТОЧКИ ПО ОКРУЖНОСТИ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 270, "  Движение по окружности - движение, повторяющееся через" + "\n" +
                 "равные промежутки времени (периодически).");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 120, "  Вращательное движение - движение, при котором все точки" + "\n" +

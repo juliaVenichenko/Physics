@@ -28,7 +28,7 @@ public class MechanicsScreen2 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 250, 390, "КРИВОЛИНЕЙНОЕ ДВИЖЕНИЕ");
+        text1 = new TextView(myGdxGame.commonRedFont, 250, 390, "КРИВОЛИНЕЙНОЕ ДВИЖЕНИЕ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 190, "  Вращательное - движение в одном направлении по плоской"  + "\n" +
                 "(или пространственной) замкнутой траектории." + "\n" + "\n" + "\n" +
                 "  Колебательное - движение, которое полностью или практически"  + "\n" + "полностью повторяется с течением времени.");

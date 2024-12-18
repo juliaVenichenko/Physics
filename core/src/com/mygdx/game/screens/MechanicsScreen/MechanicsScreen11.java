@@ -31,10 +31,10 @@ public class MechanicsScreen11 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 340, 420, "МАССА ТЕЛА");
+        text1 = new TextView(myGdxGame.commonRedFont, 340, 420, "МАССА ТЕЛА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 340, "  Масса тела m - физическая величина, являющаяся мерой" + "\n" +
                 "инертности тела (кг).");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 270, 270, "ПЛОТНОСТЬ ВЕЩЕСТВА");
+        text3 = new TextView(myGdxGame.commonRedFont, 270, 270, "ПЛОТНОСТЬ ВЕЩЕСТВА");
         text4 = new TextView(myGdxGame.commonWhiteFont, 30, 180, "  Плотность m - физическая величина, определяемая для" + "\n" +
                 "однородного вещества массой единичного объёма:");
 

@@ -13,6 +13,8 @@ public class GameResources {
     public static final String BUTTON_RED_IMG_PATH = "button_red.png";
     public static final String BUTTON_YELLO_IMG_PATH = "button_yello.png";
 
+    public static final String BUTTON_QUESTION_IMG_PATH = "button_question.png";
+
 
     //Формулы
     public static final String FORMULA_1_IMG = "formula_1.png";
@@ -41,6 +43,14 @@ public class GameResources {
     public static final String FORMULA_25_IMG = "formula_25.png";
     public static final String FORMULA_26_IMG = "formula_26.png";
     public static final String FORMULA_27_IMG = "formula_27.png";
+    public static final String FORMULA_28_IMG = "formula_28.png";
+    public static final String FORMULA_29_IMG = "formula_29.png";
+    public static final String FORMULA_30_IMG = "formula_30.png";
+    public static final String FORMULA_31_IMG = "formula_31.png";
+    public static final String FORMULA_32_IMG = "formula_32.png";
+    public static final String FORMULA_33_IMG = "formula_33.png";
+    public static final String FORMULA_34_IMG = "formula_34.png";
+    public static final String FORMULA_35_IMG = "formula_35.png";
 
     //Картинки
     public static final String IMAGE_1 = "image_1.png";

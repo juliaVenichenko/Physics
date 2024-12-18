@@ -32,7 +32,7 @@ public class MechanicsScreen28 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         text1 = new TextView(myGdxGame.commonWhiteFont, 310, 400, "ВИДЫ ЭНЕРГИИ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 260, 320, "КИНЕТИЧЕСКАЯ ЭНЕРГИЯ");
+        text2 = new TextView(myGdxGame.commonRedFont, 260, 320, "КИНЕТИЧЕСКАЯ ЭНЕРГИЯ");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 190, "  Кинетическая энергия тела - скалярная физическая велечина," + "\n" +
                 "равная половине произведения массы тела на квадрат его" + "\n" + "скорости:");
 

@@ -31,10 +31,10 @@ public class MechanicsScreen19 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 330, 390, "ТРЕНИЕ ПОКОЯ");
+        text1 = new TextView(myGdxGame.commonRedFont, 330, 390, "ТРЕНИЕ ПОКОЯ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 290, "  Трение покоя - трение, возникающее при отсутствии" + "\n" +
                 "относительного перемещения соприкасающихся тел.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 295, 210, "ТРЕНИЕ СКОЛЬЖЕНИЯ");
+        text3 = new TextView(myGdxGame.commonRedFont, 295, 210, "ТРЕНИЕ СКОЛЬЖЕНИЯ");
         text4 = new TextView(myGdxGame.commonWhiteFont, 30, 110, " Трение скольжения - трение, возникающее при перемещении" + "\n" +
                 "одного тела по поверхности другого.");
 

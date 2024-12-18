@@ -31,7 +31,7 @@ public class MechanicsScreen14 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 300, 410, "ЯВЛЕНИЕ ИНЕРЦИИ");
+        text1 = new TextView(myGdxGame.commonRedFont, 300, 410, "ЯВЛЕНИЕ ИНЕРЦИИ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 350, "  Инерция - свойство тел сохранять своё состояние неизменным.");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 260, " Движение по инерции - движение тела, происходящее без" + "\n" +
                 "внешних воздействий.");

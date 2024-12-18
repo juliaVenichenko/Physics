@@ -29,7 +29,7 @@ public class MechanicsScreen37 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 310, 380, "ЗАКОН АРХИМЕДА");
+        text1 = new TextView(myGdxGame.commonRedFont, 310, 380, "ЗАКОН АРХИМЕДА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 250, "  Тело, погружённое в жидкость (газ), теряет в своём весе" + "\n" +
                 "столько, сколько весит вытесненная им жидкость.");
 

@@ -30,7 +30,7 @@ public class MechanicsScreen3 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 300, 400, "СИСТЕМА ОТСЧЁТА");
+        text1 = new TextView(myGdxGame.commonRedFont, 300, 400, "СИСТЕМА ОТСЧЁТА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 290, "   Тело отсчёта - произвольно выбранное тело, относительно"  + "\n" +
                 "которого определяется положение движущейся материальной"  + "\n" + "точки (или тела).");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 100, "  Система отсчёта - совокупность системы координат и часов," + "\n" + "связанных с телом отсчёта."

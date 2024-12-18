@@ -29,7 +29,7 @@ public class MechanicsScreen13 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 370, 410, "СИЛА");
+        text1 = new TextView(myGdxGame.commonRedFont, 370, 410, "СИЛА");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 325, "  Сила - количественная мера воздействия одного тела" + "\n" +
                 "на другое (Н).");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 200, " Равнодействующая нескольких сил - сила, эквивалентная данной" + "\n" +

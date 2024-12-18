@@ -29,7 +29,7 @@ public class ThermalScreen13 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 295, 400, "УДЕЛЬНАЯ ТЕПЛОТА");
+        text1 = new TextView(myGdxGame.commonRedFont, 295, 400, "УДЕЛЬНАЯ ТЕПЛОТА");
 
         formula_26 = new ButtonView(130, 60, 550, 300, GameResources.FORMULA_26_IMG);
 
