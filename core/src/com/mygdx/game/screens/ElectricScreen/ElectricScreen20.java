@@ -12,15 +12,13 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class ElectricScreen12 implements Screen {
+public class ElectricScreen20 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
-    private TextView text1;
-    private TextView text2;
-    private ButtonView formula_35;
+    private ButtonView formula_39;
     private ButtonView button_left;
     private ButtonView button_right;
-    public ElectricScreen12(MyGdxGame myGdxGame) {
+    public ElectricScreen20(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -30,12 +28,7 @@ public class ElectricScreen12 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 260, 400, "ЗАКОН ДЖОУЛЯ - ЛЕНЦА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "  Количество теплоты, выделяемое в проводнике с током, равно" + "\n" +
-                "произведению квадрата силы тока, сопротивления проводника и" + "\n" +
-                "времени прохождения по нему тока:");
-
-        formula_35 = new ButtonView(280, 60, 240, 150, GameResources.FORMULA_35_IMG);
+        formula_39 = new ButtonView(155, 60, 480, 370, GameResources.FORMULA_39_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -53,10 +46,7 @@ public class ElectricScreen12 implements Screen {
         myGdxGame.batch.begin();
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
-        text1.draw(myGdxGame.batch);
-        text2.draw(myGdxGame.batch);
-
-        formula_35.draw(myGdxGame.batch);
+        formula_39.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -69,10 +59,10 @@ public class ElectricScreen12 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.electricScreen13);
+                myGdxGame.setScreen(myGdxGame.electricScreen21);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.electricScreen11);
+                myGdxGame.setScreen(myGdxGame.electricScreen19);
 
             }
         }
@@ -81,10 +71,7 @@ public class ElectricScreen12 implements Screen {
     @Override
     public void dispose() {
         background.dispose();
-        text1.dispose();
-        text2.dispose();
-
-        formula_35.dispose();
+        formula_39.dispose();
 
         button_left.dispose();
         button_right.dispose();

@@ -15,7 +15,17 @@ import com.mygdx.game.screens.ElectricScreen.ElectricScreen1;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen10;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen11;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen12;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen13;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen14;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen15;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen16;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen17;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen18;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen19;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen2;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen20;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen21;
+import com.mygdx.game.screens.ElectricScreen.ElectricScreen22;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen3;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen4;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen5;
@@ -66,6 +76,7 @@ import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen7;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen8;
 import com.mygdx.game.screens.MechanicsScreen.MechanicsScreen9;
 import com.mygdx.game.screens.MenuElectricScreen;
+import com.mygdx.game.screens.MenuElectricScreen2;
 import com.mygdx.game.screens.MenuMechanicsScreen;
 import com.mygdx.game.screens.MenuMechanicsScreen2;
 import com.mygdx.game.screens.MenuScreen;
@@ -154,6 +165,7 @@ public class MyGdxGame extends Game {
 	public ThermalScreen13 thermalScreen13;
 
 	public MenuElectricScreen menuElectricScreen;
+	public MenuElectricScreen2 menuElectricScreen2;
 	public ElectricScreen1 electricScreen1;
 	public ElectricScreen2 electricScreen2;
 	public ElectricScreen3 electricScreen3;
@@ -166,6 +178,16 @@ public class MyGdxGame extends Game {
 	public ElectricScreen10 electricScreen10;
 	public ElectricScreen11 electricScreen11;
 	public ElectricScreen12 electricScreen12;
+	public ElectricScreen13 electricScreen13;
+	public ElectricScreen14 electricScreen14;
+	public ElectricScreen15 electricScreen15;
+	public ElectricScreen16 electricScreen16;
+	public ElectricScreen17 electricScreen17;
+	public ElectricScreen18 electricScreen18;
+	public ElectricScreen19 electricScreen19;
+	public ElectricScreen20 electricScreen20;
+	public ElectricScreen21 electricScreen21;
+	public ElectricScreen22 electricScreen22;
 
 	public BitmapFont commonWhiteFont;
 	public BitmapFont commonRedFont;
@@ -246,6 +268,7 @@ public class MyGdxGame extends Game {
 		thermalScreen13 = new ThermalScreen13(this);
 
 		menuElectricScreen = new MenuElectricScreen(this);
+		menuElectricScreen2 = new MenuElectricScreen2(this);
 
 		electricScreen1 = new ElectricScreen1(this);
 		electricScreen2 = new ElectricScreen2(this);
@@ -259,11 +282,21 @@ public class MyGdxGame extends Game {
 		electricScreen10 = new ElectricScreen10(this);
 		electricScreen11 = new ElectricScreen11(this);
 		electricScreen12 = new ElectricScreen12(this);
+		electricScreen13 = new ElectricScreen13(this);
+		electricScreen14 = new ElectricScreen14(this);
+		electricScreen15 = new ElectricScreen15(this);
+		electricScreen16 = new ElectricScreen16(this);
+		electricScreen17 = new ElectricScreen17(this);
+		electricScreen18 = new ElectricScreen18(this);
+		electricScreen19 = new ElectricScreen19(this);
+		electricScreen20 = new ElectricScreen20(this);
+		electricScreen21 = new ElectricScreen21(this);
+		electricScreen22 = new ElectricScreen22(this);
 
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
 		commonRedFont = FontBuilder.generate(20, Color.RED, GameResources.FONT_PATH);
 
-		setScreen(menuScreen);
+		setScreen(electricScreen22);
 
 	}
 	
@@ -338,6 +371,7 @@ public class MyGdxGame extends Game {
 		thermalScreen13.dispose();
 
 		menuElectricScreen.dispose();
+		menuElectricScreen2.dispose();
 
 		electricScreen1.dispose();
 		electricScreen2.dispose();
@@ -351,6 +385,16 @@ public class MyGdxGame extends Game {
 		electricScreen10.dispose();
 		electricScreen11.dispose();
 		electricScreen12.dispose();
+		electricScreen13.dispose();
+		electricScreen14.dispose();
+		electricScreen15.dispose();
+		electricScreen16.dispose();
+		electricScreen17.dispose();
+		electricScreen18.dispose();
+		electricScreen19.dispose();
+		electricScreen20.dispose();
+		electricScreen21.dispose();
+		electricScreen22.dispose();
 
 	}
 }
