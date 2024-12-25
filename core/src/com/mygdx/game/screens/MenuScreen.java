@@ -28,7 +28,7 @@ public class MenuScreen implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
         startButton = new ButtonView(10, 220, 290, 100, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "Читать");
-        faqButton = new ButtonView(10                                                                                                                                                                                        , 410, 50, 70, GameResources.BUTTON_QUESTION_IMG_PATH);
+        faqButton = new ButtonView(10, 390, 70, 90, GameResources.BUTTON_QUESTION_IMG_PATH);
         exitButton = new ButtonView(10, 110, 290, 100, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "Выход");
     }
 

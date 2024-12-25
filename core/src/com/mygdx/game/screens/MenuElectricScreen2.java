@@ -24,6 +24,8 @@ public class MenuElectricScreen2 implements Screen {
     private ButtonView button_eight;
     private ButtonView button_nine;
 
+    private ButtonView button_left;
+
     public MenuElectricScreen2(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -33,15 +35,17 @@ public class MenuElectricScreen2 implements Screen {
     public void show() {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
-        button_one = new ButtonView(25, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "1. Закон Джоуля - Ленца");
-        button_two = new ButtonView(275, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "2. Линии магнитной индукции");
+        button_one = new ButtonView(25, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "1. Закон Джоуля -" + "\n" + "          Ленца");
+        button_two = new ButtonView(275, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, " 2. Линии" + "\n" + "магнитной" + "\n" + " индукции");
         button_three = new ButtonView(515, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "3. Закон Ампера");
-        button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "4. Правило левой руки");
-        button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "5. Электромагнитные волны");
-        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "6. Прямолинейное распространение света");
-        button_seven = new ButtonView(25, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "7. Закон отражения света");
-        button_eight = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "8. Преломление света");
+        button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "4. Правило левой" + "\n" + "            руки");
+        button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "5. Электро - "  + "\n" + " магнитные" + "\n" + "     волны");
+        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "6. Прямолинейное" + "\n" + " распространение" + "\n" + "            света");
+        button_seven = new ButtonView(25, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "  7. Закон" + "\n" + "отражения" + "\n" + "     света");
+        button_eight = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "8. Преломление" + "\n" + "          света");
         button_nine = new ButtonView(515, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "9. Линзы");
+
+        button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
     }
 
     @Override
@@ -67,6 +71,8 @@ public class MenuElectricScreen2 implements Screen {
         button_eight.draw(myGdxGame.batch);
         button_nine.draw(myGdxGame.batch);
 
+        button_left.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -74,6 +80,10 @@ public class MenuElectricScreen2 implements Screen {
         if (Gdx.input.justTouched()) {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
+            if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuElectricScreen);
+
+            }
             if (button_one.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.electricScreen12);
 
@@ -125,6 +135,8 @@ public class MenuElectricScreen2 implements Screen {
         button_seven.dispose();
         button_eight.dispose();
         button_nine.dispose();
+
+        button_left.dispose();
     }
 
     @Override

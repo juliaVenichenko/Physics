@@ -19,7 +19,7 @@ public class ElectricScreen16 implements Screen {
     private TextView text2;
     private TextView text3;
     private ButtonView formula_37;
-//    private ButtonView formula_38;
+    private ButtonView formula_38;
     private ButtonView button_left;
     private ButtonView button_right;
     public ElectricScreen16(MyGdxGame myGdxGame) {
@@ -38,8 +38,8 @@ public class ElectricScreen16 implements Screen {
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Длина волны - кратчайшее растояние между двумя" + "\n" +
                 "возмущениями, колеблющимися в одинаковой фазе:");
 
-        formula_37 = new ButtonView(120, 30, 240, 150, GameResources.FORMULA_37_IMG);
-//        formula_38 = new ButtonView(265, 30, 280, 190, GameResources.FORMULA_38_IMG);
+        formula_37 = new ButtonView(180, 30, 240, 150, GameResources.FORMULA_37_IMG);
+        formula_38 = new ButtonView(440, 30, 170, 150, GameResources.FORMULA_38_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -62,6 +62,7 @@ public class ElectricScreen16 implements Screen {
         text3.draw(myGdxGame.batch);
 
         formula_37.draw(myGdxGame.batch);
+        formula_38.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -91,6 +92,7 @@ public class ElectricScreen16 implements Screen {
         text3.dispose();
 
         formula_37.dispose();
+        formula_38.dispose();
 
         button_left.dispose();
         button_right.dispose();

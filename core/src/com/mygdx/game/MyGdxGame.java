@@ -296,7 +296,7 @@ public class MyGdxGame extends Game {
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
 		commonRedFont = FontBuilder.generate(20, Color.RED, GameResources.FONT_PATH);
 
-		setScreen(electricScreen22);
+		setScreen(menuScreen);
 
 	}
 	

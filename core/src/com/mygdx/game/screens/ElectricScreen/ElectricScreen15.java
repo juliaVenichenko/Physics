@@ -16,7 +16,6 @@ public class ElectricScreen15 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
-    private TextView text2;
     private ButtonView image_5;
     private ButtonView button_left;
     private ButtonView button_right;
@@ -31,13 +30,8 @@ public class ElectricScreen15 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         text1 = new TextView(myGdxGame.commonRedFont, 280, 400, "ПРАВИЛО ЛЕВОЙ РУКИ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Расположите четыре пальца левой руки вдоль направления" + "\n" +
-                "силы тока в проводнике, а ладонь таким образом, чтобы линии" + "\n" +
-                "магнитной индукции входили прямо в нее." + "\n" +
-                "Оттопыренный на 90 градусов большой палец укажет" + "\n" +
-                "направление искомой силы.");
 
-//        image_5 = new ButtonView(265, 30, 280, 190,);
+        image_5 = new ButtonView(190, 30, 410, 320, GameResources.IMAGE_5);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -56,9 +50,8 @@ public class ElectricScreen15 implements Screen {
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
         text1.draw(myGdxGame.batch);
-        text2.draw(myGdxGame.batch);
 
-//        image_5.draw(myGdxGame.batch);
+        image_5.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -84,9 +77,8 @@ public class ElectricScreen15 implements Screen {
     public void dispose() {
         background.dispose();
         text1.dispose();
-        text2.dispose();
 
-//        image_5.dispose();
+        image_5.dispose();
 
         button_left.dispose();
         button_right.dispose();
