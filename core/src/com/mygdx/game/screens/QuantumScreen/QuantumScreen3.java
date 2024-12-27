@@ -1,4 +1,4 @@
-package com.mygdx.game.screens.ElectricScreen;
+package com.mygdx.game.screens.QuantumScreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -12,14 +12,14 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class ElectricScreen22 implements Screen {
+public class QuantumScreen3 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
-    private ButtonView image_6;
+    private TextView text2;
     private ButtonView button_left;
     private ButtonView button_right;
-    public ElectricScreen22(MyGdxGame myGdxGame) {
+    public QuantumScreen3(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -29,9 +29,12 @@ public class ElectricScreen22 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 202, 400, "ГЛАЗ КАК ОПТИЧЕСКАЯ СИСТЕМА");
+        text1 = new TextView(myGdxGame.commonWhiteFont, 30, 330, "   Гамма-лучи - поток квантов жёсткого рентгеновского излучения," + "\n" +
+                "которые обладают наибольшей проникающей способностью," + "\n" +
+                "не отклоняются в магнитном поле.");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 170, "   Гамма-излучение - электромагнитное излучение, возникающее" + "\n" +
+                "при переходе ядра из возбуждённого в более низкое" + "\n" + "энергетическое состояние.");
 
-        image_6 = new ButtonView(180, 50, 430, 320, GameResources.IMAGE_6);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -49,9 +52,9 @@ public class ElectricScreen22 implements Screen {
         myGdxGame.batch.begin();
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
-        text1.draw(myGdxGame.batch);
 
-        image_6.draw(myGdxGame.batch);
+        text1.draw(myGdxGame.batch);
+        text2.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -64,10 +67,10 @@ public class ElectricScreen22 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.quantumScreen1);
+                myGdxGame.setScreen(myGdxGame.quantumScreen4);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.electricScreen21);
+                myGdxGame.setScreen(myGdxGame.quantumScreen2);
 
             }
         }
@@ -77,8 +80,7 @@ public class ElectricScreen22 implements Screen {
     public void dispose() {
         background.dispose();
         text1.dispose();
-
-        image_6.dispose();
+        text2.dispose();
 
         button_left.dispose();
         button_right.dispose();

@@ -11,7 +11,7 @@ import com.mygdx.game.GameSettings;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 
-public class MenuScreen2 implements Screen {
+public class MenuQuantumScreen implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private ButtonView button_one;
@@ -20,21 +20,25 @@ public class MenuScreen2 implements Screen {
     private ButtonView button_four;
     private ButtonView button_five;
     private ButtonView button_six;
+    private ButtonView button_seven;
 
-    public MenuScreen2(MyGdxGame myGdxGame) {
+    public MenuQuantumScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
-        background = new Texture(GameResources.MENU_DOSKA_IMG_PATH);
+        background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
+
     @Override
     public void show() {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
-        button_one = new ButtonView(25, 320, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "Механические явления");
-        button_two = new ButtonView(303, 320, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "Тепловые явления");
-        button_three = new ButtonView(25, 195, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "Электромагнитные" + "\n" + "          явления");
-        button_four = new ButtonView(303, 195, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "Квантовые явления");
-        button_five = new ButtonView(25, 65, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "Тесты");
-        button_six = new ButtonView(303, 65, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "Учёные");
+        button_one = new ButtonView(25, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "1. Радиоактивность");
+        button_two = new ButtonView(275, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "2. Гипотеза Планка");
+        button_three = new ButtonView(515, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "3. Фотоны");
+        button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "4. Импульс фотона");
+        button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "5. Модель атома");
+        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH, "6. Состав атомного ядра");
+        button_seven = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "7. Ядерные реакции");
+
     }
 
     @Override
@@ -56,6 +60,7 @@ public class MenuScreen2 implements Screen {
         button_four.draw(myGdxGame.batch);
         button_five.draw(myGdxGame.batch);
         button_six.draw(myGdxGame.batch);
+        button_seven.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -65,19 +70,31 @@ public class MenuScreen2 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_one.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
+                myGdxGame.setScreen(myGdxGame.quantumScreen1);
 
             }
             if (button_two.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.menuThermalScreen);
+                myGdxGame.setScreen(myGdxGame.quantumScreen4);
 
             }
             if (button_three.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.menuElectricScreen);
+                myGdxGame.setScreen(myGdxGame.quantumScreen5);
 
             }
             if (button_four.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.menuQuantumScreen);
+                myGdxGame.setScreen(myGdxGame.quantumScreen6);
+
+            }
+            if (button_five.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.quantumScreen7);
+
+            }
+            if (button_six.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.quantumScreen8);
+
+            }
+            if (button_seven.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.quantumScreen11);
 
             }
         }
@@ -92,6 +109,7 @@ public class MenuScreen2 implements Screen {
         button_four.dispose();
         button_five.dispose();
         button_six.dispose();
+        button_seven.dispose();
     }
 
     @Override

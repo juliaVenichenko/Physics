@@ -1,4 +1,4 @@
-package com.mygdx.game.screens.ElectricScreen;
+package com.mygdx.game.screens.QuantumScreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -12,14 +12,15 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
 
-public class ElectricScreen22 implements Screen {
+public class QuantumScreen6 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
-    private ButtonView image_6;
+    private ButtonView formula_41;
+    private ButtonView formula_42;
     private ButtonView button_left;
     private ButtonView button_right;
-    public ElectricScreen22(MyGdxGame myGdxGame) {
+    public QuantumScreen6(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
@@ -29,9 +30,10 @@ public class ElectricScreen22 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 202, 400, "ГЛАЗ КАК ОПТИЧЕСКАЯ СИСТЕМА");
+        text1 = new TextView(myGdxGame.commonRedFont, 300, 400, "ИМПУЛЬС ФОТОНА");
 
-        image_6 = new ButtonView(180, 50, 430, 320, GameResources.IMAGE_6);
+        formula_41 = new ButtonView(60, 120, 320, 190, GameResources.FORMULA_41_IMG);
+        formula_42 = new ButtonView(400, 120, 350, 190, GameResources.FORMULA_42_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -49,9 +51,11 @@ public class ElectricScreen22 implements Screen {
         myGdxGame.batch.begin();
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
+
         text1.draw(myGdxGame.batch);
 
-        image_6.draw(myGdxGame.batch);
+        formula_41.draw(myGdxGame.batch);
+        formula_42.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -64,10 +68,10 @@ public class ElectricScreen22 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.quantumScreen1);
+                myGdxGame.setScreen(myGdxGame.quantumScreen7);
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.electricScreen21);
+                myGdxGame.setScreen(myGdxGame.quantumScreen5);
 
             }
         }
@@ -78,7 +82,8 @@ public class ElectricScreen22 implements Screen {
         background.dispose();
         text1.dispose();
 
-        image_6.dispose();
+        formula_41.dispose();
+        formula_42.dispose();
 
         button_left.dispose();
         button_right.dispose();
