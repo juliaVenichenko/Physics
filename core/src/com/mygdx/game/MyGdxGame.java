@@ -216,6 +216,7 @@ public class MyGdxGame extends Game {
 
 	public BitmapFont commonWhiteFont;
 	public BitmapFont commonRedFont;
+	public BitmapFont commonPinkFont;
 
 	@Override
 	public void create () {
@@ -332,10 +333,11 @@ public class MyGdxGame extends Game {
 		quantumScreen10 = new QuantumScreen10(this);
 		quantumScreen11 = new QuantumScreen11(this);
 
-		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT_PATH);
+		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT2_PATH);
 		commonRedFont = FontBuilder.generate(20, Color.RED, GameResources.FONT_PATH);
+		commonPinkFont = FontBuilder.generate(20, Color.PINK, GameResources.FONT2_PATH);
 
-		setScreen(menuScreen);
+		setScreen(mechanicsScreen41);
 
 	}
 	

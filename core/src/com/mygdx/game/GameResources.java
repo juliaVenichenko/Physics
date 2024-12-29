@@ -76,4 +76,6 @@ public class GameResources {
     public static final String BUTTON_EXIT_IMG_PATH = "button_exit.png";
 
     public static final String FONT_PATH = "fonts/font.ru_Montserrat.ttf";
+    public static final String FONT2_PATH = "fonts/handwritten.ttf";
+    public static final String RECTANGLE = "rectangle.png";
 }
