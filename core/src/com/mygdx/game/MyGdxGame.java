@@ -83,6 +83,7 @@ import com.mygdx.game.screens.MenuQuantumScreen;
 import com.mygdx.game.screens.MenuScreen;
 import com.mygdx.game.screens.MenuScreen2;
 import com.mygdx.game.screens.MenuThermalScreen;
+//import com.mygdx.game.screens.ModelScreen.ModelWaterScreen;
 import com.mygdx.game.screens.QuantumScreen.QuantumScreen1;
 import com.mygdx.game.screens.QuantumScreen.QuantumScreen10;
 import com.mygdx.game.screens.QuantumScreen.QuantumScreen11;
@@ -213,6 +214,7 @@ public class MyGdxGame extends Game {
 	public QuantumScreen9 quantumScreen9;
 	public QuantumScreen10 quantumScreen10;
 	public QuantumScreen11 quantumScreen11;
+//	public ModelWaterScreen modelWaterScreen;
 
 	public BitmapFont commonWhiteFont;
 	public BitmapFont commonRedFont;
@@ -333,11 +335,13 @@ public class MyGdxGame extends Game {
 		quantumScreen10 = new QuantumScreen10(this);
 		quantumScreen11 = new QuantumScreen11(this);
 
+//		modelWaterScreen = new ModelWaterScreen(this);
+
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT2_PATH);
 		commonRedFont = FontBuilder.generate(20, Color.RED, GameResources.FONT_PATH);
 		commonPinkFont = FontBuilder.generate(20, Color.PINK, GameResources.FONT2_PATH);
 
-		setScreen(mechanicsScreen41);
+		setScreen(quantumScreen7);
 
 	}
 	
@@ -450,6 +454,8 @@ public class MyGdxGame extends Game {
 		quantumScreen9.dispose();
 		quantumScreen10.dispose();
 		quantumScreen11.dispose();
+
+//		modelWaterScreen.dispose();
 
 	}
 }

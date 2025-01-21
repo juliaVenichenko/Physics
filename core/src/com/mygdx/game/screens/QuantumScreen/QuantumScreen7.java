@@ -4,25 +4,36 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.GameResources;
 import com.mygdx.game.GameSettings;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
+import com.mygdx.game.util.AnimationUtil;
 
 public class QuantumScreen7 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
     private TextView text1;
     private TextView text2;
-    private ButtonView image_7;
+//    private ButtonView image_7;
     private ButtonView button_left;
     private ButtonView button_right;
+    private Animation<TextureRegion> atom;
+    protected Array<TextureAtlas> textureAtlasArray;
+    private float timeAnimation;
+    private float curTime;
     public QuantumScreen7(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
+        curTime = 0;
+        timeAnimation = 0.0f;
     }
 
     @Override
@@ -35,17 +46,29 @@ public class QuantumScreen7 implements Screen {
                 "в которой электроны движутся по орбитам вокруг" + "\n" +
                 "положительно заряженного ядра.");
 
-        image_7 = new ButtonView(310, 40, 170, 180, GameResources.IMAGE_7);
+//        image_7 = new ButtonView(310, 40, 170, 180, GameResources.IMAGE_7);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+        initAnimation();
+    }
+
+    private void initAnimation(){
+        textureAtlasArray = new Array<>();
+        TextureAtlas atlas = new TextureAtlas("anim2.atlas");
+        atom = AnimationUtil.getAnimationFromAtlas(atlas, timeAnimation);
+        textureAtlasArray.add(atlas);
     }
 
     @Override
     public void render(float delta) {
         handleInput();
+        handleInputAnimation();
 
         ScreenUtils.clear(Color.CLEAR);
+
+        float dTime = Gdx.graphics.getDeltaTime();
+        curTime += dTime;
 
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
@@ -57,7 +80,12 @@ public class QuantumScreen7 implements Screen {
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
 
-        image_7.draw(myGdxGame.batch);
+        myGdxGame.batch.draw(
+                atom.getKeyFrame(curTime, true),
+                310, 40, 170f, 180f
+        );
+
+//        image_7.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -71,10 +99,28 @@ public class QuantumScreen7 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.quantumScreen8);
+                timeAnimation = 0f;
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.quantumScreen6);
+                timeAnimation = 0f;
+            }
+        }
+    }
 
+    private void handleInputAnimation(){
+        if (Gdx.input.justTouched()) {
+            Vector3 touchPos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+            myGdxGame.camera.unproject(touchPos);
+            if (touchPos.x >= 310 && touchPos.x <= 480 && touchPos.y >= 40 && touchPos.y <= 220) {
+                if (timeAnimation > 0f){
+                    timeAnimation -= 2.5f;//Math.max(0.01f, timeAnimation - 0.01f);
+                    initAnimation();
+                }
+                if (timeAnimation <= 0f){
+                    timeAnimation += 2.5f;
+                    initAnimation();
+                }
             }
         }
     }
@@ -85,7 +131,11 @@ public class QuantumScreen7 implements Screen {
         text1.dispose();
         text2.dispose();
 
-        image_7.dispose();
+        for (TextureAtlas atlas : textureAtlasArray) {
+            atlas.dispose();
+        }
+
+//        image_7.dispose();
 
         button_left.dispose();
         button_right.dispose();
