@@ -1,4 +1,4 @@
-package com.mygdx.game.screens;
+package com.mygdx.game.screens.ScreenWarning;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -10,26 +10,29 @@ import com.mygdx.game.GameResources;
 import com.mygdx.game.GameSettings;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
+import com.mygdx.game.components.TextView;
 
-public class MenuScreen implements Screen {
+public class ScreenWarning3 implements Screen {
     MyGdxGame myGdxGame;
     private Texture background;
-    private ButtonView startButton;
-    private ButtonView faqButton;
-    private ButtonView exitButton;
+    private ButtonView button;
+    private ButtonView button_back;
+    private TextView text;
+    private TextView text2;
 
-    public MenuScreen(MyGdxGame myGdxGame) {
+
+    public ScreenWarning3(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
-        background = new Texture(GameResources.BACKGROUND_MENU_IMG_PATH);
-
+        background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
     @Override
     public void show() {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
-        startButton = new ButtonView(10, 220, 290, 100, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Читать");
-        faqButton = new ButtonView(10, 380, 60, 100, GameResources.BUTTON_QUESTION_IMG_PATH);
-        exitButton = new ButtonView(10, 110, 290, 100, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Выход");
+        text = new TextView(myGdxGame.commonWhiteFont, 340, 400, "Внимание!");
+        text2 = new TextView(myGdxGame.commonRedFont, 130, 300, "Для того, чтобы выйти из просмотра 3д модели," + "\n" + "нажмите на любую область ПРАВОГО КРАЯ экрана!");
+        button = new ButtonView(250, 90, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Понятно");
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
     }
 
     @Override
@@ -45,9 +48,10 @@ public class MenuScreen implements Screen {
 
         myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
 
-        startButton.draw(myGdxGame.batch);
-        faqButton.draw(myGdxGame.batch);
-        exitButton.draw(myGdxGame.batch);
+        text.draw(myGdxGame.batch);
+        text2.draw(myGdxGame.batch);
+        button.draw(myGdxGame.batch);
+        button_back.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -56,15 +60,11 @@ public class MenuScreen implements Screen {
         if (Gdx.input.justTouched()) {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
-            if (startButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.menuScreen2);
-//                myGdxGame.audioManager.clickSound.play(0.2f);
+            if (button.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.modelCrystalLatticeScreen);
             }
-//            if (faqButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.);
-//            }
-            if (exitButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                Gdx.app.exit();
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuModels3d);
             }
         }
     }
@@ -72,9 +72,10 @@ public class MenuScreen implements Screen {
     @Override
     public void dispose() {
         background.dispose();
-        startButton.dispose();
-        faqButton.dispose();
-        exitButton.dispose();
+        text.dispose();
+        text2.dispose();
+        button.dispose();
+        button_back.dispose();
     }
 
     @Override

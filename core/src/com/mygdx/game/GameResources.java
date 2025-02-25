@@ -2,17 +2,10 @@ package com.mygdx.game;
 
 public class GameResources {
     public static final String BACKGROUND_MENU_IMG_PATH = "menu_background.png";
-    public static final String MENU_DOSKA_IMG_PATH = "menu_doska.png";
     public static final String BACKGROUND_DOSKA_IMG_PATH = "doska_background.png";
 
     //Button
-    public static final String BUTTON_VIOLET_IMG_PATH = "button_violet.png";
-    public static final String BUTTON_BLUE_IMG_PATH = "button_blue.png";
-    public static final String BUTTON_BROWN_IMG_PATH = "button_brown.png";
-    public static final String BUTTON_PINK_IMG_PATH = "button_pink.png";
-    public static final String BUTTON_RED_IMG_PATH = "button_red.png";
-    public static final String BUTTON_YELLO_IMG_PATH = "button_yello.png";
-
+    public static final String BUTTON_IMG_PATH = "button.png";
     public static final String BUTTON_QUESTION_IMG_PATH = "button_question.png";
 
 
@@ -73,7 +66,7 @@ public class GameResources {
     public static final String BUTTON_RIGHT_IMG_PATH = "button_right.png";
 
     //Button exit
-    public static final String BUTTON_EXIT_IMG_PATH = "button_exit.png";
+    public static final String BUTTON_BACK_IMG_PATH = "button_back.png";
 
     public static final String FONT_PATH = "fonts/font.ru_Montserrat.ttf";
     public static final String FONT2_PATH = "fonts/handwritten.ttf";

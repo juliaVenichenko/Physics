@@ -30,10 +30,10 @@ public class MechanicsScreen1 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
         text2 = new TextView(myGdxGame.commonWhiteFont, 305, 400, "ВИДЫ ДВИЖЕНИЯ");
         text3 = new TextView(myGdxGame.commonRedFont, 230, 350, "ПРЯМОЛИНЕЙНОЕ ДВИЖЕНИЕ");
-        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 140, "  Равномерное - движение, при котором тело за равные" + "\n" +
+        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 140, "Равномерное - движение, при котором тело за равные" + "\n" +
                 "промежутки времени проходит одинаковое расстояние" + "\n" +
                 "относительно других тел с течением времени." + "\n" +  "\n" + "\n" +
-                "   Неравномерное - движение, при котором тело за равные"  + "\n" + "промежутки времени проходит неодинаковое расстояние.");
+                "Неравномерное - движение, при котором тело за равные"  + "\n" + "промежутки времени проходит неодинаковое расстояние.");
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
     }

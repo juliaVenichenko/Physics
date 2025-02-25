@@ -43,7 +43,7 @@ public class MechanicsScreen41 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonPinkFont, 280, 400, "МЕХАНИЧЕСКИЕ КОЛЕБАНИЯ");
+        text1 = new TextView(myGdxGame.commonRedFont, 280, 400, "МЕХАНИЧЕСКИЕ КОЛЕБАНИЯ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 300, "Механические колебания - движения тел, повторяющиеся" + "\n" +
                 "через одинаковые промежутки времени.");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 240, "Период колебаний - интервал времени, через который" + "\n" + "движение повторяется:");

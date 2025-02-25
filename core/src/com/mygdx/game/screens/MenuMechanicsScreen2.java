@@ -34,13 +34,13 @@ public class MenuMechanicsScreen2 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        button_ten = new ButtonView(25, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH, "10. Виды энергии");
-        button_eleven = new ButtonView(275, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BLUE_IMG_PATH, "11. Простые" + "\n" + "  механизмы");
-        button_twelve = new ButtonView(515, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_YELLO_IMG_PATH, "12. Давление");
-        button_thirteen = new ButtonView(25, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_BROWN_IMG_PATH, "13. Закон Паскаля");
-        button_fourteen = new ButtonView(275, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_PINK_IMG_PATH, "14. Закон Архимеда");
-        button_fifteen = new ButtonView(515, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_VIOLET_IMG_PATH,"15. Звук");
-        button_sixteen = new ButtonView(275, 40, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_RED_IMG_PATH,"16. Механические" + "\n" + "       колебания");
+        button_ten = new ButtonView(25, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "10. Виды энергии");
+        button_eleven = new ButtonView(275, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "11. Простые" + "\n" + "  механизмы");
+        button_twelve = new ButtonView(515, 320, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "12. Давление");
+        button_thirteen = new ButtonView(25, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "13. Закон Паскаля");
+        button_fourteen = new ButtonView(275, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "14. Закон Архимеда");
+        button_fifteen = new ButtonView(515, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH,"15. Звук");
+        button_sixteen = new ButtonView(275, 40, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH,"16. Механические" + "\n" + "       колебания");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
     }
