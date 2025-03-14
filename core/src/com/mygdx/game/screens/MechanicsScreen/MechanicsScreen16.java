@@ -20,6 +20,8 @@ public class MechanicsScreen16 implements Screen {
     private ButtonView formula_7;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public MechanicsScreen16(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -30,14 +32,17 @@ public class MechanicsScreen16 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 270, 390, "ВТОРОЙ ЗАКОН НЬЮТОНА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "  Ускорение тела прямо пропорционально равнодействующей" + "\n" +
-                "сил, приложенных к телу, и обратно пропорционально его массе.");
+        text1 = new TextView(myGdxGame.commonRedFont, 285, 390, "ВТОРОЙ ЗАКОН НЬЮТОНА");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "Ускорение тела прямо пропорционально равнодействующей сил," + "\n" +
+                "приложенных к телу, и обратно пропорционально его массе.");
 
         formula_7 = new ButtonView(330, 60, 150, 150, GameResources.FORMULA_7_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -60,6 +65,9 @@ public class MechanicsScreen16 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -69,9 +77,18 @@ public class MechanicsScreen16 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen17);
+                myGdxGame.audioManager.sound13.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen15);
+                myGdxGame.audioManager.sound13.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
+                myGdxGame.audioManager.sound13.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound13.play();
 
             }
         }
@@ -85,8 +102,13 @@ public class MechanicsScreen16 implements Screen {
 
         formula_7.dispose();
 
+        myGdxGame.audioManager.sound13.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

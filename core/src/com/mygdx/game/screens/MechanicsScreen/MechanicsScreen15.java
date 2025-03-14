@@ -19,6 +19,8 @@ public class MechanicsScreen15 implements Screen {
     private TextView text2;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public MechanicsScreen15(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -29,13 +31,16 @@ public class MechanicsScreen15 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 270, 390, "ПЕРВЫЙ ЗАКОН НЬЮТОНА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Существуют такие системы отсчёта, относительно которых тела" + "\n" +
-                "сохраняют свою скорость неизменной (по модулю и направлению)," + "\n" +
-                "если на них не действуют другие тела или равнодействующая" + "\n" + "всех сил равна 0.");
+        text1 = new TextView(myGdxGame.commonRedFont, 285, 370, "ПЕРВЫЙ ЗАКОН НЬЮТОНА");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 200, "Существуют такие системы отсчёта, относительно которых" + "\n" +
+                "тела сохраняют свою скорость неизменной (по модулю и" + "\n" +
+                "направлению), если на них не действуют другие тела или" + "\n" + "равнодействующая всех сил равна 0.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -56,6 +61,9 @@ public class MechanicsScreen15 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -65,9 +73,18 @@ public class MechanicsScreen15 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen16);
+                myGdxGame.audioManager.sound12.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen14);
+                myGdxGame.audioManager.sound12.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
+                myGdxGame.audioManager.sound12.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound12.play();
 
             }
         }
@@ -79,8 +96,13 @@ public class MechanicsScreen15 implements Screen {
         text1.dispose();
         text2.dispose();
 
+        myGdxGame.audioManager.sound12.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

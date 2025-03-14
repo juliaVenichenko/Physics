@@ -32,7 +32,7 @@ public class ThermalScreen4 implements Screen {
 
         text1 = new TextView(myGdxGame.commonRedFont, 380, 400, "ГАЗЫ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 267, "  В газах расстояние между молекулами значительно больше их" + "\n" +
-                "размеров. Газы занимают весь предоставленный объём," + "\n" + "не сохраняют ни формы, ни объёма. ");
+                "размеров. Газы занимают весь предоставленный объём," + "\n" + "не сохраняют ни формы, ни объёма.");
 
         image_4 = new ButtonView(310, 40, 200, 180, GameResources.IMAGE_4);
 

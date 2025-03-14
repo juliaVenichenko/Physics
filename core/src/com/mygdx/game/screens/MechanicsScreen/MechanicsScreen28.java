@@ -33,7 +33,7 @@ public class MechanicsScreen28 implements Screen {
 
         text1 = new TextView(myGdxGame.commonWhiteFont, 310, 400, "ВИДЫ ЭНЕРГИИ");
         text2 = new TextView(myGdxGame.commonRedFont, 260, 320, "КИНЕТИЧЕСКАЯ ЭНЕРГИЯ");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 190, "  Кинетическая энергия тела - скалярная физическая велечина," + "\n" +
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 190, "  Кинетическая энергия тела - скалярная физическая величина," + "\n" +
                 "равная половине произведения массы тела на квадрат его" + "\n" + "скорости:");
 
         formula_14 = new ButtonView(280, 50, 250, 100, GameResources.FORMULA_14_IMG);

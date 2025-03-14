@@ -20,6 +20,8 @@ public class MechanicsScreen10 implements Screen {
     private TextView text3;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public MechanicsScreen10(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -30,14 +32,17 @@ public class MechanicsScreen10 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 200, 380, "ДВИЖЕНИЕ ТОЧКИ ПО ОКРУЖНОСТИ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 270, "  Движение по окружности - движение, повторяющееся через" + "\n" +
+        text1 = new TextView(myGdxGame.commonRedFont, 220, 380, "ДВИЖЕНИЕ ТОЧКИ ПО ОКРУЖНОСТИ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "Движение по окружности - движение, повторяющееся через" + "\n" +
                 "равные промежутки времени (периодически).");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 120, "  Вращательное движение - движение, при котором все точки" + "\n" +
-                "тела движутся по окружностям, центры которых лежат" + "\n" + "на одной прямой, называемой осью вращения.");
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 120, "Вращательное движение - движение, при котором все точки тела" + "\n" +
+                "движутся по окружностям, центры которых лежат на одной"  + "\n" + "прямой, называемой осью вращения.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -60,6 +65,9 @@ public class MechanicsScreen10 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -69,9 +77,18 @@ public class MechanicsScreen10 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen11);
+                myGdxGame.audioManager.sound8.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen9);
+                myGdxGame.audioManager.sound8.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
+                myGdxGame.audioManager.sound8.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound8.play();
 
             }
         }
@@ -84,8 +101,13 @@ public class MechanicsScreen10 implements Screen {
         text2.dispose();
         text3.dispose();
 
+        myGdxGame.audioManager.sound8.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

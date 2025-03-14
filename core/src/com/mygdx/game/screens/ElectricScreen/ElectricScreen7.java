@@ -32,7 +32,7 @@ public class ElectricScreen7 implements Screen {
 
         text1 = new TextView(myGdxGame.commonRedFont, 330, 400, "НАПРЯЖЕНИЕ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "  Напряжение - отношение работы тока A на определённом" + "\n" +
-                "участке электрической цепи к заряду q, протекающему по этому" + "\n" + "же участку цепи. ");
+                "участке электрической цепи к заряду q, протекающему по этому" + "\n" + "же участку цепи.");
 
         formula_29 = new ButtonView(300, 40, 220, 160, GameResources.FORMULA_29_IMG);
 

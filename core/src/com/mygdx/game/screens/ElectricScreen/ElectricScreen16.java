@@ -35,7 +35,7 @@ public class ElectricScreen16 implements Screen {
         text1 = new TextView(myGdxGame.commonRedFont, 240, 400, "ЭЛЕКТРОМАГНИТНЫЕ ВОЛНЫ");
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 310, "  Электромагнитная волна - возмущение электромагнитного поля," + "\n" +
                 "распространяющееся в пространстве.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Длина волны - кратчайшее растояние между двумя" + "\n" +
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Длина волны - кратчайшее расстояние между двумя" + "\n" +
                 "возмущениями, колеблющимися в одинаковой фазе:");
 
         formula_37 = new ButtonView(180, 30, 240, 150, GameResources.FORMULA_37_IMG);

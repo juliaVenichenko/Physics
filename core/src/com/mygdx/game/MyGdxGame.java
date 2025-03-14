@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen1;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen10;
 import com.mygdx.game.screens.ElectricScreen.ElectricScreen11;
@@ -238,6 +239,8 @@ public class MyGdxGame extends Game {
 	public BitmapFont commonWhiteFont;
 	public BitmapFont commonRedFont;
 
+	public AudioManager audioManager;
+
 	@Override
 	public void create () {
 		Box2D.init();
@@ -367,7 +370,9 @@ public class MyGdxGame extends Game {
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT2_PATH);
 		commonRedFont = FontBuilder.generate(20, Color.PINK, GameResources.FONT2_PATH);
 
-		setScreen(menuScreen);
+		audioManager = new AudioManager();
+
+		setScreen(mechanicsScreen25);
 
 	}
 	

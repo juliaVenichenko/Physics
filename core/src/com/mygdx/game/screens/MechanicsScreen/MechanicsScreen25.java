@@ -21,6 +21,8 @@ public class MechanicsScreen25 implements Screen {
     private TextView text4;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public MechanicsScreen25(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -31,15 +33,18 @@ public class MechanicsScreen25 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 205, 400, "ЗАКОН СОХРАНЕНИЯ ИМПУЛЬСА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "  В инерциальной системе отсчёта суммарный импульс замкнутой" + "\n" +
+        text1 = new TextView(myGdxGame.commonRedFont, 255, 400, "ЗАКОН СОХРАНЕНИЯ ИМПУЛЬСА");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 280, "В инерциальной системе отсчёта суммарный импульс замкнутой" + "\n" +
                 "системы тел остаётся постоянным при любых взаимодействиях" + "\n" + "тел между собой.");
-        text3 = new TextView(myGdxGame.commonRedFont, 205, 205, "ИМПУЛЬС МАТЕРИАЛЬНОЙ ТОЧКИ");
-        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 100, "  Импульс тела - векторная физическая велечина, равная" + "\n" +
+        text3 = new TextView(myGdxGame.commonRedFont, 245, 200, "ИМПУЛЬС МАТЕРИАЛЬНОЙ ТОЧКИ");
+        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 100, "Импульс тела - векторная физическая величина, равная" + "\n" +
                 "произведению массы тела на скорость его движения.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -62,6 +67,9 @@ public class MechanicsScreen25 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -71,9 +79,18 @@ public class MechanicsScreen25 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen26);
+                myGdxGame.audioManager.sound20.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen24);
+                myGdxGame.audioManager.sound20.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
+                myGdxGame.audioManager.sound20.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound20.play();
 
             }
         }
@@ -87,8 +104,13 @@ public class MechanicsScreen25 implements Screen {
         text3.dispose();
         text4.dispose();
 
+        myGdxGame.audioManager.sound20.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

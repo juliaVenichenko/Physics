@@ -19,6 +19,8 @@ public class MechanicsScreen4 implements Screen {
     private TextView text1;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
 
     public MechanicsScreen4(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -30,13 +32,15 @@ public class MechanicsScreen4 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 30, 230, "  Радиус-вектор - вектор, соединяющий начало отсчёта"  + "\n" +
-                "с положением материальной точки в произвольный"  + "\n" + "момент времени." + "\n" + "\n" + "\n" +
-                "   Относительность механического движения - зависимость"  + "\n" +
+        text1 = new TextView(myGdxGame.commonWhiteFont, 30, 140, "Радиус-вектор - вектор, соединяющий начало отсчёта"  + "\n" +
+                "с положением материальной точки в произвольный"  + "\n" + "момент времени." + "\n" + "\n" + "\n" + "\n" +
+                "Относительность механического движения - зависимость"  + "\n" +
                 "траектории движения тела, пройденного пути, перемещения"  + "\n" + "и скорости от выбора системы отсчёта.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
 
     }
 
@@ -57,6 +61,8 @@ public class MechanicsScreen4 implements Screen {
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -67,9 +73,18 @@ public class MechanicsScreen4 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen5);
+                myGdxGame.audioManager.sound4.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen3);
+                myGdxGame.audioManager.sound4.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
+                myGdxGame.audioManager.sound4.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound4.play();
 
             }
         }
@@ -80,8 +95,12 @@ public class MechanicsScreen4 implements Screen {
         background.dispose();
         text1.dispose();
 
+        myGdxGame.audioManager.sound4.dispose();
+
         button_left.dispose();
         button_right.dispose();
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

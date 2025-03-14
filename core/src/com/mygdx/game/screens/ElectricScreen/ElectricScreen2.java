@@ -31,7 +31,7 @@ public class ElectricScreen2 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         text1 = new TextView(myGdxGame.commonRedFont, 275, 400, "ЭЛЕКТРИЧЕСКИЙ ЗАРЯД");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 285, "  Электрический заряд - физическая велечина, определяющая" + "\n" +
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 285, "  Электрический заряд - физическая величина, определяющая" + "\n" +
                 "силу электромагнитного воздействия(измеряется в Кл).");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 150, "  Электрические заряды могут быть положительными и " + "\n" +
                 "отрицательными.");
