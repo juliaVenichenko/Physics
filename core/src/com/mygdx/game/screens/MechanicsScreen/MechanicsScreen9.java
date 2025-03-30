@@ -19,6 +19,7 @@ public class MechanicsScreen9 implements Screen {
     private ButtonView formula_5;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
     public MechanicsScreen9(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -34,6 +35,8 @@ public class MechanicsScreen9 implements Screen {
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
     }
 
     @Override
@@ -55,6 +58,8 @@ public class MechanicsScreen9 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -67,7 +72,9 @@ public class MechanicsScreen9 implements Screen {
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen8);
-
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
             }
         }
     }
@@ -80,6 +87,8 @@ public class MechanicsScreen9 implements Screen {
 
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
     }
 
     @Override

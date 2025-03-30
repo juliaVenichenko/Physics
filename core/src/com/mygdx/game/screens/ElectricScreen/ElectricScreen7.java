@@ -20,6 +20,8 @@ public class ElectricScreen7 implements Screen {
     private ButtonView formula_29;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public ElectricScreen7(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -30,14 +32,17 @@ public class ElectricScreen7 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 330, 400, "НАПРЯЖЕНИЕ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "  Напряжение - отношение работы тока A на определённом" + "\n" +
+        text1 = new TextView(myGdxGame.commonRedFont, 345, 400, "НАПРЯЖЕНИЕ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "Напряжение - отношение работы тока A на определённом" + "\n" +
                 "участке электрической цепи к заряду q, протекающему по этому" + "\n" + "же участку цепи.");
 
         formula_29 = new ButtonView(300, 40, 220, 160, GameResources.FORMULA_29_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -60,6 +65,9 @@ public class ElectricScreen7 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -69,10 +77,18 @@ public class ElectricScreen7 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.electricScreen8);
+                myGdxGame.audioManager.sound50.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.electricScreen6);
-
+                myGdxGame.audioManager.sound50.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuElectricScreen);
+                myGdxGame.audioManager.sound50.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound50.play();
             }
         }
     }
@@ -85,8 +101,13 @@ public class ElectricScreen7 implements Screen {
 
         formula_29.dispose();
 
+        myGdxGame.audioManager.sound50.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

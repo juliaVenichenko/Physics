@@ -21,6 +21,8 @@ public class ThermalScreen2 implements Screen {
     private ButtonView image_2;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public ThermalScreen2(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -31,15 +33,18 @@ public class ThermalScreen2 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonWhiteFont, 210, 400, "АГРЕГАТНЫЕ СОСТОЯНИЯ ВЕЩЕСТВА");
+        text1 = new TextView(myGdxGame.commonWhiteFont, 230, 400, "АГРЕГАТНЫЕ СОСТОЯНИЯ ВЕЩЕСТВА");
         text2 = new TextView(myGdxGame.commonRedFont, 330, 330, "ТВЁРДЫЕ ТЕЛА");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 210, "  В твёрдых телах молекулы совершают беспорядочные" + "\n" +
-                "колебания около фиксированных центров" + "\n" + "(положений равновесия).");
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 230, "В твёрдых телах молекулы совершают беспорядочные колебания" + "\n" +
+                "около фиксированных центров (положений равновесия).");
 
-        image_2 = new ButtonView(320, 20, 200, 180, GameResources.IMAGE_2);
+        image_2 = new ButtonView(310, 20, 200, 180, GameResources.IMAGE_2);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -62,6 +67,9 @@ public class ThermalScreen2 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -71,9 +79,18 @@ public class ThermalScreen2 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.thermalScreen3);
+                myGdxGame.audioManager.sound35.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.thermalScreen1);
+                myGdxGame.audioManager.sound35.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuThermalScreen);
+                myGdxGame.audioManager.sound35.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound35.play();
 
             }
         }
@@ -87,8 +104,13 @@ public class ThermalScreen2 implements Screen {
         text3.dispose();
         image_2.dispose();
 
+        myGdxGame.audioManager.sound35.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

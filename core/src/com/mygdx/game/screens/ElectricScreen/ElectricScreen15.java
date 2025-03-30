@@ -19,6 +19,7 @@ public class ElectricScreen15 implements Screen {
     private ButtonView image_5;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
     public ElectricScreen15(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -29,12 +30,14 @@ public class ElectricScreen15 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 280, 400, "ПРАВИЛО ЛЕВОЙ РУКИ");
+        text1 = new TextView(myGdxGame.commonRedFont, 290, 400, "ПРАВИЛО ЛЕВОЙ РУКИ");
 
         image_5 = new ButtonView(190, 30, 410, 320, GameResources.IMAGE_5);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
     }
 
     @Override
@@ -56,6 +59,8 @@ public class ElectricScreen15 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -68,7 +73,9 @@ public class ElectricScreen15 implements Screen {
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.electricScreen14);
-
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuElectricScreen2);
             }
         }
     }
@@ -82,6 +89,8 @@ public class ElectricScreen15 implements Screen {
 
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
     }
 
     @Override

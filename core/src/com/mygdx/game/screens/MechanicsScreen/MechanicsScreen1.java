@@ -36,6 +36,7 @@ public class MechanicsScreen1 implements Screen {
                 "относительно других тел с течением времени." + "\n" +  "\n" + "\n" + "\n" +
                 "Неравномерное - движение, при котором тело за равные"  + "\n" + "промежутки времени проходит неодинаковое расстояние.");
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
         button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
         button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }

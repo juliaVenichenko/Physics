@@ -21,6 +21,8 @@ public class ElectricScreen21 implements Screen {
     private TextView text4;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public ElectricScreen21(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -31,16 +33,19 @@ public class ElectricScreen21 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 350, 400, "ЛИНЗЫ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 300, "  Линза - прозрачное тело, ограниченное двумя сферическими" + "\n" +
+        text1 = new TextView(myGdxGame.commonRedFont, 365, 400, "ЛИНЗЫ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 300, "Линза - прозрачное тело, ограниченное двумя сферическими" + "\n" +
                 "поверхностями.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 200, "  Собирающие линзы (выпуклые) - линзы, преобразующие" + "\n" +
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 200, "Собирающие линзы (выпуклые) - линзы, преобразующие" + "\n" +
                 "параллельный пучок световых лучей в сходящийся.");
-        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 90, "  Рассеивающие линзы (вогнутые) - линзы, преобразующие" + "\n" +
+        text4 = new TextView(myGdxGame.commonWhiteFont, 30, 90, "Рассеивающие линзы (вогнутые) - линзы, преобразующие" + "\n" +
                 "параллельный пучок световых лучей в расходящийся.");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -63,6 +68,9 @@ public class ElectricScreen21 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -72,10 +80,18 @@ public class ElectricScreen21 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.electricScreen22);
+                myGdxGame.audioManager.sound62.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.electricScreen20);
-
+                myGdxGame.audioManager.sound62.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuElectricScreen2);
+                myGdxGame.audioManager.sound62.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound62.play();
             }
         }
     }
@@ -88,8 +104,13 @@ public class ElectricScreen21 implements Screen {
         text3.dispose();
         text4.dispose();
 
+        myGdxGame.audioManager.sound62.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

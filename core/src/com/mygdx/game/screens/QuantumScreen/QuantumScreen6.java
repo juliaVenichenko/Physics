@@ -20,6 +20,7 @@ public class QuantumScreen6 implements Screen {
     private ButtonView formula_42;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
     public QuantumScreen6(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -30,13 +31,15 @@ public class QuantumScreen6 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 300, 400, "ИМПУЛЬС ФОТОНА");
+        text1 = new TextView(myGdxGame.commonRedFont, 310, 400, "ИМПУЛЬС ФОТОНА");
 
         formula_41 = new ButtonView(60, 120, 320, 190, GameResources.FORMULA_41_IMG);
         formula_42 = new ButtonView(400, 120, 350, 190, GameResources.FORMULA_42_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
     }
 
     @Override
@@ -60,6 +63,8 @@ public class QuantumScreen6 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -72,7 +77,9 @@ public class QuantumScreen6 implements Screen {
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.quantumScreen5);
-
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuQuantumScreen);
             }
         }
     }
@@ -87,6 +94,8 @@ public class QuantumScreen6 implements Screen {
 
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
     }
 
     @Override

@@ -27,6 +27,8 @@ public class MechanicsScreen41 implements Screen {
 //    private ButtonView rectangle;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     private Animation<TextureRegion> pendulum;
     protected Array<TextureAtlas> textureAtlasArray;
     private float timeAnimation;
@@ -44,15 +46,18 @@ public class MechanicsScreen41 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         text1 = new TextView(myGdxGame.commonRedFont, 280, 400, "МЕХАНИЧЕСКИЕ КОЛЕБАНИЯ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 300, "Механические колебания - движения тел, повторяющиеся" + "\n" +
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 310, "Механические колебания - движения тел, повторяющиеся" + "\n" +
                 "через одинаковые промежутки времени.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 240, "Период колебаний - интервал времени, через который" + "\n" + "движение повторяется:");
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 230, "Период колебаний - интервал времени, через который" + "\n" + "движение повторяется.");
 
 //        formula_21 = new ButtonView(200, 30, 400, 130, GameResources.FORMULA_21_IMG);
 //        rectangle = new ButtonView(200, 30, 480, 200, GameResources.RECTANGLE);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
 
         initAnimation();
     }
@@ -95,6 +100,9 @@ public class MechanicsScreen41 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -105,10 +113,22 @@ public class MechanicsScreen41 implements Screen {
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen42);
                 timeAnimation = 0f;
+                myGdxGame.audioManager.sound32.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen40);
                 timeAnimation = 0f;
+                myGdxGame.audioManager.sound32.stop();
+            }
+
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
+                myGdxGame.audioManager.sound32.stop();
+                timeAnimation = 0f;
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound32.play();
+
             }
         }
     }
@@ -118,11 +138,11 @@ public class MechanicsScreen41 implements Screen {
             myGdxGame.camera.unproject(touchPos);
             if (touchPos.x >= 150 && touchPos.x <= 530 && touchPos.y >= 30 && touchPos.y <= 230) {
                 if (timeAnimation > 0f){
-                timeAnimation -= 2f;//Math.max(0.01f, timeAnimation - 0.01f);
+                timeAnimation -= 2.5f;//Math.max(0.01f, timeAnimation - 0.01f);
                 initAnimation();
                 }
                 if (timeAnimation <= 0f){
-                    timeAnimation += 2f;
+                    timeAnimation += 2.5f;
                     initAnimation();
                 }
             }
@@ -146,6 +166,11 @@ public class MechanicsScreen41 implements Screen {
 
         button_left.dispose();
         button_right.dispose();
+
+        myGdxGame.audioManager.sound32.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

@@ -22,6 +22,8 @@ public class ElectricScreen16 implements Screen {
     private ButtonView formula_38;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public ElectricScreen16(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -32,10 +34,10 @@ public class ElectricScreen16 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 240, 400, "ЭЛЕКТРОМАГНИТНЫЕ ВОЛНЫ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 310, "  Электромагнитная волна - возмущение электромагнитного поля," + "\n" +
+        text1 = new TextView(myGdxGame.commonRedFont, 270, 400, "ЭЛЕКТРОМАГНИТНЫЕ ВОЛНЫ");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 310, "Электромагнитная волна - возмущение электромагнитного поля," + "\n" +
                 "распространяющееся в пространстве.");
-        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "  Длина волны - кратчайшее расстояние между двумя" + "\n" +
+        text3 = new TextView(myGdxGame.commonWhiteFont, 30, 220, "Длина волны - кратчайшее расстояние между двумя" + "\n" +
                 "возмущениями, колеблющимися в одинаковой фазе:");
 
         formula_37 = new ButtonView(180, 30, 240, 150, GameResources.FORMULA_37_IMG);
@@ -43,6 +45,9 @@ public class ElectricScreen16 implements Screen {
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -67,6 +72,9 @@ public class ElectricScreen16 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -76,10 +84,18 @@ public class ElectricScreen16 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.electricScreen17);
+                myGdxGame.audioManager.sound58.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.electricScreen15);
-
+                myGdxGame.audioManager.sound58.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuElectricScreen2);
+                myGdxGame.audioManager.sound58.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound58.play();
             }
         }
     }
@@ -94,8 +110,13 @@ public class ElectricScreen16 implements Screen {
         formula_37.dispose();
         formula_38.dispose();
 
+        myGdxGame.audioManager.sound58.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

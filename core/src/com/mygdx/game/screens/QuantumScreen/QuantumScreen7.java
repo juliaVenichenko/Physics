@@ -29,6 +29,8 @@ public class QuantumScreen7 implements Screen {
     protected Array<TextureAtlas> textureAtlasArray;
     private float timeAnimation;
     private float curTime;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public QuantumScreen7(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -41,15 +43,18 @@ public class QuantumScreen7 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        text1 = new TextView(myGdxGame.commonRedFont, 305, 400, "МОДЕЛЬ АТОМА");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "   Атом представляет собой подобие планетной системы," + "\n" +
-                "в которой электроны движутся по орбитам вокруг" + "\n" +
-                "положительно заряженного ядра.");
+        text1 = new TextView(myGdxGame.commonRedFont, 320, 400, "МОДЕЛЬ АТОМА");
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "Атом представляет собой подобие планетной системы, в" + "\n" +
+                "которой электроны движутся по орбитам вокруг положительно" + "\n" + "заряженного ядра.");
 
 //        image_7 = new ButtonView(310, 40, 170, 180, GameResources.IMAGE_7);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
+
         initAnimation();
     }
 
@@ -90,6 +95,9 @@ public class QuantumScreen7 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -100,10 +108,20 @@ public class QuantumScreen7 implements Screen {
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.quantumScreen8);
                 timeAnimation = 0f;
+                myGdxGame.audioManager.sound68.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.quantumScreen6);
                 timeAnimation = 0f;
+                myGdxGame.audioManager.sound68.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuQuantumScreen);
+                timeAnimation = 0f;
+                myGdxGame.audioManager.sound68.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound68.play();
             }
         }
     }
@@ -135,10 +153,16 @@ public class QuantumScreen7 implements Screen {
             atlas.dispose();
         }
 
+        myGdxGame.audioManager.sound68.dispose();
+
 //        image_7.dispose();
 
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
+
     }
 
     @Override

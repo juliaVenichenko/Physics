@@ -20,6 +20,8 @@ public class ThermalScreen4 implements Screen {
     private ButtonView image_4;
     private ButtonView button_left;
     private ButtonView button_right;
+    private ButtonView button_back;
+    private ButtonView button_sound;
     public ThermalScreen4(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -31,13 +33,16 @@ public class ThermalScreen4 implements Screen {
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         text1 = new TextView(myGdxGame.commonRedFont, 380, 400, "ГАЗЫ");
-        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 267, "  В газах расстояние между молекулами значительно больше их" + "\n" +
+        text2 = new TextView(myGdxGame.commonWhiteFont, 30, 267, "В газах расстояние между молекулами значительно больше их" + "\n" +
                 "размеров. Газы занимают весь предоставленный объём," + "\n" + "не сохраняют ни формы, ни объёма.");
 
-        image_4 = new ButtonView(310, 40, 200, 180, GameResources.IMAGE_4);
+        image_4 = new ButtonView(300, 40, 200, 180, GameResources.IMAGE_4);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+
+        button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+        button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
     }
 
     @Override
@@ -59,6 +64,9 @@ public class ThermalScreen4 implements Screen {
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
 
+        button_back.draw(myGdxGame.batch);
+        button_sound.draw(myGdxGame.batch);
+
         myGdxGame.batch.end();
     }
 
@@ -68,9 +76,18 @@ public class ThermalScreen4 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.thermalScreen5);
+                myGdxGame.audioManager.sound37.stop();
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.thermalScreen3);
+                myGdxGame.audioManager.sound37.stop();
+            }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuThermalScreen);
+                myGdxGame.audioManager.sound37.stop();
+            }
+            if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.audioManager.sound37.play();
 
             }
         }
@@ -83,8 +100,13 @@ public class ThermalScreen4 implements Screen {
         text2.dispose();
         image_4.dispose();
 
+        myGdxGame.audioManager.sound37.dispose();
+
         button_left.dispose();
         button_right.dispose();
+
+        button_back.dispose();
+        button_sound.dispose();
     }
 
     @Override

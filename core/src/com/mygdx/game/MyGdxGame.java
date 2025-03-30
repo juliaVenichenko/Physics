@@ -372,7 +372,7 @@ public class MyGdxGame extends Game {
 
 		audioManager = new AudioManager();
 
-		setScreen(mechanicsScreen25);
+		setScreen(quantumScreen11);
 
 	}
 	
