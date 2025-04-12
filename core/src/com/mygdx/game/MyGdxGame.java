@@ -84,6 +84,7 @@ import com.mygdx.game.screens.MenuModels3d;
 import com.mygdx.game.screens.MenuQuantumScreen;
 import com.mygdx.game.screens.MenuScreen;
 import com.mygdx.game.screens.MenuScreen2;
+import com.mygdx.game.screens.MenuTestScreen;
 import com.mygdx.game.screens.MenuThermalScreen;
 //import com.mygdx.game.screens.ModelScreen.ModelWaterScreen;
 import com.mygdx.game.screens.Models3dScreen.ModelAtomScreen;
@@ -118,6 +119,9 @@ import com.mygdx.game.screens.ThermalScreen.ThermalScreen6;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen7;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen8;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen9;
+import com.mygdx.game.screens.tests.TestMechanics1;
+import com.mygdx.game.screens.tests.TestMechanics2;
+import com.mygdx.game.screens.tests.TestMechanicsFinish;
 
 
 public class MyGdxGame extends Game {
@@ -240,6 +244,12 @@ public class MyGdxGame extends Game {
 	public BitmapFont commonRedFont;
 
 	public AudioManager audioManager;
+
+
+	public MenuTestScreen menuTestScreen;
+	public TestMechanics1 testMechanics1;
+	public TestMechanics2 testMechanics2;
+	public TestMechanicsFinish testMechanicsFinish;
 
 	@Override
 	public void create () {
@@ -367,12 +377,18 @@ public class MyGdxGame extends Game {
 		screenWarning3 = new ScreenWarning3(this);
 		screenWarning4 = new ScreenWarning4(this);
 
+
+		menuTestScreen = new MenuTestScreen(this);
+		testMechanics1 = new TestMechanics1(this);
+		testMechanics2 = new TestMechanics2(this);
+		testMechanicsFinish = new TestMechanicsFinish(this);
+
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT2_PATH);
 		commonRedFont = FontBuilder.generate(20, Color.PINK, GameResources.FONT2_PATH);
 
 		audioManager = new AudioManager();
 
-		setScreen(quantumScreen11);
+		setScreen(menuScreen);
 
 	}
 	
@@ -496,6 +512,11 @@ public class MyGdxGame extends Game {
 		screenWarning2.dispose();
 		screenWarning3.dispose();
 		screenWarning4.dispose();
+
+		menuTestScreen.dispose();
+		testMechanics1.dispose();
+		testMechanics2.dispose();
+		testMechanicsFinish.dispose();
 
 	}
 }
