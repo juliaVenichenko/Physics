@@ -1,4 +1,4 @@
-package com.mygdx.game.screens.tests;
+package com.mygdx.game.screens.tests.testMechanics;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;

@@ -1,4 +1,4 @@
-package com.mygdx.game.screens.tests;
+package com.mygdx.game.screens.tests.testMechanics;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -11,6 +11,8 @@ import com.mygdx.game.GameSettings;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
+import com.mygdx.game.screens.tests.testMechanics.TestMechanics1;
+import com.mygdx.game.screens.tests.testMechanics.TestMechanics2;
 
 public class TestMechanicsFinish implements Screen {
     MyGdxGame myGdxGame;
