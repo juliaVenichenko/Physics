@@ -119,9 +119,15 @@ import com.mygdx.game.screens.ThermalScreen.ThermalScreen6;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen7;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen8;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen9;
+import com.mygdx.game.screens.tests.testElectric.TestElectric1;
+import com.mygdx.game.screens.tests.testElectric.TestElectric2;
+import com.mygdx.game.screens.tests.testElectric.TestElectricFinish;
 import com.mygdx.game.screens.tests.testMechanics.TestMechanics1;
 import com.mygdx.game.screens.tests.testMechanics.TestMechanics2;
 import com.mygdx.game.screens.tests.testMechanics.TestMechanicsFinish;
+import com.mygdx.game.screens.tests.testQuantum.TestQuantum1;
+import com.mygdx.game.screens.tests.testQuantum.TestQuantum2;
+import com.mygdx.game.screens.tests.testQuantum.TestQuantumFinish;
 import com.mygdx.game.screens.tests.testThermal.TestThermal1;
 import com.mygdx.game.screens.tests.testThermal.TestThermal2;
 import com.mygdx.game.screens.tests.testThermal.TestThermalFinish;
@@ -258,6 +264,14 @@ public class MyGdxGame extends Game {
 	public TestThermal1 testThermal1;
 	public TestThermal2 testThermal2;
 	public TestThermalFinish testThermalFinish;
+
+	public TestElectric1 testElectric1;
+	public TestElectric2 testElectric2;
+	public TestElectricFinish testElectricFinish;
+
+	public TestQuantum1 testQuantum1;
+	public TestQuantum2 testQuantum2;
+	public TestQuantumFinish testQuantumFinish;
 
 	@Override
 	public void create () {
@@ -396,12 +410,20 @@ public class MyGdxGame extends Game {
 		testThermal2 = new TestThermal2(this);
 		testThermalFinish = new TestThermalFinish(this);
 
+		testElectric1 = new TestElectric1(this);
+		testElectric2 = new TestElectric2(this);
+		testElectricFinish = new TestElectricFinish(this);
+
+		testQuantum1 = new TestQuantum1(this);
+		testQuantum2 = new TestQuantum2(this);
+		testQuantumFinish = new TestQuantumFinish(this);
+
 		commonWhiteFont = FontBuilder.generate(20, Color.WHITE, GameResources.FONT2_PATH);
 		commonRedFont = FontBuilder.generate(20, Color.PINK, GameResources.FONT2_PATH);
 
 		audioManager = new AudioManager();
 
-		setScreen(testThermalFinish);
+		setScreen(testQuantumFinish);
 
 	}
 	
@@ -535,6 +557,14 @@ public class MyGdxGame extends Game {
 		testThermal1.dispose();
 		testThermal2.dispose();
 		testThermalFinish.dispose();
+
+		testElectric1.dispose();
+		testElectric2.dispose();
+		testElectricFinish.dispose();
+
+		testQuantum1.dispose();
+		testQuantum2.dispose();
+		testQuantumFinish.dispose();
 
 	}
 }

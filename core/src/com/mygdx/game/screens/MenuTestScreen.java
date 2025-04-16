@@ -81,14 +81,12 @@ public class MenuTestScreen implements Screen {
             if (button_two.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.testThermal1);
             }
-//            if (button_three.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.quantumScreen5);
-//
-//            }
-//            if (button_four.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.quantumScreen6);
-//
-//            }
+            if (button_three.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.testElectric1);
+            }
+            if (button_four.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.testQuantum1);
+            }
         }
     }
 

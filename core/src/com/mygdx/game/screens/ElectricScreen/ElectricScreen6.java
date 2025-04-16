@@ -18,7 +18,7 @@ public class ElectricScreen6 implements Screen {
     private TextView text1;
     private TextView text2;
     private TextView text3;
-    private ButtonView formula_28;
+//    private ButtonView formula_28;
     private ButtonView button_left;
     private ButtonView button_right;
     private ButtonView button_back;
@@ -38,7 +38,7 @@ public class ElectricScreen6 implements Screen {
                 "которого не изменяются с течением времени.");
         text3 = new TextView(myGdxGame.commonRedFont, 330, 200, "СИЛА ТОКА :");
 
-        formula_28 = new ButtonView(310, 40, 180, 120, GameResources.FORMULA_28_IMG);
+//        formula_28 = new ButtonView(310, 40, 180, 120, GameResources.FORMULA_28_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
@@ -64,7 +64,7 @@ public class ElectricScreen6 implements Screen {
         text3.draw(myGdxGame.batch);
 
 
-        formula_28.draw(myGdxGame.batch);
+//        formula_28.draw(myGdxGame.batch);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -104,7 +104,7 @@ public class ElectricScreen6 implements Screen {
         text2.dispose();
         text3.dispose();
 
-        formula_28.dispose();
+//        formula_28.dispose();
 
         myGdxGame.audioManager.sound49.dispose();
 
