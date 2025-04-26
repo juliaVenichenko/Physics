@@ -37,13 +37,12 @@ public class ModelCrystalLatticeScreen implements Screen {
         modelBatch = new ModelBatch();
 
         camera = new PerspectiveCamera(50, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(10f, 1f, 1f);
-        camera.lookAt(0, 2, 0);
+        camera.position.set(30f, 1f, 1f);
+        camera.lookAt(5, 4, 0);
         camera.near = 1f;
         camera.far = 300f;
         camera.update();
 
-//        ModelBuilder modelBuilder = new ModelBuilder();
         model = new G3dModelLoader(new JsonReader()).loadModel(Gdx.files.internal("models/crystal_lattice.g3dj"));
         instance = new ModelInstance(model);
 

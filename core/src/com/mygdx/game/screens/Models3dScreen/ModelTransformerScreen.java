@@ -43,7 +43,6 @@ public class ModelTransformerScreen implements Screen {
         camera.far = 300f;
         camera.update();
 
-//        ModelBuilder modelBuilder = new ModelBuilder();
         model = new G3dModelLoader(new JsonReader()).loadModel(Gdx.files.internal("models/transformer.g3dj"));
         instance = new ModelInstance(model);
 

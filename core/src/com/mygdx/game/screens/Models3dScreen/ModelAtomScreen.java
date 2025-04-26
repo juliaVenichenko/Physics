@@ -39,12 +39,11 @@ public class ModelAtomScreen implements Screen {
 
         camera = new PerspectiveCamera(50, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.position.set(10f, 1f, 1f);
-        camera.lookAt(0, 2, 0);
+        camera.lookAt(0, 4, 0);
         camera.near = 1f;
         camera.far = 300f;
         camera.update();
 
-//        ModelBuilder modelBuilder = new ModelBuilder();
         model = new G3dModelLoader(new JsonReader()).loadModel(Gdx.files.internal("models/atom.g3dj"));
         instance = new ModelInstance(model);
 
