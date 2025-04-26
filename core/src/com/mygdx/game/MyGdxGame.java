@@ -423,7 +423,7 @@ public class MyGdxGame extends Game {
 
 		audioManager = new AudioManager();
 
-		setScreen(testQuantumFinish);
+		setScreen(menuScreen);
 
 	}
 	
