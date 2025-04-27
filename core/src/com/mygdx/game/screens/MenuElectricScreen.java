@@ -25,6 +25,7 @@ public class MenuElectricScreen implements Screen {
     private ButtonView button_nine;
 
     private ButtonView button_right;
+    private ButtonView button_back;
 
     public MenuElectricScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -35,17 +36,18 @@ public class MenuElectricScreen implements Screen {
     public void show() {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
-        button_one = new ButtonView(25, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "1. Электризация" + "\n" + "           тел");
-        button_two = new ButtonView(275, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "2. Электрический" + "\n" + "            заряд");
+        button_one = new ButtonView(25, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "1. Электризация" + "\n" + "        тел");
+        button_two = new ButtonView(275, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "2. Электрический" + "\n" + "         заряд");
         button_three = new ButtonView(515, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "3. Закон Кулона");
-        button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "4. Электрическое" + "\n" + "            поле");
-        button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "5. Постоянный" + "\n" + "электрический" + "\n" + "           ток");
+        button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "4. Электрическое" + "\n" + "         поле");
+        button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "5. Постоянный" + "\n" + "электрический" + "\n" + "        ток");
         button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "6. Напряжение");
-        button_seven = new ButtonView(25, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "7. Электрическое" + "\n" + "   сопротивление");
+        button_seven = new ButtonView(25, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "7. Электрическое" + "\n" + "  сопротивление");
         button_eight = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "8. Закон Ома");
-        button_nine = new ButtonView(515, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "   9. Мощность" + "\n" + "электрического" + "\n" + "           тока");
+        button_nine = new ButtonView(515, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "   9. Мощность" + "\n" + "электрического" + "\n" + "        тока");
 
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+        button_back = new ButtonView(25, 20, 60, 60, GameResources.BUTTON_BACK_IMG_PATH);
     }
 
     @Override
@@ -72,6 +74,7 @@ public class MenuElectricScreen implements Screen {
         button_nine.draw(myGdxGame.batch);
 
         button_right.draw(myGdxGame.batch);
+        button_back.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -120,6 +123,10 @@ public class MenuElectricScreen implements Screen {
                 myGdxGame.setScreen(myGdxGame.electricScreen11);
 
             }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuScreen2);
+
+            }
         }
     }
 
@@ -137,6 +144,7 @@ public class MenuElectricScreen implements Screen {
         button_nine.dispose();
 
         button_right.dispose();
+        button_back.dispose();
     }
 
     @Override

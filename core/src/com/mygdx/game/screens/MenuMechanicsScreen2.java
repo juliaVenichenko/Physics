@@ -40,7 +40,7 @@ public class MenuMechanicsScreen2 implements Screen {
         button_thirteen = new ButtonView(25, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "13. Закон Паскаля");
         button_fourteen = new ButtonView(275, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "14. Закон Архимеда");
         button_fifteen = new ButtonView(515, 180, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH,"15. Звук");
-        button_sixteen = new ButtonView(275, 40, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH,"16. Механические" + "\n" + "       колебания");
+        button_sixteen = new ButtonView(275, 40, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH,"16. Механические" + "\n" + "     колебания");
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
     }

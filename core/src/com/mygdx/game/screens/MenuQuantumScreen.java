@@ -21,6 +21,7 @@ public class MenuQuantumScreen implements Screen {
     private ButtonView button_five;
     private ButtonView button_six;
     private ButtonView button_seven;
+    private ButtonView button_back;
 
     public MenuQuantumScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -36,8 +37,10 @@ public class MenuQuantumScreen implements Screen {
         button_three = new ButtonView(515, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "3. Фотоны");
         button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "4. Импульс фотона");
         button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "5. Модель атома");
-        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "6. Состав атомного ядра");
+        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "   6. Состав" + "\n" + "атомного ядра");
         button_seven = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "7. Ядерные реакции");
+
+        button_back = new ButtonView(25, 20, 60, 60, GameResources.BUTTON_BACK_IMG_PATH);
 
     }
 
@@ -61,6 +64,8 @@ public class MenuQuantumScreen implements Screen {
         button_five.draw(myGdxGame.batch);
         button_six.draw(myGdxGame.batch);
         button_seven.draw(myGdxGame.batch);
+
+        button_back.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -97,6 +102,10 @@ public class MenuQuantumScreen implements Screen {
                 myGdxGame.setScreen(myGdxGame.quantumScreen11);
 
             }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuScreen2);
+
+            }
         }
     }
 
@@ -110,6 +119,8 @@ public class MenuQuantumScreen implements Screen {
         button_five.dispose();
         button_six.dispose();
         button_seven.dispose();
+
+        button_back.dispose();
     }
 
     @Override

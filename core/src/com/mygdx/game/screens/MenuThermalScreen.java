@@ -21,6 +21,7 @@ public class MenuThermalScreen implements Screen {
     private ButtonView button_five;
     private ButtonView button_six;
     private ButtonView button_seven;
+    private ButtonView button_back;
 
     public MenuThermalScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -32,13 +33,14 @@ public class MenuThermalScreen implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
         button_one = new ButtonView(25, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "1. Молекулы");
-        button_two = new ButtonView(275, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "2. Агрегатные" + "\n" + "     состояния" + "\n" + "     вещества");
+        button_two = new ButtonView(275, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "2. Агрегатные" + "\n" + "   состояния" + "\n" + "   вещества");
         button_three = new ButtonView(515, 340, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "3. Тепловое" + "\n" + " равновесие");
-        button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "4. Внутренняя" + "\n" + "      энергия");
+        button_four = new ButtonView(25, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "4. Внутренняя" + "\n" + "     энергия");
         button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "5. Теплопередача");
-        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "6. Количество" + "\n" + "      теплоты");
-        button_seven = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "7. Удельная" + "\n" + "    теплота");
+        button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "6. Количество" + "\n" + "    теплоты");
+        button_seven = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "7. Удельная" + "\n" + "  теплота");
 
+        button_back = new ButtonView(25, 20, 60, 60, GameResources.BUTTON_BACK_IMG_PATH);
     }
 
     @Override
@@ -61,6 +63,8 @@ public class MenuThermalScreen implements Screen {
         button_five.draw(myGdxGame.batch);
         button_six.draw(myGdxGame.batch);
         button_seven.draw(myGdxGame.batch);
+
+        button_back.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -97,6 +101,10 @@ public class MenuThermalScreen implements Screen {
                 myGdxGame.setScreen(myGdxGame.thermalScreen13);
 
             }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuScreen2);
+
+            }
         }
     }
 
@@ -110,6 +118,8 @@ public class MenuThermalScreen implements Screen {
         button_five.dispose();
         button_six.dispose();
         button_seven.dispose();
+
+        button_back.dispose();
     }
 
     @Override

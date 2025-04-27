@@ -25,6 +25,7 @@ public class MenuMechanicsScreen implements Screen {
     private ButtonView button_nine;
 
     private ButtonView button_right;
+    private ButtonView button_back;
 
     public MenuMechanicsScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -41,10 +42,11 @@ public class MenuMechanicsScreen implements Screen {
         button_five = new ButtonView(275, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "5. Сила трения");
         button_six = new ButtonView(515, 210, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "6. Деформация");
         button_seven = new ButtonView(25, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "7. Сила притяжения");
-        button_eight = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "8. Закон" + "\n" + "сохранения" + "\n" + " импульса");
-        button_nine = new ButtonView(515, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "9. Механическая" + "\n" + "         работа");
+        button_eight = new ButtonView(275, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "  8. Закон" + "\n" + "сохранения" + "\n" + " импульса");
+        button_nine = new ButtonView(515, 80, 235, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "9. Механическая" + "\n" + "       работа");
 
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
+        button_back = new ButtonView(25, 20, 60, 60, GameResources.BUTTON_BACK_IMG_PATH);
 
     }
 
@@ -72,6 +74,7 @@ public class MenuMechanicsScreen implements Screen {
         button_nine.draw(myGdxGame.batch);
 
         button_right.draw(myGdxGame.batch);
+        button_back.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -120,6 +123,10 @@ public class MenuMechanicsScreen implements Screen {
                 myGdxGame.setScreen(myGdxGame.menuMechanicsScreen2);
 
             }
+            if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.menuScreen2);
+
+            }
         }
     }
 
@@ -137,6 +144,7 @@ public class MenuMechanicsScreen implements Screen {
         button_nine.dispose();
 
         button_right.dispose();
+        button_back.dispose();
 
     }
 
