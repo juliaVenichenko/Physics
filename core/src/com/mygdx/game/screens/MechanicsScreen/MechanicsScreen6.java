@@ -38,7 +38,7 @@ public class MechanicsScreen6 implements Screen {
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 270, "Равномерное прямолинейное движение - движение, при котором" + "\n" +
                 "тело за любые равные промежутки времени проходит равные" + "\n" + "расстояния.");
         text3 = new TextView(myGdxGame.commonWhiteFont, 200, 190, "Зависимость координаты от времени");
-        formula_1 = new ImageView(280, 70, 250, 70, GameResources.FORMULA_1_IMG);
+        formula_1 = new ImageView(270, 70, 250, 70, GameResources.FORMULA_1_IMG);
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);

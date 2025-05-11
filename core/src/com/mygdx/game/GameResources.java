@@ -7,17 +7,20 @@ public class GameResources {
     //Button
     public static final String BUTTON_IMG_PATH = "button.png";
     public static final String BUTTON_QUESTION_IMG_PATH = "button_question.png";
+    public static final String BUTTON_PHUSICON_IMG_PATH = "physicon.png";
+    public static final String INPUT_FIELD_IMG_PATH = "InputField.png";
+    public static final String INPUT_FIELD_PINK_IMG_PATH = "InputFieldPink.png";
 
 
     //Формулы
-    public static final String FORMULA_1_IMG = "formula_1.PNG";
-    public static final String FORMULA_2_IMG = "formula_2.PNG";
-    public static final String FORMULA_3_IMG = "formula_3.PNG";
-    public static final String FORMULA_4_IMG = "formula_4.PNG";
-    public static final String FORMULA_5_IMG = "formula_5.PNG";
-    public static final String FORMULA_6_IMG = "formula_6.PNG";
-    public static final String FORMULA_7_IMG = "formula_7.PNG";
-    public static final String FORMULA_8_IMG = "formula_8.PNG";
+    public static final String FORMULA_1_IMG = "formula_1.png";
+    public static final String FORMULA_2_IMG = "formula_2.png";
+    public static final String FORMULA_3_IMG = "formula_3.png";
+    public static final String FORMULA_4_IMG = "formula_4.png";
+    public static final String FORMULA_5_IMG = "formula_5.png";
+    public static final String FORMULA_6_IMG = "formula_6.png";
+    public static final String FORMULA_7_IMG = "formula_7.png";
+    public static final String FORMULA_8_IMG = "formula_8.png";
     public static final String FORMULA_9_IMG = "formula_9.png";
     public static final String FORMULA_10_IMG = "formula_10.png";
     public static final String FORMULA_11_IMG = "formula_11.png";
@@ -141,6 +144,7 @@ public class GameResources {
 
     //Button exit
     public static final String BUTTON_BACK_IMG_PATH = "button_back.png";
+    public static final String BUTTON_BACK_2_IMG_PATH = "button_back2.png";
 
     //Button sound
     public static final String BUTTON_SOUND_IMG_PATH = "button_sound.png";

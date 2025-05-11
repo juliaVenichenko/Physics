@@ -17,6 +17,7 @@ public class MenuScreen implements Screen {
     private ButtonView startButton;
     private ButtonView faqButton;
     private ButtonView exitButton;
+    private ButtonView physiconButton;
 
     public MenuScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -30,6 +31,7 @@ public class MenuScreen implements Screen {
         startButton = new ButtonView(10, 220, 290, 100, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Читать");
         faqButton = new ButtonView(10, 380, 60, 100, GameResources.BUTTON_QUESTION_IMG_PATH);
         exitButton = new ButtonView(10, 110, 290, 100, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Выход");
+        physiconButton = new ButtonView(650, 10, 140, 150, GameResources.BUTTON_PHUSICON_IMG_PATH);
     }
 
     @Override
@@ -48,6 +50,7 @@ public class MenuScreen implements Screen {
         startButton.draw(myGdxGame.batch);
         faqButton.draw(myGdxGame.batch);
         exitButton.draw(myGdxGame.batch);
+        physiconButton.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -63,6 +66,9 @@ public class MenuScreen implements Screen {
 //            if (faqButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
 //                myGdxGame.setScreen(myGdxGame.);
 //            }
+            if (physiconButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.chatGPT);
+            }
             if (exitButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 Gdx.app.exit();
             }
@@ -75,6 +81,7 @@ public class MenuScreen implements Screen {
         startButton.dispose();
         faqButton.dispose();
         exitButton.dispose();
+        physiconButton.dispose();
     }
 
     @Override

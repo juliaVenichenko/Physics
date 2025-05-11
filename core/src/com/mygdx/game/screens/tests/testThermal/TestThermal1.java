@@ -1,6 +1,7 @@
 package com.mygdx.game.screens.tests.testThermal;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -42,6 +43,7 @@ public class TestThermal1 implements Screen, InputProcessor {
     public static boolean isTrue = false;
 
     private String textFieldInput = "";
+    private ButtonView inputField;
 
     public TestThermal1(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -56,6 +58,7 @@ public class TestThermal1 implements Screen, InputProcessor {
         background = new Texture("doska_background.png");
         galka = new Texture("galka.png");
         btn = new ButtonView(45, 60, 280, 100, myGdxGame.commonWhiteFont, "button.png", "Проверить");
+        inputField = new ButtonView(40, 170, 300, 80, "InputField.png");
 
         btnFilled1 = new ImageView(420, 270, 30, 30, "button_filled.png");
         btnFilled2 = new ImageView(420, 210, 30, 30, "button_filled.png");
@@ -143,12 +146,31 @@ public class TestThermal1 implements Screen, InputProcessor {
         textFieldInput = ""; // Очищаем текстовое поле после проверки
     }
 
+    private void showTextInputDialog() {
+        Gdx.input.getTextInput(new Input.TextInputListener() {
+            @Override
+            public void input(String text) {
+                textFieldInput = text; // Сохраняем введенный текст
+            }
+
+            @Override
+            public void canceled() {
+
+            }
+        }, "ФизикоН", textFieldInput, "Ваш ответ"); // Заголовок, текущее значение и подсказка
+    }
+
     private void handleInput() {
         if (Gdx.input.justTouched()) {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (btn.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 checkAnswer();
+            }
+
+            // Проверяем, попал ли пользователь в поле ввода
+            if (inputField.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                showTextInputDialog(); // Показать диалог ввода текста
             }
 
             if (btnFilledNot1.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
@@ -239,6 +261,7 @@ public class TestThermal1 implements Screen, InputProcessor {
         background.dispose();
         galka.dispose();
         btn.dispose();
+        inputField.dispose();
 
         btnFilled1.dispose();
         btnFilled2.dispose();

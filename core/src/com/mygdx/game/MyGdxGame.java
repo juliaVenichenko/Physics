@@ -119,6 +119,7 @@ import com.mygdx.game.screens.ThermalScreen.ThermalScreen6;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen7;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen8;
 import com.mygdx.game.screens.ThermalScreen.ThermalScreen9;
+import com.mygdx.game.screens.gpt.ChatGPT;
 import com.mygdx.game.screens.tests.testElectric.TestElectric1;
 import com.mygdx.game.screens.tests.testElectric.TestElectric2;
 import com.mygdx.game.screens.tests.testElectric.TestElectricFinish;
@@ -273,6 +274,8 @@ public class MyGdxGame extends Game {
 	public TestQuantum2 testQuantum2;
 	public TestQuantumFinish testQuantumFinish;
 
+	public ChatGPT chatGPT;
+
 	@Override
 	public void create () {
 		Box2D.init();
@@ -423,6 +426,8 @@ public class MyGdxGame extends Game {
 
 		audioManager = new AudioManager();
 
+		chatGPT = new ChatGPT(this);
+
 		setScreen(menuScreen);
 
 	}
@@ -566,5 +571,6 @@ public class MyGdxGame extends Game {
 		testQuantum2.dispose();
 		testQuantumFinish.dispose();
 
+		chatGPT.dispose();
 	}
 }
