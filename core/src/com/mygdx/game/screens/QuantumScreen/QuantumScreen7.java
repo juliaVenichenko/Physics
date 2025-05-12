@@ -22,7 +22,6 @@ public class QuantumScreen7 implements Screen {
     private Texture background;
     private TextView text1;
     private TextView text2;
-//    private ButtonView image_7;
     private ButtonView button_left;
     private ButtonView button_right;
     private Animation<TextureRegion> atom;
@@ -31,6 +30,11 @@ public class QuantumScreen7 implements Screen {
     private float curTime;
     private ButtonView button_back;
     private ButtonView button_sound;
+
+    private TextureAtlas atlas;
+    private float animationSpeed = 1.0f;
+    private boolean isTouched = false; // Переменная для отслеживания касания
+
     public QuantumScreen7(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -47,8 +51,6 @@ public class QuantumScreen7 implements Screen {
         text2 = new TextView(myGdxGame.commonWhiteFont, 30, 260, "Атом представляет собой подобие планетной системы, в" + "\n" +
                 "которой электроны движутся по орбитам вокруг положительно" + "\n" + "заряженного ядра.");
 
-//        image_7 = new ButtonView(310, 40, 170, 180, GameResources.IMAGE_7);
-
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
 
@@ -58,11 +60,12 @@ public class QuantumScreen7 implements Screen {
         initAnimation();
     }
 
-    private void initAnimation(){
-        textureAtlasArray = new Array<>();
-        TextureAtlas atlas = new TextureAtlas("anim2.atlas");
-        atom = AnimationUtil.getAnimationFromAtlas(atlas, timeAnimation);
-        textureAtlasArray.add(atlas);
+    private void initAnimation() {
+        if (atlas != null) {
+            atlas.dispose(); // освобождаем предыдущий атлас
+        }
+        atlas = new TextureAtlas("anim2.atlas");
+        atom = AnimationUtil.getAnimationFromAtlas(atlas, animationSpeed); // используем animationSpeed
     }
 
     @Override
@@ -72,8 +75,10 @@ public class QuantumScreen7 implements Screen {
 
         ScreenUtils.clear(Color.CLEAR);
 
-        float dTime = Gdx.graphics.getDeltaTime();
-        curTime += dTime;
+        // Увеличиваем время анимации только если было касание
+        if (isTouched) {
+            curTime += delta * animationSpeed; // увеличиваем время с учетом скорости
+        }
 
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
@@ -85,12 +90,9 @@ public class QuantumScreen7 implements Screen {
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
 
-        myGdxGame.batch.draw(
-                atom.getKeyFrame(curTime, true),
-                310, 40, 170f, 180f
-        );
-
-//        image_7.draw(myGdxGame.batch);
+        // рисуем анимацию
+        TextureRegion region = atom.getKeyFrame(curTime, true);
+        myGdxGame.batch.draw(region, 310, 40, 170f, 180f);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
@@ -107,18 +109,18 @@ public class QuantumScreen7 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.quantumScreen8);
-                timeAnimation = 0f;
                 myGdxGame.audioManager.sound68.stop();
+                isTouched = false;
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.quantumScreen6);
-                timeAnimation = 0f;
                 myGdxGame.audioManager.sound68.stop();
+                isTouched = false;
             }
             if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.menuQuantumScreen);
-                timeAnimation = 0f;
                 myGdxGame.audioManager.sound68.stop();
+                isTouched = false;
             }
             if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.audioManager.sound68.play();
@@ -131,14 +133,10 @@ public class QuantumScreen7 implements Screen {
             Vector3 touchPos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             myGdxGame.camera.unproject(touchPos);
             if (touchPos.x >= 310 && touchPos.x <= 480 && touchPos.y >= 40 && touchPos.y <= 220) {
-                if (timeAnimation > 0f){
-                    timeAnimation -= 2.5f;//Math.max(0.01f, timeAnimation - 0.01f);
-                    initAnimation();
-                }
-                if (timeAnimation <= 0f){
-                    timeAnimation += 2.5f;
-                    initAnimation();
-                }
+                // Увеличиваем скорость
+                animationSpeed += 0.15f; // ускоряет анимацию
+                curTime = 0; // сбрасываем время анимации для плавного перехода
+                isTouched = true; // Устанавливаем флаг касания в true
             }
         }
     }
@@ -154,8 +152,6 @@ public class QuantumScreen7 implements Screen {
         }
 
         myGdxGame.audioManager.sound68.dispose();
-
-//        image_7.dispose();
 
         button_left.dispose();
         button_right.dispose();

@@ -154,6 +154,44 @@ public class ChatGPT implements Screen, InputProcessor {
     }
 
     @Override
+    public boolean keyTyped(char character) {
+        if (character == '\b') { // Обработка Backspace
+            if (textUser.length() > 0) {
+                textUser = textUser.substring(0, textUser.length() - 1);
+            }
+        } else {
+            textUser += character; // Добавление символа к тексту
+        }
+        return true;
+    }
+
+    @Override
+    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        // Запоминаем начальную точку касания по Y
+        myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(screenX, screenY, 0));
+        touchStartY = myGdxGame.touch.y;
+        return false;
+    }
+
+    @Override
+    public boolean touchDragged(int screenX, int screenY, int pointer) {
+        // Получаем текущую точку касания
+        myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(screenX, screenY, 0));
+        float currentY = myGdxGame.touch.y;
+
+        // Вычисляем разницу
+        float deltaY = currentY - touchStartY;
+
+        // Обновляем scrollY
+        responseScrollY += deltaY;
+
+        // Обновляем стартовую точку для следующего вызова
+        touchStartY = currentY;
+
+        return false;
+    }
+
+    @Override
     public void resize(int width, int height) {
 
     }
@@ -184,50 +222,12 @@ public class ChatGPT implements Screen, InputProcessor {
     }
 
     @Override
-    public boolean keyTyped(char character) {
-        if (character == '\b') { // Обработка Backspace
-            if (textUser.length() > 0) {
-                textUser = textUser.substring(0, textUser.length() - 1);
-            }
-        } else {
-            textUser += character; // Добавление символа к тексту
-        }
-        return true;
-    }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        // Запоминаем начальную точку касания по Y
-        myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(screenX, screenY, 0));
-        touchStartY = myGdxGame.touch.y;
-        return false;
-    }
-
-    @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         return false;
     }
 
     @Override
     public boolean touchCancelled(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer) {
-        // Получаем текущую точку касания
-        myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(screenX, screenY, 0));
-        float currentY = myGdxGame.touch.y;
-
-        // Вычисляем разницу
-        float deltaY = currentY - touchStartY;
-
-        // Обновляем scrollY
-        responseScrollY += deltaY;
-
-        // Обновляем стартовую точку для следующего вызова
-        touchStartY = currentY;
-
         return false;
     }
 

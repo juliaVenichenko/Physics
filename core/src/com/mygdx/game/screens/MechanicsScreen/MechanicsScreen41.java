@@ -23,21 +23,23 @@ public class MechanicsScreen41 implements Screen {
     private TextView text1;
     private TextView text2;
     private TextView text3;
-//    private ButtonView formula_21;
-//    private ButtonView rectangle;
     private ButtonView button_left;
     private ButtonView button_right;
     private ButtonView button_back;
     private ButtonView button_sound;
     private Animation<TextureRegion> pendulum;
     protected Array<TextureAtlas> textureAtlasArray;
-    private float timeAnimation;
     private float curTime;
+
+    private TextureAtlas atlas;
+    private float animationSpeed = 1.0f;
+    private boolean isTouched = false; // Переменная для отслеживания касания
+
+
     public MechanicsScreen41(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
         curTime = 0;
-        timeAnimation = 0.0f;
     }
 
     @Override
@@ -50,9 +52,6 @@ public class MechanicsScreen41 implements Screen {
                 "через одинаковые промежутки времени.");
         text3 = new TextView(myGdxGame.commonWhiteFont, 30, 230, "Период колебаний - интервал времени, через который" + "\n" + "движение повторяется.");
 
-//        formula_21 = new ButtonView(200, 30, 400, 130, GameResources.FORMULA_21_IMG);
-//        rectangle = new ButtonView(200, 30, 480, 200, GameResources.RECTANGLE);
-
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
 
@@ -61,11 +60,13 @@ public class MechanicsScreen41 implements Screen {
 
         initAnimation();
     }
-    private void initAnimation(){
-        textureAtlasArray = new Array<>();
-        TextureAtlas atlas = new TextureAtlas("anim1.atlas");
-        pendulum = AnimationUtil.getAnimationFromAtlas(atlas, timeAnimation);
-        textureAtlasArray.add(atlas);
+
+    private void initAnimation() {
+        if (atlas != null) {
+            atlas.dispose(); // освобождаем предыдущий атлас
+        }
+        atlas = new TextureAtlas("anim1.atlas");
+        pendulum = AnimationUtil.getAnimationFromAtlas(atlas, animationSpeed); // используем animationSpeed
     }
 
     @Override
@@ -75,31 +76,27 @@ public class MechanicsScreen41 implements Screen {
 
         ScreenUtils.clear(Color.CLEAR);
 
-        float dTime = Gdx.graphics.getDeltaTime();
-        curTime += dTime;
+        // Увеличиваем время анимации только если было касание
+        if (isTouched) {
+            curTime += delta * animationSpeed; // увеличиваем время с учетом скорости
+        }
 
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
         myGdxGame.batch.begin();
 
-        myGdxGame.batch.draw(background,  0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
+        myGdxGame.batch.draw(background, 0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
         text3.draw(myGdxGame.batch);
 
-        myGdxGame.batch.draw(
-                pendulum.getKeyFrame(curTime, true),
-                150, 30, 480f, 200f
-        );
-
-
-//        formula_21.draw(myGdxGame.batch);
-//        rectangle.draw(myGdxGame.batch);
+        // рисуем анимацию
+        TextureRegion region = pendulum.getKeyFrame(curTime, true);
+        myGdxGame.batch.draw(region, 150, 30, 480f, 200f);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
-
         button_back.draw(myGdxGame.batch);
         button_sound.draw(myGdxGame.batch);
 
@@ -112,19 +109,19 @@ public class MechanicsScreen41 implements Screen {
 
             if (button_right.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen42);
-                timeAnimation = 0f;
                 myGdxGame.audioManager.sound32.stop();
+                isTouched = false;
             }
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.mechanicsScreen40);
-                timeAnimation = 0f;
                 myGdxGame.audioManager.sound32.stop();
+                isTouched = false;
             }
 
             if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.menuMechanicsScreen);
                 myGdxGame.audioManager.sound32.stop();
-                timeAnimation = 0f;
+                isTouched = false;
             }
             if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.audioManager.sound32.play();
@@ -132,19 +129,16 @@ public class MechanicsScreen41 implements Screen {
             }
         }
     }
-    private void handleInputAnimation(){
+
+    public void handleInputAnimation() {
         if (Gdx.input.justTouched()) {
             Vector3 touchPos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             myGdxGame.camera.unproject(touchPos);
             if (touchPos.x >= 150 && touchPos.x <= 530 && touchPos.y >= 30 && touchPos.y <= 230) {
-                if (timeAnimation > 0f){
-                timeAnimation -= 2.5f;//Math.max(0.01f, timeAnimation - 0.01f);
-                initAnimation();
-                }
-                if (timeAnimation <= 0f){
-                    timeAnimation += 2.5f;
-                    initAnimation();
-                }
+                // Увеличиваем скорость
+                animationSpeed += 0.15f; // ускоряет анимацию
+                curTime = 0; // сбрасываем время анимации для плавного перехода
+                isTouched = true; // Устанавливаем флаг касания в true
             }
         }
     }
@@ -159,10 +153,6 @@ public class MechanicsScreen41 implements Screen {
         for (TextureAtlas atlas : textureAtlasArray) {
             atlas.dispose();
         }
-
-
-//        formula_21.dispose();
-//        rectangle.dispose();
 
         button_left.dispose();
         button_right.dispose();

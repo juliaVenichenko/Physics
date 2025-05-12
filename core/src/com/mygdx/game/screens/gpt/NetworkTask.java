@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.JsonValue;
 
 public class NetworkTask {
 
-    private static final String OPENAI_API_KEY = "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"; // 🔐 Вставь сюда свой ключ
+    private static final String OPENAI_API_KEY = "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"; // 🔐 Вставь сюда свой ключ
     private static final String OPENAI_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
     public void askOpenAI(String question, final ResponseListener listener) {
