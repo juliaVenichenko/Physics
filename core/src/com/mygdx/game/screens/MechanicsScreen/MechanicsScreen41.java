@@ -139,6 +139,8 @@ public class MechanicsScreen41 implements Screen {
                 animationSpeed += 0.15f; // ускоряет анимацию
                 curTime = 0; // сбрасываем время анимации для плавного перехода
                 isTouched = true; // Устанавливаем флаг касания в true
+
+                myGdxGame.audioManager.pop.play();
             }
         }
     }
@@ -158,6 +160,7 @@ public class MechanicsScreen41 implements Screen {
         button_right.dispose();
 
         myGdxGame.audioManager.sound32.dispose();
+        myGdxGame.audioManager.pop.dispose();
 
         button_back.dispose();
         button_sound.dispose();

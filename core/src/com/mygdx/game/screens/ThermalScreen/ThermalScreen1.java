@@ -134,6 +134,8 @@ public class ThermalScreen1 implements Screen {
                     // Если не кликнули по атому, создаем новый атом
                     Atom newAtom = new Atom(atomTexture, myGdxGame.touch.x, myGdxGame.touch.y, randomDx(), randomDy(), atomSize);
                     atoms.add(newAtom);
+
+                    myGdxGame.audioManager.unusualClick.play();
                 }
             } else if (clearButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 // Если нажали на кнопку очистки, очищаем список атомов
@@ -184,6 +186,7 @@ public class ThermalScreen1 implements Screen {
         text2.dispose();
 
         myGdxGame.audioManager.sound34.dispose();
+        myGdxGame.audioManager.unusualClick.dispose();
 
         button_left.dispose();
         button_right.dispose();

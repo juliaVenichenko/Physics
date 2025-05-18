@@ -137,6 +137,8 @@ public class QuantumScreen7 implements Screen {
                 animationSpeed += 0.15f; // ускоряет анимацию
                 curTime = 0; // сбрасываем время анимации для плавного перехода
                 isTouched = true; // Устанавливаем флаг касания в true
+
+                myGdxGame.audioManager.bubble.play();
             }
         }
     }
@@ -152,6 +154,7 @@ public class QuantumScreen7 implements Screen {
         }
 
         myGdxGame.audioManager.sound68.dispose();
+        myGdxGame.audioManager.bubble.dispose();
 
         button_left.dispose();
         button_right.dispose();

@@ -65,6 +65,11 @@ public class GameResources {
     public static final String IMAGE_7 = "image_7.png";
 
     //Sounds
+    public static final String SOUND_JUMP = "sounds/jump.mp3";
+    public static final String SOUND_UNUSUAL_CLICK = "sounds/unusual_click.mp3";
+    public static final String SOUND_BUBBLE = "sounds/bubble.mp3";
+    public static final String SOUND_POP = "sounds/pop.mp3";
+
     public static final String SOUND_1 = "soundRecordings/sound1.mp3";
     public static final String SOUND_2 = "soundRecordings/sound2.mp3";
     public static final String SOUND_3 = "soundRecordings/sound3.mp3";

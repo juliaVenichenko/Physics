@@ -5,6 +5,11 @@ import com.badlogic.gdx.audio.Sound;
 import com.mygdx.game.GameResources;
 
 public class AudioManager {
+    public Sound jump;
+    public Sound unusualClick;
+    public Sound bubble;
+    public Sound pop;
+
     public Sound sound1;
     public Sound sound2;
     public Sound sound3;
@@ -80,6 +85,11 @@ public class AudioManager {
 
 
     public AudioManager(){
+        jump = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_JUMP));
+        unusualClick = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_UNUSUAL_CLICK));
+        bubble = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_BUBBLE));
+        pop = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_POP));
+
         sound1 = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_1));
         sound2 = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_2));
         sound3 = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_3));
