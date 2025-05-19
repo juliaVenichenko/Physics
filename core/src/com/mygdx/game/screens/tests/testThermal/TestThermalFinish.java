@@ -115,17 +115,17 @@ public class TestThermalFinish implements Screen {
         GameSettings.THERMAL_TEST_COUNTER = 0; // Сброс очков
         isClickResult = false;
 
-        TestThermal1.isTrue = false;
-        TestThermal1.isFilled1 = false;
-        TestThermal1.isFilled2 = false;
-        TestThermal1.isFilled3 = false;
-        TestThermal1.isFilled4 = false;
+        TestThermal1.isTrueThermal1 = false;
+        TestThermal1.isFilledThermal1 = false;
+        TestThermal1.isFilledThermal2 = false;
+        TestThermal1.isFilledThermal3 = false;
+        TestThermal1.isFilledThermal4 = false;
 
-        TestThermal2.isTrue = false;
-        TestThermal2.isFilled1 = false;
-        TestThermal2.isFilled2 = false;
-        TestThermal2.isFilled3 = false;
-        TestThermal2.isFilled4 = false;
+        TestThermal2.isTrueThermal2 = false;
+        TestThermal2.isFilledThermal1 = false;
+        TestThermal2.isFilledThermal2 = false;
+        TestThermal2.isFilledThermal3 = false;
+        TestThermal2.isFilledThermal4 = false;
     }
 
     @Override

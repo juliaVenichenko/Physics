@@ -115,17 +115,17 @@ public class TestQuantumFinish implements Screen {
         GameSettings.QUANTUM_TEST_COUNTER = 0; // Сброс очков
         isClickResult = false;
 
-        TestQuantum1.isTrue = false;
-        TestQuantum1.isFilled1 = false;
-        TestQuantum1.isFilled2 = false;
-        TestQuantum1.isFilled3 = false;
-        TestQuantum1.isFilled4 = false;
+        TestQuantum1.isTrueQuantum1 = false;
+        TestQuantum1.isFilledQuantum1 = false;
+        TestQuantum1.isFilledQuantum2 = false;
+        TestQuantum1.isFilledQuantum3 = false;
+        TestQuantum1.isFilledQuantum4 = false;
 
-        TestQuantum2.isTrue = false;
-        TestQuantum2.isFilled1 = false;
-        TestQuantum2.isFilled2 = false;
-        TestQuantum2.isFilled3 = false;
-        TestQuantum2.isFilled4 = false;
+        TestQuantum2.isTrueQuantum2 = false;
+        TestQuantum2.isFilledQuantum1 = false;
+        TestQuantum2.isFilledQuantum2 = false;
+        TestQuantum2.isFilledQuantum3 = false;
+        TestQuantum2.isFilledQuantum4 = false;
     }
 
     @Override

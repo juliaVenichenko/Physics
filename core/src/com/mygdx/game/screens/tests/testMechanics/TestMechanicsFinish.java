@@ -11,6 +11,7 @@ import com.mygdx.game.GameSettings;
 import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.TextView;
+import com.mygdx.game.screens.tests.MainTest;
 import com.mygdx.game.screens.tests.testMechanics.TestMechanics1;
 import com.mygdx.game.screens.tests.testMechanics.TestMechanics2;
 
@@ -115,17 +116,17 @@ public class TestMechanicsFinish implements Screen {
         GameSettings.MECHANICS_TEST_COUNTER = 0; // Сброс очков
         isClickResult = false;
 
-        TestMechanics1.isTrue = false;
-        TestMechanics1.isFilled1 = false;
-        TestMechanics1.isFilled2 = false;
-        TestMechanics1.isFilled3 = false;
-        TestMechanics1.isFilled4 = false;
+        TestMechanics1.isTrueMechanics1 = false;
+        TestMechanics1.isFilledMechanics1 = false;
+        TestMechanics1.isFilledMechanics2 = false;
+        TestMechanics1.isFilledMechanics3 = false;
+        TestMechanics1.isFilledMechanics4 = false;
 
-        TestMechanics2.isTrue = false;
-        TestMechanics2.isFilled1 = false;
-        TestMechanics2.isFilled2 = false;
-        TestMechanics2.isFilled3 = false;
-        TestMechanics2.isFilled4 = false;
+        TestMechanics2.isTrueMechanics2 = false;
+        TestMechanics2.isFilledMechanics1 = false;
+        TestMechanics2.isFilledMechanics2 = false;
+        TestMechanics2.isFilledMechanics3 = false;
+        TestMechanics2.isFilledMechanics4 = false;
     }
 
     @Override

@@ -115,17 +115,17 @@ public class TestElectricFinish implements Screen {
         GameSettings.ELECTRIC_TEST_COUNTER = 0; // Сброс очков
         isClickResult = false;
 
-        TestElectric1.isTrue = false;
-        TestElectric1.isFilled1 = false;
-        TestElectric1.isFilled2 = false;
-        TestElectric1.isFilled3 = false;
-        TestElectric1.isFilled4 = false;
+        TestElectric1.isTrueElectric1 = false;
+        TestElectric1.isFilledElectric1 = false;
+        TestElectric1.isFilledElectric2 = false;
+        TestElectric1.isFilledElectric3 = false;
+        TestElectric1.isFilledElectric4 = false;
 
-        TestElectric2.isTrue = false;
-        TestElectric2.isFilled1 = false;
-        TestElectric2.isFilled2 = false;
-        TestElectric2.isFilled3 = false;
-        TestElectric2.isFilled4 = false;
+        TestElectric2.isTrueElectric2 = false;
+        TestElectric2.isFilledElectric1 = false;
+        TestElectric2.isFilledElectric2 = false;
+        TestElectric2.isFilledElectric3 = false;
+        TestElectric2.isFilledElectric4 = false;
     }
 
     @Override

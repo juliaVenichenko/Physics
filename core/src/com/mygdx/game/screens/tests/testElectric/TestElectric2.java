@@ -14,41 +14,20 @@ import com.mygdx.game.MyGdxGame;
 import com.mygdx.game.components.ButtonView;
 import com.mygdx.game.components.ImageView;
 import com.mygdx.game.components.TextView;
+import com.mygdx.game.screens.tests.MainTest;
 
-public class TestElectric2 implements Screen, InputProcessor {
+public class TestElectric2 extends MainTest implements Screen, InputProcessor {
     MyGdxGame myGdxGame;
-    private Texture background;
-    private Texture galka;
-    private ButtonView btn;
-    private ButtonView button_left;
-    private ButtonView button_right;
-    private ButtonView button_back;
-    ImageView btnFilled1;
-    ImageView btnFilled2;
-    ImageView btnFilled3;
-    ImageView btnFilled4;
-    ImageView btnFilledNot1;
-    ImageView btnFilledNot2;
-    ImageView btnFilledNot3;
-    ImageView btnFilledNot4;
-    public static boolean isFilled1 = false;
-    public static boolean isFilled2 = false;
-    public static boolean isFilled3 = false;
-    public static boolean isFilled4 = false;
-    TextView textTask1;
-    TextView textTask2;
-    TextView textTask3;
-    TextView textTask4;
-    TextView text1;
-    TextView text2;
-    public static boolean isTrue = false;
-
-    private String textFieldInput = "";
-    private ButtonView inputField;
+    static boolean isTrueElectric2;
+    static public boolean isFilledElectric1 = false;
+    static public boolean isFilledElectric2 = false;
+    static public boolean isFilledElectric3 = false;
+    static public boolean isFilledElectric4 = false;
+    ButtonView button_left;
+    ButtonView button_right;
 
     public TestElectric2(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
-        background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
     }
 
     @Override
@@ -56,36 +35,22 @@ public class TestElectric2 implements Screen, InputProcessor {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        background = new Texture("doska_background.png");
-        galka = new Texture("galka.png");
-        btn = new ButtonView(45, 60, 280, 100, myGdxGame.commonWhiteFont, "button.png", "Проверить");
-        inputField = new ButtonView(40, 170, 300, 80, "InputField.png");
-
-        btnFilled1 = new ImageView(410, 280, 30, 30, "button_filled.png");
-        btnFilled2 = new ImageView(410, 210, 30, 30, "button_filled.png");
-        btnFilled3 = new ImageView(410, 140, 30, 30, "button_filled.png");
-        btnFilled4 = new ImageView(410, 60, 30, 30, "button_filled.png");
-
-        btnFilledNot1 = new ImageView(410, 280, 30, 30, "button_filledNot.png");
-        btnFilledNot2 = new ImageView(410, 210, 30, 30, "button_filledNot.png");
-        btnFilledNot3 = new ImageView(410, 140, 30, 30, "button_filledNot.png");
-        btnFilledNot4 = new ImageView(410, 60, 30, 30, "button_filledNot.png");
+        initializeTest(myGdxGame);
 
         text1 = new TextView(myGdxGame.commonRedFont, 40, 290, "Какое количество теплоты" + "\n" +
-                "выделится в резисторе с" + "\n" +  "сопротивлением 5 Ом, через" + "\n" +  "который проходит ток" + "\n" +  "силой 3 А в течение 10 секунд?");
+                "выделится в резисторе с" + "\n" +  "сопротивлением 5 Ом, через" + "\n" +  "который проходит ток  силой" + "\n" + "3 А в течение 10 секунд?");
 
         text2 = new TextView(myGdxGame.commonRedFont, 480, 370, "Что такое линза?");
 
-        textTask1 = new TextView(myGdxGame.commonWhiteFont, 450, 280, "Непрозрачное тело," + "\n" +  "отражающее световые лучи.");
-        textTask2 = new TextView(myGdxGame.commonWhiteFont, 450, 210, "Прибор для измерения силы" + "\n" + "тока.");
-        textTask3 = new TextView(myGdxGame.commonWhiteFont, 450, 130, "Прозрачное тело," + "\n" + "ограниченное двумя" + "\n" + "сферическими поверхностями");
-        textTask4 = new TextView(myGdxGame.commonWhiteFont, 450, 60, "Вещество, не проводящее" + "\n" + "электрический ток.");
+        textTask1 = new TextView(myGdxGame.commonWhiteFont, 420, 280, "Непрозрачное тело," + "\n" +  "отражающее световые лучи.");
+        textTask2 = new TextView(myGdxGame.commonWhiteFont, 420, 210, "Прибор для измерения силы" + "\n" + "тока.");
+        textTask3 = new TextView(myGdxGame.commonWhiteFont, 420, 130, "Прозрачное тело," + "\n" + "ограниченное двумя" + "\n" + "сферическими поверхностями");
+        textTask4 = new TextView(myGdxGame.commonWhiteFont, 420, 60, "Вещество, не проводящее" + "\n" + "электрический ток.");
 
         Gdx.input.setInputProcessor(this); // Устанавливаем InputProcessor
 
         button_left = new ButtonView(30, 20, 50, 50, GameResources.BUTTON_LEFT_IMG_PATH);
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
-        button_back = new ButtonView(25, 390, 65, 65, GameResources.BUTTON_BACK_IMG_PATH);
 
     }
 
@@ -100,40 +65,27 @@ public class TestElectric2 implements Screen, InputProcessor {
 
         myGdxGame.batch.begin();
 
-        myGdxGame.batch.draw(background, 0, 0, GameSettings.SCR_WIDTH, GameSettings.SCR_HEIGHT);
-
-        // Рисуем текстовое поле
-        drawTextField();
-
-        textTask1.draw(myGdxGame.batch);
-        textTask2.draw(myGdxGame.batch);
-        textTask3.draw(myGdxGame.batch);
-        textTask4.draw(myGdxGame.batch);
-        text1.draw(myGdxGame.batch);
-        text2.draw(myGdxGame.batch);
-
-        btn.draw(myGdxGame.batch);
+        drawTest(myGdxGame);
 
         button_left.draw(myGdxGame.batch);
         button_right.draw(myGdxGame.batch);
-        button_back.draw(myGdxGame.batch);
 
 
         // Если isTrue равно true, отрисовываем galka
-        if (isTrue) {
+        if (isTrueElectric2) {
             myGdxGame.batch.draw(galka, 280, 180, 50, 50); // Установка позиции и размера galka
         }
 
-        if (isFilled1) btnFilled1.draw(myGdxGame.batch);
+        if (isFilledElectric1) btnFilled1.draw(myGdxGame.batch);
         else btnFilledNot1.draw(myGdxGame.batch);
 
-        if (isFilled2) btnFilled2.draw(myGdxGame.batch);
+        if (isFilledElectric2) btnFilled2.draw(myGdxGame.batch);
         else btnFilledNot2.draw(myGdxGame.batch);
 
-        if (isFilled3) btnFilled3.draw(myGdxGame.batch);
+        if (isFilledElectric3) btnFilled3.draw(myGdxGame.batch);
         else btnFilledNot3.draw(myGdxGame.batch);
 
-        if (isFilled4) btnFilled4.draw(myGdxGame.batch);
+        if (isFilledElectric4) btnFilled4.draw(myGdxGame.batch);
         else btnFilledNot4.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
@@ -142,24 +94,10 @@ public class TestElectric2 implements Screen, InputProcessor {
 
     private void checkAnswer() {
         if (textFieldInput.equals("450")) {
-            isTrue = true; // Устанавливаем флаг
+            isTrueElectric2 = true; // Устанавливаем флаг
             GameSettings.ELECTRIC_TEST_COUNTER += 1;
         }
         textFieldInput = ""; // Очищаем текстовое поле после проверки
-    }
-
-    private void showTextInputDialog() {
-        Gdx.input.getTextInput(new Input.TextInputListener() {
-            @Override
-            public void input(String text) {
-                textFieldInput = text; // Сохраняем введенный текст
-            }
-
-            @Override
-            public void canceled() {
-
-            }
-        }, "ФизикоН", textFieldInput, "Ваш ответ"); // Заголовок, текущее значение и подсказка
     }
 
     private void handleInput() {
@@ -176,43 +114,36 @@ public class TestElectric2 implements Screen, InputProcessor {
             }
 
             if (btnFilledNot1.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                isFilled1 = true;
-                isFilled2 = false;
-                isFilled3 = false;
-                isFilled4 = false;
+                isFilledElectric1 = true;
+                isFilledElectric2 = false;
+                isFilledElectric3 = false;
+                isFilledElectric4 = false;
 
                 GameSettings.ELECTRIC_TEST_COUNTER += 0;
             }
             if (btnFilledNot2.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                isFilled2 = true;
-                isFilled1 = false;
-                isFilled3 = false;
-                isFilled4 = false;
+                isFilledElectric2 = true;
+                isFilledElectric1 = false;
+                isFilledElectric3 = false;
+                isFilledElectric4 = false;
 
                 GameSettings.ELECTRIC_TEST_COUNTER += 0;
-//                if (GameSettings.MECHANICS_TEST_COUNTER == 0) GameSettings.MECHANICS_TEST_COUNTER = 0;
-//                else GameSettings.MECHANICS_TEST_COUNTER -= 1;
             }
             if (btnFilledNot3.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                isFilled3 = true;
-                isFilled1 = false;
-                isFilled2 = false;
-                isFilled4 = false;
+                isFilledElectric3 = true;
+                isFilledElectric1 = false;
+                isFilledElectric2 = false;
+                isFilledElectric4 = false;
 
                 GameSettings.ELECTRIC_TEST_COUNTER += 1;
-//                GameSettings.THERMAL_TEST_COUNTER += 0;
-//                if (GameSettings.MECHANICS_TEST_COUNTER == 0) GameSettings.MECHANICS_TEST_COUNTER = 0;
-//                else GameSettings.MECHANICS_TEST_COUNTER -= 1;
             }
             if (btnFilledNot4.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                isFilled4 = true;
-                isFilled1 = false;
-                isFilled2 = false;
-                isFilled3 = false;
+                isFilledElectric4 = true;
+                isFilledElectric1 = false;
+                isFilledElectric2 = false;
+                isFilledElectric3 = false;
 
                 GameSettings.ELECTRIC_TEST_COUNTER += 0;
-                //if (GameSettings.MECHANICS_TEST_COUNTER == 0) GameSettings.MECHANICS_TEST_COUNTER = 0;
-                //else GameSettings.MECHANICS_TEST_COUNTER -= 1;
             }
 
             if (button_left.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
@@ -225,16 +156,6 @@ public class TestElectric2 implements Screen, InputProcessor {
                 myGdxGame.setScreen(myGdxGame.menuTestScreen);
             }
         }
-    }
-
-    private void drawTextField() {
-        // Рисуем фон текстового поля
-        myGdxGame.batch.setColor(Color.LIGHT_GRAY);
-        myGdxGame.batch.draw(new Texture("InputField.png"), 40, 170, 300, 80);
-        myGdxGame.batch.setColor(Color.WHITE);
-
-        // Рисуем текст
-        myGdxGame.commonWhiteFont.draw(myGdxGame.batch, textFieldInput, 50, 210);
     }
 
     @Override
@@ -264,31 +185,10 @@ public class TestElectric2 implements Screen, InputProcessor {
 
     @Override
     public void dispose() {
-        background.dispose();
-        galka.dispose();
-        btn.dispose();
-        inputField.dispose();
-
-        btnFilled1.dispose();
-        btnFilled2.dispose();
-        btnFilled3.dispose();
-        btnFilled4.dispose();
-
-        btnFilledNot1.dispose();
-        btnFilledNot2.dispose();
-        btnFilledNot3.dispose();
-        btnFilledNot4.dispose();
-
-        textTask1.dispose();
-        textTask2.dispose();
-        textTask3.dispose();
-        textTask4.dispose();
-        text1.dispose();
-        text2.dispose();
+        disposeTest();
 
         button_left.dispose();
         button_right.dispose();
-        button_back.dispose();
     }
 
     @Override
