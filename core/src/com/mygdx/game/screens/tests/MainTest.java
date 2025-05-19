@@ -34,7 +34,7 @@ public class MainTest {
     public ButtonView inputField;
 
     public void initializeTest(MyGdxGame myGdxGame) {
-        background = new Texture("doska_background.png");
+        background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
         galka = new Texture("galka.png");
         btn = new ButtonView(45, 60, 280, 100, myGdxGame.commonWhiteFont, "button.png", "Проверить");
         inputField = new ButtonView(40, 170, 300, 80, "InputField.png");

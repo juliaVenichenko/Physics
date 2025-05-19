@@ -69,6 +69,9 @@ public class GameResources {
     public static final String SOUND_UNUSUAL_CLICK = "sounds/unusual_click.mp3";
     public static final String SOUND_BUBBLE = "sounds/bubble.mp3";
     public static final String SOUND_POP = "sounds/pop.mp3";
+    public static final String SOUND_VICTORY = "sounds/victorySound.mp3";
+    public static final String SOUND_GAME_OVER = "sounds/gameOverSound.mp3";
+    public static final String SOUND_ALMOST_GAME_OVER = "sounds/almostGameOverSound.mp3";
 
     public static final String SOUND_1 = "soundRecordings/sound1.mp3";
     public static final String SOUND_2 = "soundRecordings/sound2.mp3";

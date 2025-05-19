@@ -9,6 +9,9 @@ public class AudioManager {
     public Sound unusualClick;
     public Sound bubble;
     public Sound pop;
+    public Sound victory;
+    public Sound gameOver;
+    public Sound almostGameOver;
 
     public Sound sound1;
     public Sound sound2;
@@ -89,6 +92,9 @@ public class AudioManager {
         unusualClick = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_UNUSUAL_CLICK));
         bubble = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_BUBBLE));
         pop = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_POP));
+        victory = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_VICTORY));
+        gameOver = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_GAME_OVER));
+        almostGameOver = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_ALMOST_GAME_OVER));
 
         sound1 = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_1));
         sound2 = Gdx.audio.newSound(Gdx.files.internal(GameResources.SOUND_2));

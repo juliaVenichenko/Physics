@@ -428,7 +428,7 @@ public class MyGdxGame extends Game {
 
 		chatGPT = new ChatGPT(this);
 
-		setScreen(testMechanicsFinish);
+		setScreen(testQuantum1);
 
 	}
 	
