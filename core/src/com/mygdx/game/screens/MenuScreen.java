@@ -61,11 +61,10 @@ public class MenuScreen implements Screen {
 
             if (startButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.menuScreen2);
-//                myGdxGame.audioManager.clickSound.play(0.2f);
             }
-//            if (faqButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-//                myGdxGame.setScreen(myGdxGame.);
-//            }
+            if (faqButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.questionScreen);
+            }
             if (physiconButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.chatGPT);
             }

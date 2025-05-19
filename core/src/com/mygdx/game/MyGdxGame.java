@@ -102,6 +102,7 @@ import com.mygdx.game.screens.QuantumScreen.QuantumScreen6;
 import com.mygdx.game.screens.QuantumScreen.QuantumScreen7;
 import com.mygdx.game.screens.QuantumScreen.QuantumScreen8;
 import com.mygdx.game.screens.QuantumScreen.QuantumScreen9;
+import com.mygdx.game.screens.QuestionScreen;
 import com.mygdx.game.screens.ScreenWarning.ScreenWarning1;
 import com.mygdx.game.screens.ScreenWarning.ScreenWarning2;
 import com.mygdx.game.screens.ScreenWarning.ScreenWarning3;
@@ -276,6 +277,8 @@ public class MyGdxGame extends Game {
 
 	public ChatGPT chatGPT;
 
+	public QuestionScreen questionScreen;
+
 	@Override
 	public void create () {
 		Box2D.init();
@@ -428,7 +431,9 @@ public class MyGdxGame extends Game {
 
 		chatGPT = new ChatGPT(this);
 
-		setScreen(testQuantum1);
+		questionScreen = new QuestionScreen(this);
+
+		setScreen(menuScreen);
 
 	}
 	
@@ -572,5 +577,7 @@ public class MyGdxGame extends Game {
 		testQuantumFinish.dispose();
 
 		chatGPT.dispose();
+
+		questionScreen.dispose();
 	}
 }
