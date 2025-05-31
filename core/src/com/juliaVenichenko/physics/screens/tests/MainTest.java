@@ -93,7 +93,7 @@ public class MainTest {
             public void canceled() {
 
             }
-        }, "ФизикоН", textFieldInput, "Ваш ответ"); // Заголовок, текущее значение и подсказка
+        }, "ФизикоН", textFieldInput, "Ваш ответ");
     }
 
     public void disposeTest(){

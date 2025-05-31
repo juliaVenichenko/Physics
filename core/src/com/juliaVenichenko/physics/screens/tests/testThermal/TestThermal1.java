@@ -45,7 +45,7 @@ public class TestThermal1 extends MainTest implements Screen, InputProcessor {
         textTask3 = new TextView(myGdxGame.commonWhiteFont, 410, 140, "Теплопередача");
         textTask4 = new TextView(myGdxGame.commonWhiteFont, 410, 60, "Испарение");
 
-        Gdx.input.setInputProcessor(this); // Устанавливаем InputProcessor
+        Gdx.input.setInputProcessor(this);
 
         button_right = new ButtonView(720, 20, 50, 50, GameResources.BUTTON_RIGHT_IMG_PATH);
 
@@ -66,10 +66,8 @@ public class TestThermal1 extends MainTest implements Screen, InputProcessor {
 
         button_right.draw(myGdxGame.batch);
 
-
-        // Если isTrue равно true, отрисовываем galka
         if (isTrue(isTrueThermal1)) {
-            myGdxGame.batch.draw(galka, 280, 180, 50, 50); // Установка позиции и размера galka
+            myGdxGame.batch.draw(galka, 280, 180, 50, 50);
         }
 
         if (isFilledThermal1) btnFilled1.draw(myGdxGame.batch);
@@ -90,10 +88,10 @@ public class TestThermal1 extends MainTest implements Screen, InputProcessor {
 
     private void checkAnswer() {
         if (textFieldInput.equals("200")) {
-            isTrueThermal1 = true; // Устанавливаем флаг
+            isTrueThermal1 = true;
             GameSettings.THERMAL_TEST_COUNTER += 1;
         }
-        textFieldInput = ""; // Очищаем текстовое поле после проверки
+        textFieldInput = "";
     }
 
     private void handleInput() {
@@ -104,9 +102,8 @@ public class TestThermal1 extends MainTest implements Screen, InputProcessor {
                 checkAnswer();
             }
 
-            // Проверяем, попал ли пользователь в поле ввода
             if (inputField.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                showTextInputDialog(); // Показать диалог ввода текста
+                showTextInputDialog();
             }
 
             if (btnFilledNot1.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
@@ -163,15 +160,14 @@ public class TestThermal1 extends MainTest implements Screen, InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        // Обработка ввода текста
         if (character == '\n') {
-            checkAnswer();// Проверка ответа при нажатии Enter
-        } else if (character == '\b') { // Обработка Backspace
+            checkAnswer();
+        } else if (character == '\b') {
             if (textFieldInput.length() > 0) {
                 textFieldInput = textFieldInput.substring(0, textFieldInput.length() - 1);
             }
         } else {
-            textFieldInput += character; // Добавление символа к тексту
+            textFieldInput += character;
         }
         return true;
     }

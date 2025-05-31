@@ -91,7 +91,7 @@ import com.juliaVenichenko.physics.screens.MenuThermalScreen;
 import com.juliaVenichenko.physics.screens.Models3dScreen.ModelAtomScreen;
 import com.juliaVenichenko.physics.screens.Models3dScreen.ModelCrystalLatticeScreen;
 import com.juliaVenichenko.physics.screens.Models3dScreen.ModelTransformerScreen;
-import com.juliaVenichenko.physics.screens.Models3dScreen.ModelWaterScreen;
+import com.juliaVenichenko.physics.screens.Models3dScreen.ModelMarsScreen;
 import com.juliaVenichenko.physics.screens.QuantumScreen.QuantumScreen1;
 import com.juliaVenichenko.physics.screens.QuantumScreen.QuantumScreen10;
 import com.juliaVenichenko.physics.screens.QuantumScreen.QuantumScreen11;
@@ -243,7 +243,7 @@ public class MyGdxGame extends Game {
 
 	public MenuModels3d menuModels3d;
 	public ModelAtomScreen modelAtomScreen;
-	public ModelWaterScreen modelWaterScreen;
+	public ModelMarsScreen modelMarsScreen;
 	public ModelCrystalLatticeScreen modelCrystalLatticeScreen;
 	public ModelTransformerScreen modelTransformerScreen;
 
@@ -399,7 +399,7 @@ public class MyGdxGame extends Game {
 
 		menuModels3d = new MenuModels3d(this);
 		modelAtomScreen = new ModelAtomScreen(this);
-		modelWaterScreen = new ModelWaterScreen(this);
+		modelMarsScreen = new ModelMarsScreen(this);
 		modelCrystalLatticeScreen = new ModelCrystalLatticeScreen(this);
 		modelTransformerScreen = new ModelTransformerScreen(this);
 
@@ -554,7 +554,7 @@ public class MyGdxGame extends Game {
 
 		menuModels3d.dispose();
 		modelAtomScreen.dispose();
-		modelWaterScreen.dispose();
+		modelMarsScreen.dispose();
 		modelCrystalLatticeScreen.dispose();
 		modelTransformerScreen.dispose();
 

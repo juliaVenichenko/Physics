@@ -77,7 +77,7 @@ public class TestElectricFinish extends MainTestFinish implements Screen {
     }
 
     private void resetGame() {
-        GameSettings.ELECTRIC_TEST_COUNTER = 0; // Сброс очков
+        GameSettings.ELECTRIC_TEST_COUNTER = 0;
         isClickResult = false;
 
         TestElectric1.isTrueElectric1 = false;

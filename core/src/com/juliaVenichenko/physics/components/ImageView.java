@@ -9,8 +9,6 @@ public class ImageView extends View{
     public ImageView(float x, float y, float width, float height, String imagePath) {
         super(x, y, width, height);
         texture = new Texture(imagePath);
-//        this.width = texture.getWidth();
-//        this.height = texture.getHeight();
     }
     @Override
     public void draw(SpriteBatch batch) {

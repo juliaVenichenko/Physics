@@ -77,7 +77,7 @@ public class TestMechanicsFinish extends MainTestFinish implements Screen {
     }
 
     private void resetGame() {
-        GameSettings.MECHANICS_TEST_COUNTER = 0; // Сброс очков
+        GameSettings.MECHANICS_TEST_COUNTER = 0;
         isClickResult = false;
 
         TestMechanics1.isTrueMechanics1 = false;

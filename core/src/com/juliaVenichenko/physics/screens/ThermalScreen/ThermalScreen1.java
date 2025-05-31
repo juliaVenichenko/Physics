@@ -27,8 +27,8 @@ public class ThermalScreen1 implements Screen {
     private Array<Atom> atoms;
     private Texture atomTexture;
     private Texture rectTexture;
-    private float rectX, rectY, rectWidth, rectHeight; // границы области
-    private float atomSize = 50f; // размер атомов
+    private float rectX, rectY, rectWidth, rectHeight;
+    private float atomSize = 50f;
     private ButtonView clearButton;
     public ThermalScreen1(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -55,7 +55,6 @@ public class ThermalScreen1 implements Screen {
         rectTexture = new Texture("rectangle.png");
         clearButton = new ButtonView(570, 80, 200, 100, myGdxGame.commonRedFont,"button.png", "Очистить");
 
-        // Размер и позиция области
         rectX = 100;
         rectY = 30;
         rectWidth = 470;
@@ -71,7 +70,6 @@ public class ThermalScreen1 implements Screen {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
 
-        // Обновляем атомы, передавая deltaTime
         float deltaTime = Gdx.graphics.getDeltaTime();
         for (Atom atom : atoms) {
             atom.update(deltaTime, rectX, rectY, rectWidth, rectHeight);
@@ -91,10 +89,8 @@ public class ThermalScreen1 implements Screen {
 
         clearButton.draw(myGdxGame.batch);
 
-        // Рисуем область
         myGdxGame.batch.draw(rectTexture, rectX, rectY, rectWidth, rectHeight);
 
-        // Рисуем атомы
         for (Atom atom : atoms) {
             atom.draw(myGdxGame.batch);
         }
@@ -123,60 +119,49 @@ public class ThermalScreen1 implements Screen {
 
             }
 
-            // Проверяем, попадает ли нажатие в прямоугольник
             if (isInRect(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                // Проверяем, кликнули ли по какому-либо атому
                 Atom clickedAtom = getClickedAtom(myGdxGame.touch.x, myGdxGame.touch.y);
                 if (clickedAtom != null) {
-                    // Если кликнули по атому, удаляем его
                     atoms.removeValue(clickedAtom, true);
                 } else {
-                    // Если не кликнули по атому, создаем новый атом
                     Atom newAtom = new Atom(atomTexture, myGdxGame.touch.x, myGdxGame.touch.y, randomDx(), randomDy(), atomSize);
                     atoms.add(newAtom);
 
                     myGdxGame.audioManager.unusualClick.play();
                 }
             } else if (clearButton.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                // Если нажали на кнопку очистки, очищаем список атомов
                 atoms.clear();
             }
         }
     }
 
-    // Метод для проверки, был ли клик по атому
     private Atom getClickedAtom(float x, float y) {
         for (Atom atom : atoms) {
             if (isPointInAtom(x, y, atom)) {
-                return atom; // Возвращаем атом, если кликнули по нему
+                return atom;
             }
         }
-        return null; // Если ни один атом не был найден
+        return null;
     }
 
-    // Метод для проверки, находится ли точка внутри атома
     private boolean isPointInAtom(float x, float y, Atom atom) {
-        // Предполагаем, что атом имеет радиус или размер (например, круг)
-        float atomX = atom.getX(); // Получаем координату X атома
-        float atomY = atom.getY(); // Получаем координату Y атома
-        float radius = atom.getSize() / 2; // Предполагаем, что размер атома - это его диаметр
+        float atomX = atom.getX();
+        float atomY = atom.getY();
+        float radius = atom.getSize() / 2;
 
-        // Проверяем расстояние до центра атома
         return (x >= atomX - radius && x <= atomX + radius && y >= atomY - radius && y <= atomY + radius);
     }
 
-    // Метод для проверки, находится ли точка внутри прямоугольника
     private boolean isInRect(float x, float y) {
         return x >= rectX && x <= rectX + rectWidth && y >= rectY && y <= rectY + rectHeight;
     }
 
-    // Метод для генерации случайных значений dx и dy
     private float randomDx() {
-        return MathUtils.random(-100, 100); // Пример случайного значения для dx
+        return MathUtils.random(-100, 100);
     }
 
     private float randomDy() {
-        return MathUtils.random(-100, 100); // Пример случайного значения для dy
+        return MathUtils.random(-100, 100);
     }
 
     @Override
@@ -201,7 +186,6 @@ public class ThermalScreen1 implements Screen {
             rectTexture.dispose();
         }
 
-        // Освобождаем текстуру атома и вызываем dispose для каждого атома
         if (atoms != null) {
             for (Atom atom : atoms) {
                 if (atom != null) {
@@ -210,7 +194,6 @@ public class ThermalScreen1 implements Screen {
             }
         }
 
-        // Если у вас есть список текстур атомов, освободите их здесь
         if (atomTexture != null) {
             atomTexture.dispose();
         }

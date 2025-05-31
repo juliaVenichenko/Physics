@@ -77,7 +77,7 @@ public class TestThermalFinish extends MainTestFinish implements Screen {
     }
 
     private void resetGame() {
-        GameSettings.THERMAL_TEST_COUNTER = 0; // Сброс очков
+        GameSettings.THERMAL_TEST_COUNTER = 0;
         isClickResult = false;
 
         TestThermal1.isTrueThermal1 = false;

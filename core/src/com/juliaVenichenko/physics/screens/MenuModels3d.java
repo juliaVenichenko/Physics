@@ -28,7 +28,7 @@ public class MenuModels3d implements Screen {
     public void show() {
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
-        button_one = new ButtonView(100, 260, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Молекула воды");
+        button_one = new ButtonView(100, 260, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Марс");
         button_two = new ButtonView(390, 260, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Атом");
         button_three = new ButtonView(100, 110, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Кристаллическая" + "\n" + "       решётка");
         button_four = new ButtonView(390, 110, 290, 120, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Трансформатор");

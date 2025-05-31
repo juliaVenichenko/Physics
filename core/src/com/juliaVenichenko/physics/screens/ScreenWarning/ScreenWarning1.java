@@ -61,7 +61,7 @@ public class ScreenWarning1 implements Screen {
             myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0));
 
             if (button.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                myGdxGame.setScreen(myGdxGame.modelWaterScreen);
+                myGdxGame.setScreen(myGdxGame.modelMarsScreen);
             }
             if (button_back.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.setScreen(myGdxGame.menuModels3d);

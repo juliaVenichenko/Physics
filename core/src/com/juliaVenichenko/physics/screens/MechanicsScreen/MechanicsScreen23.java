@@ -33,7 +33,7 @@ public class MechanicsScreen23 implements Screen {
 
     private TextureAtlas atlas;
     private float animationSpeed = 1.0f;
-    private boolean isTouched = false; // Переменная для отслеживания касания
+    private boolean isTouched = false;
     public MechanicsScreen23(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
@@ -62,10 +62,10 @@ public class MechanicsScreen23 implements Screen {
 
     private void initAnimation() {
         if (atlas != null) {
-            atlas.dispose(); // освобождаем предыдущий атлас
+            atlas.dispose();
         }
         atlas = new TextureAtlas("anim3.atlas");
-        man = AnimationUtil.getAnimationFromAtlas(atlas, animationSpeed); // используем animationSpeed
+        man = AnimationUtil.getAnimationFromAtlas(atlas, animationSpeed);
     }
 
     @Override
@@ -75,9 +75,8 @@ public class MechanicsScreen23 implements Screen {
 
         ScreenUtils.clear(Color.CLEAR);
 
-        // Увеличиваем время анимации только если было касание
         if (isTouched) {
-            curTime += delta; // увеличиваем время без учета скорости
+            curTime += delta;
         }
 
         myGdxGame.camera.update();
@@ -89,7 +88,6 @@ public class MechanicsScreen23 implements Screen {
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
 
-        // рисуем анимацию
         TextureRegion region = man.getKeyFrame(curTime, false);
         myGdxGame.batch.draw(region, 150, 20, 480f, 300f);
 
@@ -133,8 +131,8 @@ public class MechanicsScreen23 implements Screen {
             Vector3 touchPos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             myGdxGame.camera.unproject(touchPos);
             if (touchPos.x >= 150 && touchPos.x <= 530 && touchPos.y >= 20 && touchPos.y <= 320) {
-                curTime = 0; // сбрасываем время анимации для плавного перехода
-                isTouched = true; // Устанавливаем флаг касания в true
+                curTime = 0;
+                isTouched = true;
                 myGdxGame.audioManager.jump.play();
             }
         }

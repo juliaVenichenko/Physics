@@ -26,20 +26,18 @@ public class QuantumScreen7 implements Screen {
     private ButtonView button_right;
     private Animation<TextureRegion> atom;
     protected Array<TextureAtlas> textureAtlasArray;
-    private float timeAnimation;
     private float curTime;
     private ButtonView button_back;
     private ButtonView button_sound;
 
     private TextureAtlas atlas;
     private float animationSpeed = 1.0f;
-    private boolean isTouched = false; // Переменная для отслеживания касания
+    private boolean isTouched = false;
 
     public QuantumScreen7(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
         curTime = 0;
-        timeAnimation = 0.0f;
     }
 
     @Override
@@ -62,10 +60,10 @@ public class QuantumScreen7 implements Screen {
 
     private void initAnimation() {
         if (atlas != null) {
-            atlas.dispose(); // освобождаем предыдущий атлас
+            atlas.dispose();
         }
         atlas = new TextureAtlas("anim2.atlas");
-        atom = AnimationUtil.getAnimationFromAtlas(atlas, animationSpeed); // используем animationSpeed
+        atom = AnimationUtil.getAnimationFromAtlas(atlas, animationSpeed);
     }
 
     @Override
@@ -75,9 +73,8 @@ public class QuantumScreen7 implements Screen {
 
         ScreenUtils.clear(Color.CLEAR);
 
-        // Увеличиваем время анимации только если было касание
         if (isTouched) {
-            curTime += delta * animationSpeed; // увеличиваем время с учетом скорости
+            curTime += delta * animationSpeed;
         }
 
         myGdxGame.camera.update();
@@ -90,7 +87,6 @@ public class QuantumScreen7 implements Screen {
         text1.draw(myGdxGame.batch);
         text2.draw(myGdxGame.batch);
 
-        // рисуем анимацию
         TextureRegion region = atom.getKeyFrame(curTime, true);
         myGdxGame.batch.draw(region, 310, 40, 170f, 180f);
 
@@ -133,10 +129,9 @@ public class QuantumScreen7 implements Screen {
             Vector3 touchPos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             myGdxGame.camera.unproject(touchPos);
             if (touchPos.x >= 310 && touchPos.x <= 480 && touchPos.y >= 40 && touchPos.y <= 220) {
-                // Увеличиваем скорость
-                animationSpeed += 0.15f; // ускоряет анимацию
-                curTime = 0; // сбрасываем время анимации для плавного перехода
-                isTouched = true; // Устанавливаем флаг касания в true
+                animationSpeed += 0.15f;
+                curTime = 0;
+                isTouched = true;
 
                 myGdxGame.audioManager.bubble.play();
             }

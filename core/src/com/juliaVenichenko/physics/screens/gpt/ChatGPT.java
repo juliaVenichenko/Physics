@@ -23,7 +23,7 @@ public class ChatGPT implements Screen, InputProcessor {
     private ButtonView btnSend;
     private String textUser = "";
     private String responseText = "";
-    private GlyphLayout layout; // Добавляем GlyphLayout
+    private GlyphLayout layout;
     private ImageView iconGPT;
     private ButtonView button_back;
 
@@ -85,9 +85,8 @@ public class ChatGPT implements Screen, InputProcessor {
                 myGdxGame.setScreen(myGdxGame.menuScreen);
                 responseText = "";
             }
-            // Проверяем, попал ли пользователь в поле ввода
             if (inputField.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
-                showTextInputDialog(); // Показать диалог ввода текста
+                showTextInputDialog();
             }
         }
     }
@@ -96,14 +95,14 @@ public class ChatGPT implements Screen, InputProcessor {
         Gdx.input.getTextInput(new Input.TextInputListener() {
             @Override
             public void input(String text) {
-                textUser = text; // Сохраняем введенный текст
+                textUser = text;
             }
 
             @Override
             public void canceled() {
 
             }
-        }, "ФизикоН", textUser, "Ваш вопрос"); // Заголовок, текущее значение и подсказка
+        }, "ФизикоН", textUser, "Ваш вопрос");
     }
 
     private void drawTextField() {
@@ -111,15 +110,13 @@ public class ChatGPT implements Screen, InputProcessor {
         inputField.draw(myGdxGame.batch);
         myGdxGame.batch.setColor(Color.WHITE);
 
-        // Используем GlyphLayout для текстового поля
-        layout.setText(myGdxGame.commonWhiteFont, textUser, Color.WHITE, 530, Align.left, true); // Устанавливаем максимальную ширину
-        myGdxGame.commonWhiteFont.draw(myGdxGame.batch, layout, 40, 380); // Рисуем текст с учетом переноса
+        layout.setText(myGdxGame.commonWhiteFont, textUser, Color.WHITE, 530, Align.left, true);
+        myGdxGame.commonWhiteFont.draw(myGdxGame.batch, layout, 40, 380);
     }
 
     private void drawResponseText() {
-        // Используем GlyphLayout для ответа от нейросети
         layout.setText(myGdxGame.commonWhiteFont, responseText, Color.WHITE, 700, Align.left, true);
-        // Отрисовка с учетом scrollY
+
         myGdxGame.commonWhiteFont.draw(myGdxGame.batch, layout, 30, 280 + responseScrollY);
 
     }
@@ -129,16 +126,16 @@ public class ChatGPT implements Screen, InputProcessor {
         networkTask.askOpenAI(textUser, new NetworkTask.ResponseListener() {
             @Override
             public void onSuccess(String response) {
-                responseText = response; // Получаем ответ от нейросети
+                responseText = response;
             }
 
             @Override
             public void onError(String error) {
-                responseText = "Error: " + error; // Обработка ошибок
+                responseText = "Error: " + error;
             }
         });
 
-        textUser = ""; // Очистка текстового поля после отправки запроса
+        textUser = "";
     }
 
     @Override
@@ -154,19 +151,18 @@ public class ChatGPT implements Screen, InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        if (character == '\b') { // Обработка Backspace
+        if (character == '\b') {
             if (textUser.length() > 0) {
                 textUser = textUser.substring(0, textUser.length() - 1);
             }
         } else {
-            textUser += character; // Добавление символа к тексту
+            textUser += character;
         }
         return true;
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        // Запоминаем начальную точку касания по Y
         myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(screenX, screenY, 0));
         touchStartY = myGdxGame.touch.y;
         return false;
@@ -174,17 +170,11 @@ public class ChatGPT implements Screen, InputProcessor {
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        // Получаем текущую точку касания
         myGdxGame.touch = myGdxGame.camera.unproject(new Vector3(screenX, screenY, 0));
         float currentY = myGdxGame.touch.y;
-
-        // Вычисляем разницу
         float deltaY = currentY - touchStartY;
 
-        // Обновляем scrollY
         responseScrollY += deltaY;
-
-        // Обновляем стартовую точку для следующего вызова
         touchStartY = currentY;
 
         return false;

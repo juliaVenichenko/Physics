@@ -77,7 +77,7 @@ public class TestQuantumFinish extends MainTestFinish implements Screen {
     }
 
     private void resetGame() {
-        GameSettings.QUANTUM_TEST_COUNTER = 0; // Сброс очков
+        GameSettings.QUANTUM_TEST_COUNTER = 0;
         isClickResult = false;
 
         TestQuantum1.isTrueQuantum1 = false;

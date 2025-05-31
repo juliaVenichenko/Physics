@@ -1,5 +1,6 @@
 package com.juliaVenichenko.physics.screens.Models3dScreen;
 
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -11,19 +12,22 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
+import com.badlogic.gdx.graphics.g3d.utils.AnimationController;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
 import com.badlogic.gdx.utils.JsonReader;
+import com.badlogic.gdx.utils.UBJsonReader;
 import com.juliaVenichenko.physics.MyGdxGame;
 
 
 public class ModelAtomScreen implements Screen {
     MyGdxGame myGdxGame;
-    private Environment environment;
     private PerspectiveCamera camera;
-    private CameraInputController cameraController;
     private ModelBatch modelBatch;
-    private static Model model;
-    private ModelInstance instance;
+    private Model model;
+    private ModelInstance modelInstance;
+    private Environment environment;
+    private AnimationController controller;
+    private CameraInputController cameraController;
 
     public ModelAtomScreen(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
@@ -31,21 +35,34 @@ public class ModelAtomScreen implements Screen {
     @Override
     public void show() {
 
+        camera = new PerspectiveCamera(80, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera.position.set(300f, 480f, 400f);
+        camera.lookAt(100, 350, 100);
+        camera.near = 1f;
+        camera.far = 1000f;
+
+        modelBatch = new ModelBatch();
+        UBJsonReader jsonReader = new UBJsonReader();
+        G3dModelLoader modelLoader = new G3dModelLoader(jsonReader);
+        model = modelLoader.loadModel(Gdx.files.getFileHandle("models/atom.g3db", Files.FileType.Internal));
+        modelInstance = new ModelInstance(model);
+
+        modelInstance.transform.setToTranslation(-60, -200, -100);
+
         environment = new Environment();
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.8f, 0.8f, 0.8f, 1f));
         environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
-        modelBatch = new ModelBatch();
+        controller = new AnimationController(modelInstance);
+        controller.setAnimation("Scene", -1, new AnimationController.AnimationListener() {
+            @Override
+            public void onEnd(AnimationController.AnimationDesc animation) {
+            }
 
-        camera = new PerspectiveCamera(50, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        camera.position.set(10f, 1f, 1f);
-        camera.lookAt(0, 4, 0);
-        camera.near = 1f;
-        camera.far = 300f;
-        camera.update();
-
-        model = new G3dModelLoader(new JsonReader()).loadModel(Gdx.files.internal("models/atom.g3dj"));
-        instance = new ModelInstance(model);
+            @Override
+            public void onLoop(AnimationController.AnimationDesc animation) {
+            }
+        });
 
         cameraController = new CameraInputController(camera);
         Gdx.input.setInputProcessor(cameraController);
@@ -54,11 +71,15 @@ public class ModelAtomScreen implements Screen {
     @Override
     public void render(float delta) {
 
-        Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
+        camera.update();
+        cameraController.update();
+
+        controller.update(Gdx.graphics.getDeltaTime());
         modelBatch.begin(camera);
-        modelBatch.render(instance, environment);
+        modelBatch.render(modelInstance, environment);
         modelBatch.end();
 
         if (Gdx.input.justTouched()) {
