@@ -4,10 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Net;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
+import com.juliaVenichenko.physics.GameSettings;
 
 public class NetworkTask {
-
-    private static final String OPENAI_API_KEY = "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"; // ключ
     private static final String OPENAI_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
     public void askOpenAI(String question, final ResponseListener listener) {
@@ -16,7 +15,7 @@ public class NetworkTask {
 
         Net.HttpRequest request = new Net.HttpRequest(Net.HttpMethods.POST);
         request.setUrl(OPENAI_API_URL);
-        request.setHeader("Authorization", "Bearer " + OPENAI_API_KEY);
+        request.setHeader("Authorization", "Bearer " + ChatGPT.keyUser);
         request.setHeader("Content-Type", "application/json");
         request.setContent(jsonBody);
 
@@ -31,7 +30,7 @@ public class NetworkTask {
 
             @Override
             public void failed(Throwable t) {
-                listener.onError(t.getMessage());
+                listener.onError("Ой-ой, кажется, ключ сломался! Пожалуйста, введите новый ключ, нажав на иконку в правом нижнем углу и перезапустите приложение, чтобы изменения обновились!");
             }
 
             @Override

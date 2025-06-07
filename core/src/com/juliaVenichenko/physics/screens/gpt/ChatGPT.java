@@ -3,6 +3,7 @@ package com.juliaVenichenko.physics.screens.gpt;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -22,10 +23,14 @@ public class ChatGPT implements Screen, InputProcessor {
     private ButtonView inputFieldPink;
     private ButtonView btnSend;
     private String textUser = "";
+    public static String keyUser = "";
     private String responseText = "";
     private GlyphLayout layout;
     private ImageView iconGPT;
+    private ImageView key;
     private ButtonView button_back;
+
+    private Preferences preferences;
 
     private float responseScrollY = 0;
     private float touchStartY = 0;
@@ -33,6 +38,8 @@ public class ChatGPT implements Screen, InputProcessor {
     public ChatGPT(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
         background = new Texture(GameResources.BACKGROUND_DOSKA_IMG_PATH);
+
+        preferences = Gdx.app.getPreferences("MyPreferences");
     }
     @Override
     public void show() {
@@ -43,6 +50,9 @@ public class ChatGPT implements Screen, InputProcessor {
         inputFieldPink = new ButtonView(100, 400, 470, 50, myGdxGame.commonRedFont, GameResources.INPUT_FIELD_PINK_IMG_PATH, "Привет! Напиши свой вопрос.");
         btnSend = new ButtonView(570, 300, 210, 90, myGdxGame.commonWhiteFont, GameResources.BUTTON_IMG_PATH, "Отправить");
         iconGPT = new ImageView(25, 390, 70, 70, GameResources.BUTTON_PHUSICON_IMG_PATH);
+        key = new ImageView(720, 30, 50, 50, GameResources.KEY_IMG_PATH);
+
+        keyUser = preferences.getString("keyUser", "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");
 
         button_back = new ButtonView(700, 395, 65, 65, GameResources.BUTTON_BACK_2_IMG_PATH);
 
@@ -65,6 +75,7 @@ public class ChatGPT implements Screen, InputProcessor {
         myGdxGame.batch.draw(background, 0, 0, 800, 480);
         btnSend.draw(myGdxGame.batch);
         iconGPT.draw(myGdxGame.batch);
+        key.draw(myGdxGame.batch);
         inputFieldPink.draw(myGdxGame.batch);
 
         button_back.draw(myGdxGame.batch);
@@ -88,6 +99,9 @@ public class ChatGPT implements Screen, InputProcessor {
             if (inputField.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 showTextInputDialog();
             }
+            if (key.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                showKeyInputDialog();
+            }
         }
     }
 
@@ -103,6 +117,25 @@ public class ChatGPT implements Screen, InputProcessor {
 
             }
         }, "ФизикоН", textUser, "Ваш вопрос");
+    }
+
+    private void showKeyInputDialog() {
+        Gdx.input.getTextInput(new Input.TextInputListener() {
+            @Override
+            public void input(String text) {
+                keyUser = text;
+
+                preferences.putString("keyUser", keyUser);
+                preferences.flush();
+
+                keyUser = "";
+            }
+
+            @Override
+            public void canceled() {
+
+            }
+        }, "ФизикоН", keyUser, "Введите ваш ключ");
     }
 
     private void drawTextField() {
@@ -144,6 +177,7 @@ public class ChatGPT implements Screen, InputProcessor {
         inputField.dispose();
         btnSend.dispose();
         iconGPT.dispose();
+        key.dispose();
         inputFieldPink.dispose();
 
         button_back.dispose();
