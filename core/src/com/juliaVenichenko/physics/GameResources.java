@@ -156,8 +156,8 @@ public class GameResources {
 
     //Button sound
     public static final String BUTTON_SOUND_IMG_PATH = "button_sound.png";
+    public static final String BUTTON_PLAY_IMG_PATH = "button_play.png";
     public static final String KEY_IMG_PATH = "key.png";
-    public static final String FONT_PATH = "fonts/font.ru_Montserrat.ttf";
     public static final String FONT2_PATH = "fonts/handwritten.ttf";
     public static final String RECTANGLE = "rectangle.png";
 }
