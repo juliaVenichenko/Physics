@@ -12,6 +12,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.World;
 import com.juliaVenichenko.physics.managers.AudioManager;
+import com.juliaVenichenko.physics.managers.VideoManager;
 import com.juliaVenichenko.physics.screens.ElectricScreen.ElectricScreen1;
 import com.juliaVenichenko.physics.screens.ElectricScreen.ElectricScreen10;
 import com.juliaVenichenko.physics.screens.ElectricScreen.ElectricScreen11;
@@ -121,6 +122,8 @@ import com.juliaVenichenko.physics.screens.ThermalScreen.ThermalScreen6;
 import com.juliaVenichenko.physics.screens.ThermalScreen.ThermalScreen7;
 import com.juliaVenichenko.physics.screens.ThermalScreen.ThermalScreen8;
 import com.juliaVenichenko.physics.screens.ThermalScreen.ThermalScreen9;
+import com.juliaVenichenko.physics.screens.VideoScreen.VideoMechanicsScreen1;
+import com.juliaVenichenko.physics.screens.VideoScreen.VideoThermalScreen1;
 import com.juliaVenichenko.physics.screens.gpt.ChatGPT;
 import com.juliaVenichenko.physics.screens.tests.testElectric.TestElectric1;
 import com.juliaVenichenko.physics.screens.tests.testElectric.TestElectric2;
@@ -256,6 +259,7 @@ public class MyGdxGame extends Game {
 	public BitmapFont commonRedFont;
 
 	public AudioManager audioManager;
+	public VideoManager videoManager;
 
 
 	public MenuTestScreen menuTestScreen;
@@ -281,6 +285,9 @@ public class MyGdxGame extends Game {
 	public QuestionScreen questionScreen;
 
 	public FinishScreen finishScreen;
+
+	public VideoMechanicsScreen1 videoMechanicsScreen1;
+	public VideoThermalScreen1 videoThermalScreen1;
 
 	@Override
 	public void create () {
@@ -432,11 +439,16 @@ public class MyGdxGame extends Game {
 
 		audioManager = new AudioManager();
 
+		videoManager = new VideoManager();
+
 		chatGPT = new ChatGPT(this);
 
 		questionScreen = new QuestionScreen(this);
 
 		finishScreen = new FinishScreen(this);
+
+		videoMechanicsScreen1 = new VideoMechanicsScreen1(this);
+		videoThermalScreen1 = new VideoThermalScreen1(this);
 
 		setScreen(menuScreen);
 
@@ -586,5 +598,8 @@ public class MyGdxGame extends Game {
 		questionScreen.dispose();
 
 		finishScreen.dispose();
+
+		videoMechanicsScreen1.dispose();
+		videoThermalScreen1.dispose();
 	}
 }

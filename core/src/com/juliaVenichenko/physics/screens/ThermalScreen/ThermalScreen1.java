@@ -23,6 +23,7 @@ public class ThermalScreen1 implements Screen {
     private ButtonView button_right;
     private ButtonView button_back;
     private ButtonView button_sound;
+    private ButtonView button_video;
 
     private Array<Atom> atoms;
     private Texture atomTexture;
@@ -49,6 +50,7 @@ public class ThermalScreen1 implements Screen {
 
         button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
         button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
+        button_video = new ButtonView(615, 383, 75, 70, GameResources.BUTTON_PLAY_IMG_PATH);
 
         atoms = new Array<>();
         atomTexture = new Texture("atom.png");
@@ -86,6 +88,7 @@ public class ThermalScreen1 implements Screen {
 
         button_back.draw(myGdxGame.batch);
         button_sound.draw(myGdxGame.batch);
+        button_video.draw(myGdxGame.batch);
 
         clearButton.draw(myGdxGame.batch);
 
@@ -116,7 +119,9 @@ public class ThermalScreen1 implements Screen {
             }
             if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.audioManager.sound34.play();
-
+            }
+            if (button_video.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.videoThermalScreen1);
             }
 
             if (isInRect(myGdxGame.touch.x, myGdxGame.touch.y)) {
@@ -178,6 +183,7 @@ public class ThermalScreen1 implements Screen {
 
         button_back.dispose();
         button_sound.dispose();
+        button_video.dispose();
 
         if (clearButton != null) {
             clearButton.dispose();

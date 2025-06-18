@@ -27,6 +27,7 @@ public class MechanicsScreen41 implements Screen {
     private ButtonView button_right;
     private ButtonView button_back;
     private ButtonView button_sound;
+    private ButtonView button_video;
     private Animation<TextureRegion> pendulum;
     protected Array<TextureAtlas> textureAtlasArray;
     private float curTime;
@@ -57,6 +58,7 @@ public class MechanicsScreen41 implements Screen {
 
         button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
         button_sound = new ButtonView(693, 383, 75, 70, GameResources.BUTTON_SOUND_IMG_PATH);
+        button_video = new ButtonView(615, 383, 75, 70, GameResources.BUTTON_PLAY_IMG_PATH);
 
         initAnimation();
     }
@@ -97,6 +99,7 @@ public class MechanicsScreen41 implements Screen {
         button_right.draw(myGdxGame.batch);
         button_back.draw(myGdxGame.batch);
         button_sound.draw(myGdxGame.batch);
+        button_video.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -123,6 +126,11 @@ public class MechanicsScreen41 implements Screen {
             }
             if (button_sound.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
                 myGdxGame.audioManager.sound32.play();
+            }
+            if (button_video.isHit(myGdxGame.touch.x, myGdxGame.touch.y)) {
+                myGdxGame.setScreen(myGdxGame.videoMechanicsScreen1);
+                myGdxGame.audioManager.sound32.stop();
+                isTouched = false;
 
             }
         }
@@ -161,6 +169,7 @@ public class MechanicsScreen41 implements Screen {
 
         button_back.dispose();
         button_sound.dispose();
+        button_video.dispose();
     }
 
     @Override

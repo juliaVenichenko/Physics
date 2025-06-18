@@ -2,15 +2,20 @@ package com.juliaVenichenko.physics.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.video.VideoPlayer;
 import com.juliaVenichenko.physics.GameResources;
 import com.juliaVenichenko.physics.GameSettings;
 import com.juliaVenichenko.physics.MyGdxGame;
 import com.juliaVenichenko.physics.components.ButtonView;
+import com.juliaVenichenko.physics.components.ImageView;
 import com.juliaVenichenko.physics.components.TextView;
+
+import java.io.FileNotFoundException;
 
 public class QuestionScreen implements Screen {
     MyGdxGame myGdxGame;
@@ -38,6 +43,7 @@ public class QuestionScreen implements Screen {
                 "Квантовые явления: Исследуйте загадки квантовой механики и" + "\n" + "структуры атома.");
 
         button_back = new ButtonView(25, 380, 70, 70, GameResources.BUTTON_BACK_IMG_PATH);
+
     }
 
     @Override
@@ -71,11 +77,10 @@ public class QuestionScreen implements Screen {
             }
         }
     }
-
     @Override
     public void dispose() {
         background.dispose();
-        text1.draw(myGdxGame.batch);
+        text1.dispose();
         text2.dispose();
         text3.dispose();
 

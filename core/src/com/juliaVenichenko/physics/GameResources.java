@@ -154,9 +154,15 @@ public class GameResources {
     public static final String BUTTON_BACK_IMG_PATH = "button_back.png";
     public static final String BUTTON_BACK_2_IMG_PATH = "button_back2.png";
 
+    //Video
+    public static final String VIDEO_MECHANICAL_MOVEMENT = "video/MechanicalMovement.webm";
+    public static final String VIDEO_AGGREGATE_STATES = "video/AggregateStates.webm";
+
     //Button sound
     public static final String BUTTON_SOUND_IMG_PATH = "button_sound.png";
     public static final String BUTTON_PLAY_IMG_PATH = "button_play.png";
+    public static final String BUTTON_PAUSE_IMG_PATH = "button_pause.PNG";
+    public static final String BUTTON_CROSS_IMG_PATH = "cross.png";
     public static final String KEY_IMG_PATH = "key.png";
     public static final String FONT2_PATH = "fonts/handwritten.ttf";
     public static final String RECTANGLE = "rectangle.png";
