@@ -42,7 +42,7 @@ public class ModelMarsScreen implements Screen {
         modelBatch = new ModelBatch();
         UBJsonReader jsonReader = new UBJsonReader();
         G3dModelLoader modelLoader = new G3dModelLoader(jsonReader);
-        model = modelLoader.loadModel(Gdx.files.getFileHandle("models/mars6.g3db", Files.FileType.Internal));
+        model = modelLoader.loadModel(Gdx.files.getFileHandle("models/mars.g3db", Files.FileType.Internal));
         modelInstance = new ModelInstance(model);
 
         modelInstance.transform.setToTranslation(-60, -200, -100);
