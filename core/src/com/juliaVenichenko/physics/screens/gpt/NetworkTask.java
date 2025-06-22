@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Net;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
-import com.juliaVenichenko.physics.GameSettings;
 
 public class NetworkTask {
     private static final String OPENAI_API_URL = "https://openrouter.ai/api/v1/chat/completions";
